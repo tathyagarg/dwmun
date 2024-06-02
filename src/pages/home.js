@@ -4,7 +4,7 @@ function Home() {
     return <div>
         <section className="title">
             {/* change to img vvv */}
-            <div style={{backgroundColor: "green", height: "40vh", width: "40vh"}}>
+            <div style={{backgroundColor: "green", height: "40%", width: "40%"}}>
                 LOGO
             </div>
             <div className="header">
