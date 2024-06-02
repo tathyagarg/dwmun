@@ -6,7 +6,10 @@ function App() {
   return <div>
     {/* This needs to become a dropdown on phone vvvv */}
     <nav className="navbar">
-        abc
+        LOGO
+        Home
+        Committees
+        Registrations
     </nav>
     <Home></Home>
   </div>
