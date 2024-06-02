@@ -4,7 +4,7 @@ function Home() {
     return <div>
         <section className="title">
             {/* change to img vvv */}
-            <div style={{backgroundColor: "green", height: "40%", width: "40%"}}>
+            <div className="image-placeholder">
                 LOGO
             </div>
             <div className="header">
@@ -28,7 +28,7 @@ function Home() {
                         <li><h1>Model United Nations</h1></li>
                     </ul>
                 </div>
-                <p style={{maxWidth: "100%"}}>
+                <p style={{width: "100%"}}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a dapibus risus. Praesent non semper tellus, eget eleifend risus. Pellentesque vulputate elit vel tempor condimentum. Sed eleifend, lectus a auctor egestas, ligula massa ultricies leo, ut placerat massa libero malesuada metus. Donec pharetra lorem sit amet maximus hendrerit. Proin lobortis convallis eros, vel rutrum dui suscipit quis. Fusce felis odio, rutrum ac risus ut, congue semper dolor.
                 </p>
             </div>

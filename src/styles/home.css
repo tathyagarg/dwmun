@@ -146,6 +146,12 @@ section {
     background-color: yellow;
 }
 
+.image-placeholder {
+    background-color: green;
+    height: 40%;
+    aspect-ratio: 1/1;
+}
+
 @media screen and (max-width: 1200px) {
     .about-div {
         width: 100%;
@@ -180,5 +186,9 @@ section {
 
     .quote-block {
         height: 10vh;
+    }
+
+    .image-placeholder {
+        width: 90%;
     }
 }
