@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.1ef11960.css",
+    "main.js": "/static/js/main.1f68ac63.js",
+    "static/js/453.bd2ad9c5.chunk.js": "/static/js/453.bd2ad9c5.chunk.js",
+    "static/media/stacked-waves-haikei.svg": "/static/media/stacked-waves-haikei.4ff142848f7240c710b6.svg",
+    "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/index.html",
+    "main.1ef11960.css.map": "/static/css/main.1ef11960.css.map",
+    "main.1f68ac63.js.map": "/static/js/main.1f68ac63.js.map",
+    "453.bd2ad9c5.chunk.js.map": "/static/js/453.bd2ad9c5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1ef11960.css",
+    "static/js/main.1f68ac63.js"
+  ]
+}
