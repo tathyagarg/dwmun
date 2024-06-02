@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/dwmun/static/css/main.f099ea75.css",
-    "main.js": "/dwmun/static/js/main.b5f9e63f.js",
+    "main.css": "/dwmun/static/css/main.a2bc40a3.css",
+    "main.js": "/dwmun/static/js/main.0074c05c.js",
     "static/js/453.bd2ad9c5.chunk.js": "/dwmun/static/js/453.bd2ad9c5.chunk.js",
     "static/media/stacked-waves-haikei.svg": "/dwmun/static/media/stacked-waves-haikei.4ff142848f7240c710b6.svg",
     "static/media/logo.svg": "/dwmun/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/dwmun/index.html",
-    "main.f099ea75.css.map": "/dwmun/static/css/main.f099ea75.css.map",
-    "main.b5f9e63f.js.map": "/dwmun/static/js/main.b5f9e63f.js.map",
+    "main.a2bc40a3.css.map": "/dwmun/static/css/main.a2bc40a3.css.map",
+    "main.0074c05c.js.map": "/dwmun/static/js/main.0074c05c.js.map",
     "453.bd2ad9c5.chunk.js.map": "/dwmun/static/js/453.bd2ad9c5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f099ea75.css",
-    "static/js/main.b5f9e63f.js"
+    "static/css/main.a2bc40a3.css",
+    "static/js/main.0074c05c.js"
   ]
 }
