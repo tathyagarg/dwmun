@@ -20,8 +20,9 @@ section {
 
 .title {
     margin: 0;
+    padding-top: 10vh;
     background-color: pink;
-    background-image: radial-gradient(red 1px, transparent 0);
+    background-image: radial-gradient(red 2px, transparent 0);
     background-size: 40px 40px;
     background-attachment: fixed;
     text-align: center;
@@ -38,11 +39,12 @@ section {
 }
 
 .header h1 {
-    font-size: 15em;
-    margin-top: 0.5em;
+    font-size: 20vw;
+    padding-top: 5vh;
     margin-bottom: 0;
     font-weight: 400;
-    line-height: 1em;
+    margin: 0;
+    line-height: 20vw;
 }
 
 .header h1:nth-child(1) {
@@ -85,10 +87,6 @@ section {
     font-size: 1.6em;
 }
 
-.spacing {
-    height: 5vh;
-}
-
 .about-div {
     width: 50%;
     margin-left: auto;
@@ -100,6 +98,7 @@ section {
 
 .about-heading {
     display: flex;
+    padding-top: 1vh;
 }
 
 .about {
@@ -113,7 +112,7 @@ section {
 
 .quote-block {
     background-color: green;
-    height: 13.5em;
+    height: 13.5vh;
     width: 0.5em;
     margin-right: 1em;
 }
@@ -125,22 +124,61 @@ section {
 }
 
 .about-heading h2 {
-    line-height: 1rem;
-    font-size: 1.5em;
+    line-height: 3vh;
+    font-size: 3vh;
     font-weight: 500;
+    margin: 0;
 }
 
 .about-heading h1 {
-    line-height: 1rem;
-    font-size: 5em;
+    line-height: 5vh;
+    font-size: 5vh;
     font-weight: 500;
+    margin: 0;
 }
 
 .about-div p {
-    font-size: 1.25em;
+    font-size: 2vh;
     font-weight: 100;
 }
 
 .committees {
     background-color: yellow;
+}
+
+@media screen and (max-width: 1200px) {
+    .about-div {
+        width: 100%;
+    }
+
+    .title {
+        height: 100%;
+    }
+
+    .about-div p {
+        font-size: 2.5vh;
+    }
+
+    .about-div {
+        padding-top: 5vh;
+    }
+
+    .about-heading h1 {
+        font-size: 4vh;
+        line-height: 4vh;
+    }
+
+    .about-heading h2 {
+        font-size: 2vh;
+        line-height: 2vh;
+    }
+
+    .about p {
+        font-size: 2vh;
+        line-height: 2vh;
+    }
+
+    .quote-block {
+        height: 10vh;
+    }
 }
