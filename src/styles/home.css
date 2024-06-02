@@ -1,0 +1,147 @@
+* {
+    font-family: "Teko", sans-serif;
+}
+
+@keyframes title-anim {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+    50% {
+        transform: translate3d(0, -25%, 0);
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+section {
+    height: 100vh;
+}
+
+.title {
+    margin: 0;
+    background-color: pink;
+    background-image: radial-gradient(red 1px, transparent 0);
+    background-size: 40px 40px;
+    background-attachment: fixed;
+
+    text-align: center;
+}
+
+.title div {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+}
+
+.header h1 {
+    font-size: 15em;
+    margin-top: 0.5em;
+    margin-bottom: 0;
+    font-weight: 400;
+    line-height: 1em;
+}
+
+.header h1:nth-child(1) {
+    animation: title-anim .5s normal forwards ease-in-out;
+    animation-delay: 1000ms;
+}
+
+.header h1:nth-child(2) {
+    animation: title-anim .5s normal forwards ease-in-out;
+    animation-delay: 1100ms;
+}
+
+.header h1:nth-child(3) {
+    animation: title-anim .5s normal forwards ease-in-out;
+    animation-delay: 1200ms;
+}
+
+.header h1:nth-child(4) {
+    animation: title-anim .5s normal forwards ease-in-out;
+    animation-delay: 1300ms;
+}
+
+.header h1:nth-child(5) {
+    animation: title-anim .5s normal forwards ease-in-out;
+    animation-delay: 1400ms;
+}
+
+.header h1:nth-child(6) {
+    animation: title-anim .5s normal forwards ease-in-out;
+    animation-delay: 1500ms;
+}
+
+.header h1:nth-child(7) {
+    animation: title-anim .5s normal forwards ease-in-out;
+    animation-delay: 1600ms;
+}
+
+.title p {
+    margin: 0;
+    font-size: 1.6em;
+}
+
+.spacing {
+    height: 5vh;
+}
+
+.about-div {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    padding: 2%;
+    height: 100%;
+}
+
+.about-heading {
+    display: flex;
+}
+
+.about {
+    background-image: url("../assets/stacked-waves-haikei.svg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+.quote-block {
+    background-color: green;
+    height: 13.5em;
+    width: 0.5em;
+    margin-right: 1em;
+}
+
+.about-heading ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.about-heading h2 {
+    line-height: 1rem;
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+.about-heading h1 {
+    line-height: 1rem;
+    font-size: 5em;
+    font-weight: 500;
+}
+
+.about-div p {
+    font-size: 1.25em;
+    font-weight: 100;
+}
+
+.committees {
+    background-color: yellow;
+}
