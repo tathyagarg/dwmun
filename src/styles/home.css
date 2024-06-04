@@ -1,5 +1,15 @@
 * {
-    font-family: "Teko", sans-serif;
+    font-family: "Onest", sans-serif;
+    /* font: normal normal normal 56px/1em arial,'ｍｓ ｐゴシック','ms pgothic','돋움',dotum,helvetica,sans-serif; */
+}
+
+:root {
+    --primary: #e3fffc;
+    --secondary: #83d4cb;
+    --accent: #6bb58d;
+
+    --secondary-light: rgba(131, 212, 203, 0.5);
+
 }
 
 @keyframes title-anim {
@@ -14,18 +24,19 @@
     }
 }
 
-section {
+/* section {
     height: 100vh;
-}
+} */
 
 .title {
     margin: 0;
     padding-top: 10vh;
-    background-color: pink;
-    background-image: radial-gradient(red 2px, transparent 0);
+    background-color: var(--primary);
+    background-image: radial-gradient(var(--secondary-light) 10%, transparent 0);
     background-size: 40px 40px;
     background-attachment: fixed;
     text-align: center;
+    height: 100vh;
 }
 
 .title div {
@@ -39,7 +50,7 @@ section {
 }
 
 .header h1 {
-    font-size: 20vw;
+    font-size: 15vw;
     padding-top: 5vh;
     margin-bottom: 0;
     font-weight: 400;
@@ -103,18 +114,10 @@ section {
 
 .about {
     background-image: url("../assets/stacked-waves-haikei.svg");
-    background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
-}
-
-.quote-block {
-    background-color: green;
-    height: 13.5vh;
-    width: 0.5em;
-    margin-right: 1em;
 }
 
 .about-heading ul {
@@ -142,9 +145,35 @@ section {
     font-weight: 100;
 }
 
-.committees {
-    background-color: yellow;
+.countdown {
+    /* margin: -10vh; */
+    padding-top: 1px;
+    background-color: var(--primary);
+    background-image: radial-gradient(var(--secondary-light) 10%, transparent 0);
+    background-size: 40px 40px;
+    background-attachment: fixed;
+    text-align: center;
 }
+
+.countdown h1 {
+    font-size: 10vh;
+    line-height: 10vh;
+    margin-bottom: 0;
+    font-weight: 400;
+}
+
+.countdown p {
+    font-size: 2vh;
+}
+
+#date {
+    font-size: 5vh;
+    font-weight: 300;
+    margin: 0;
+    padding-bottom: 5vh;
+}
+
+
 
 .image-placeholder {
     background-color: green;

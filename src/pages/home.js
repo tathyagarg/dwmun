@@ -1,6 +1,24 @@
 import '../styles/home.css'
 
+const start_date = new Date('August 01, 2024 08:00:00').getTime();
+
+function updateDate() {
+    const current = new Date().getTime();
+
+    const difference = start_date - current;
+
+    const day_count = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const hours_count = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes_count = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+
+    document.getElementById("date").textContent = day_count + " days " + hours_count + " hours " + minutes_count + " minutes";
+}
+
+new Promise(resolve => setTimeout(resolve, 1000)).then(updateDate);
+
 function Home() {
+    setInterval(updateDate, (1000 * 60))
+
     return <div>
         <section className="title">
             {/* change to img vvv */}
@@ -21,7 +39,6 @@ function Home() {
         <section className="about">
             <div className="about-div">
                 <div className="about-heading">
-                    <div className="quote-block"></div>
                     <ul>
                         <li><h2>About</h2></li>
                         <li><h1>Delhi Public School Whitefield</h1></li>
@@ -33,8 +50,14 @@ function Home() {
                 </p>
             </div>
         </section>
-        <section className="committees">
-
+        <section className="countdown">
+            <h1>
+                BIGGER. BETTER. BRIGHTER.
+            </h1>
+            <p>
+                The conference starts in:
+            </p>
+            <h2 id="date"></h2>
         </section>
     </div>
 }
