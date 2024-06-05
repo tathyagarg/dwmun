@@ -1,6 +1,7 @@
 import '../styles/home.css'
 import Contact from '../components/contact';
 import Countdown from '../components/countdown';
+import Navbar from '../components/navbar';
 
 const start_date = new Date('August 01, 2024 08:00:00').getTime();
 
@@ -18,9 +19,9 @@ function updateDate() {
     document.getElementById("minutes").textContent = ((minutes_count === 0) ? "0" : "") + ((minutes_count < 10) ? "0" : "") + minutes_count;
 }
 
-new Promise(resolve => setTimeout(resolve, 1000)).then(updateDate);
 
 function Home() {
+    new Promise(resolve => setTimeout(resolve, 1000)).then(updateDate);
     setInterval(updateDate, (1000 * 60))
 
     return <div>

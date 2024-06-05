@@ -9,7 +9,7 @@ const NavLink = styled(Link)`
     transition-duration: 250ms;
 
     &:hover {
-        color: var(--contrast-secondary-alternate);
+        color: var(--accent);
         transition-duration: 250ms;
     }
 `

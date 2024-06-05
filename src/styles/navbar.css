@@ -1,15 +1,16 @@
 .parent {
     height: 7.5vh;
-    background-color: var(--secondary);
+    background-color: var(--primary);
     padding-left: 5vw;
     padding-right: 5vw;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-bottom: 1px solid var(--secondary-light);
 }
 
-.parent > * {
-    padding-left: 5%;
+.parent > *:not(:first-child) {
+    margin-left: 5%;
 }
 
 .logo {
