@@ -1,18 +1,23 @@
 import logo from './logo.svg';
 import Home from './pages/home';
-import './App.css';
+import Committees from './pages/committees';
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route
+} from "react-router-dom"
+import Navbar from './components/navbar';
 
 function App() {
-  return <div>
-    {/* This needs to become a dropdown on phone vvvv */}
-    <nav className="navbar">
-        LOGO
-        Home
-        Committees
-        Registrations
-    </nav>
-    <Home></Home>
-  </div>
+    return (
+        <Router>
+            <Navbar></Navbar>
+            <Routes>
+                <Route exact path="/dwmun" element={<Home/>}/>
+                <Route path="/committees" element={<Committees/>}/>
+            </Routes>
+        </Router>
+    )
 }
 
 export default App;

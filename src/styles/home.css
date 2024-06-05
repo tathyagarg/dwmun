@@ -9,18 +9,6 @@ body {
     background-attachment: fixed;
 }
 
-:root {
-    --primary: #e3fffc;
-    --secondary: #83d4cb;
-    --accent: #6bb58d;
-
-    --secondary-light: rgba(131, 212, 203, 0.5);
-
-    --contrast-primary: #0F253E;
-    --contrast-secondary: #000000;
-    --contrast-accent: #000000;
-}
-
 @keyframes title-anim {
     from {
         transform: translate3d(0, 0, 0);
@@ -148,28 +136,12 @@ body {
     font-weight: 100;
 }
 
-@keyframes popout {
-    from {
-        opacity: 0;
-        scale: 0.5;
-    } to {
-        opacity: 1;
-        scale: 1;
-    }
-}
-
 .countdown {
     padding-top: 1px;
     background-attachment: fixed;
     text-align: center;
 
     color: var(--contrast-primary);
-}
-
-.countdown > * {
-    animation: popout linear;
-    animation-timeline: view();
-    animation-range: entry 0 cover 30%;
 }
 
 .countdown h1 {
