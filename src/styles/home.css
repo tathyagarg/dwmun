@@ -1,6 +1,12 @@
 * {
     font-family: "Onest", sans-serif;
-    /* font: normal normal normal 56px/1em arial,'ｍｓ ｐゴシック','ms pgothic','돋움',dotum,helvetica,sans-serif; */
+}
+
+body {
+    background-color: var(--primary);
+    background-image: radial-gradient(var(--secondary-light) 10%, transparent 0);
+    background-size: 40px 40px;
+    background-attachment: fixed;
 }
 
 :root {
@@ -10,6 +16,9 @@
 
     --secondary-light: rgba(131, 212, 203, 0.5);
 
+    --contrast-primary: #0F253E;
+    --contrast-secondary: #000000;
+    --contrast-accent: #000000;
 }
 
 @keyframes title-anim {
@@ -24,19 +33,13 @@
     }
 }
 
-/* section {
-    height: 100vh;
-} */
-
 .title {
     margin: 0;
     padding-top: 10vh;
-    background-color: var(--primary);
-    background-image: radial-gradient(var(--secondary-light) 10%, transparent 0);
-    background-size: 40px 40px;
-    background-attachment: fixed;
     text-align: center;
     height: 100vh;
+
+    color: var(--contrast-primary);
 }
 
 .title div {
@@ -145,14 +148,28 @@
     font-weight: 100;
 }
 
+@keyframes popout {
+    from {
+        opacity: 0;
+        scale: 0.5;
+    } to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
 .countdown {
-    /* margin: -10vh; */
     padding-top: 1px;
-    background-color: var(--primary);
-    background-image: radial-gradient(var(--secondary-light) 10%, transparent 0);
-    background-size: 40px 40px;
     background-attachment: fixed;
     text-align: center;
+
+    color: var(--contrast-primary);
+}
+
+.countdown > * {
+    animation: popout linear;
+    animation-timeline: view();
+    animation-range: entry 0 cover 30%;
 }
 
 .countdown h1 {
@@ -167,13 +184,20 @@
 }
 
 #date {
-    font-size: 5vh;
-    font-weight: 300;
     margin: 0;
     padding-bottom: 5vh;
 }
 
+#date div > h2 {
+    font-size: 6vh;
+    line-height: 6vh;
+    margin-bottom: 0;
+    font-weight: 200;
+}
 
+#date div:not(:last-child) {
+    padding-right: 2vw;
+}
 
 .image-placeholder {
     background-color: green;

@@ -1,4 +1,5 @@
 import '../styles/home.css'
+import Contact from '../components/contact';
 
 const start_date = new Date('August 01, 2024 08:00:00').getTime();
 
@@ -11,7 +12,9 @@ function updateDate() {
     const hours_count = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes_count = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
 
-    document.getElementById("date").textContent = day_count + " days " + hours_count + " hours " + minutes_count + " minutes";
+    document.getElementById("days").textContent = (day_count < 10) ? "0" : "" + day_count;
+    document.getElementById("hours").textContent = (hours_count < 10) ? "0" : "" + hours_count;
+    document.getElementById("minutes").textContent = (minutes_count < 10) ? "0" : "" + minutes_count;
 }
 
 new Promise(resolve => setTimeout(resolve, 1000)).then(updateDate);
@@ -57,8 +60,25 @@ function Home() {
             <p>
                 The conference starts in:
             </p>
-            <h2 id="date"></h2>
+            <div style={{display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "0"}} id="date">
+                <div>
+                    <h2 id="days">00</h2>
+                    <h3>Days</h3>
+                </div>
+                <div>
+                    <h2 id="hours">00</h2>
+                    <h3>Hours</h3>
+                </div>
+                <div>
+                    <h2 id="minutes">00</h2>
+                    <h3>Minutes</h3>
+                </div>
+            </div>
+            <div style={{marginBottom: "10vh"}}>
+                August 1, 2, 3
+            </div>
         </section>
+        <Contact></Contact>
     </div>
 }
 
