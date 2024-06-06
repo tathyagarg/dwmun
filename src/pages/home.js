@@ -1,7 +1,7 @@
 import '../styles/home.css'
 import Contact from '../components/contact';
 import Countdown from '../components/countdown';
-import Navbar from '../components/navbar';
+import logo from '../assets/logo.png';
 
 const start_date = new Date('August 01, 2024 08:00:00').getTime();
 
@@ -14,9 +14,13 @@ function updateDate() {
     const hours_count = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes_count = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
 
-    document.getElementById("days").textContent = ((day_count === 0) ? "0" : "") + ((day_count < 10) ? "0" : "") + day_count;
-    document.getElementById("hours").textContent = ((hours_count === 0) ? "0" : "") + ((hours_count < 10) ? "0" : "") + hours_count;
-    document.getElementById("minutes").textContent = ((minutes_count === 0) ? "0" : "") + ((minutes_count < 10) ? "0" : "") + minutes_count;
+    try {
+        document.getElementById("days").textContent = ((day_count === 0) ? "0" : "") + ((day_count < 10) ? "0" : "") + day_count;
+        document.getElementById("hours").textContent = ((hours_count === 0) ? "0" : "") + ((hours_count < 10) ? "0" : "") + hours_count;
+        document.getElementById("minutes").textContent = ((minutes_count === 0) ? "0" : "") + ((minutes_count < 10) ? "0" : "") + minutes_count;
+    } catch (err) {
+        ;
+    }
 }
 
 
@@ -27,9 +31,7 @@ function Home() {
     return <div>
         <section className="title">
             {/* change to img vvv */}
-            <div className="image-placeholder">
-                LOGO
-            </div>
+            <img src={logo} className='dwmun-logo' style={{height: "40vh"}}></img>
             <div className="header">
                 <h1>D</h1>
                 <h1>W</h1>

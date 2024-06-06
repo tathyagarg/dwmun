@@ -1,6 +1,7 @@
 .parent {
     height: 7.5vh;
-    background-color: var(--primary);
+    /* background-color: var(--primary); */
+    background-color: #192822;
     padding-left: 5vw;
     padding-right: 5vw;
     display: flex;

@@ -1,13 +1,13 @@
 :root {
-    --primary: #e3fffc;
+    --primary: #303030;
     --secondary: #83d4cb;
     --accent: #6bb58d;
 
-    --secondary-light: rgba(131, 212, 203, 0.5);
+    --secondary-light: rgb(0, 0, 0, 0.2);
 
-    --contrast-primary: #0F253E;
-    --contrast-secondary: #000000;
-    --contrast-accent: #000000;
+    --contrast-primary: #fff;
+    --contrast-secondary: #fff;
+    --contrast-accent: #fff;
 }
 
 body {
