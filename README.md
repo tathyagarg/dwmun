@@ -7,4 +7,5 @@
 - Photos of OC
 - Contact Information
 - Rotary Club Logo
+- Registration Form Links
 - Design Team Consult

@@ -1,0 +1,53 @@
+.registration-content {
+    width: 50%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    margin-bottom: 5vh;
+}
+
+.registration-header {
+    font-family: "Glockenspiel", serif;
+    font-size: 10vh;
+    text-align: center;
+    color: white;
+}
+
+.registration-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 2vw;
+}
+
+.registration-options a {
+    text-decoration: none;
+    color: white;
+}
+
+.option {
+    background-color: var(--secondary);
+    border: 0.2em solid var(--secondary-light);
+    border-radius: 1em;
+    width: 100%;
+    aspect-ratio: 1/1;
+    padding: 2%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.option:hover {
+    text-decoration: underline;
+}
+
+.option > * {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.option > img {
+    filter: invert(1) opacity(0.5);
+}
