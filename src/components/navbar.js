@@ -3,7 +3,7 @@ import '../styles/navbar.css'
 import styled from "styled-components";
 
 const NavLink = styled(Link)`
-    color: var(--contrast-secondary);
+    color: #fff;
     text-decoration: none;
 
     transition-duration: 250ms;

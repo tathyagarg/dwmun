@@ -9,6 +9,57 @@
 .gradient {
     height: 5vh;
     width: 100%;
-    background-image: linear-gradient(to top, var(--secondary), var(--primary));
+    background-image: linear-gradient(to top, var(--secondary), #00000000);
     opacity: 0.9;
+}
+
+.content > h1 {
+    font-size: 5vh;
+}
+
+.contact-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 10vw;
+    width: fit-content;
+    height: 20%;
+    /* height: inherit; */
+}
+
+.phone {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 80%;
+}
+
+.phone h1 {
+    grid-area: 1/1/2/3;
+}
+
+#p1 {
+    grid-area: 2/1/3/2;
+}
+
+#p2 {
+    grid-area: 2/2/3/3;
+}
+
+.mail, .social {
+    height: fit-content;
+}
+
+@media screen and (max-width: 1200px) {
+    .contact-details h2 {
+        font-size: 3vh;
+        line-height: 3vh;
+        /* margin: 0; */
+    }
+
+    .contact-details p {
+        font-size: 2vh;
+    }
 }
