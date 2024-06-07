@@ -191,7 +191,7 @@ body {
 
 #image-placeholder-3 {
     background-color: red;
-    width: 40%;
+    height: 50vh;
     aspect-ratio: 2/3;
 }
 
@@ -215,6 +215,7 @@ body {
 
 #principal-letter-content p {
     margin-left: 2vw;
+    width: 100%;
 }
 
 /* Compatability VVVVVVVVV */
@@ -265,7 +266,8 @@ body {
     }
 
     #image-placeholder-3 {
-        width: 100%;
+        height: 100%;
+        aspect-ratio: 2/3;
     }
 
     #principal-letter {
