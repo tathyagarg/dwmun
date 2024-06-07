@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/dwmun/static/css/main.35ec50b3.css",
-    "main.js": "/dwmun/static/js/main.a232c2aa.js",
+    "main.css": "/dwmun/static/css/main.41e17186.css",
+    "main.js": "/dwmun/static/js/main.09799921.js",
     "static/js/453.bd2ad9c5.chunk.js": "/dwmun/static/js/453.bd2ad9c5.chunk.js",
     "static/media/unhrc.png": "/dwmun/static/media/unhrc.75aef115f027e499bd29.png",
     "static/media/bg.png": "/dwmun/static/media/bg.d4eebe0bd1bbbeab6480.png",
@@ -14,15 +14,14 @@
     "static/media/ssci.jpeg": "/dwmun/static/media/ssci.89bc81a4009f869bdd36.jpeg",
     "static/media/ipc.jpg": "/dwmun/static/media/ipc.2caa846f06e15f2d9e6c.jpg",
     "static/media/LT Glockenspiel Black.ttf": "/dwmun/static/media/LT Glockenspiel Black.0229ba300be64ce718f5.ttf",
-    "static/media/logo.svg": "/dwmun/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "static/media/stacked-waves-haikei.svg": "/dwmun/static/media/stacked-waves-haikei.46383e39c9885d1ca5eb.svg",
     "index.html": "/dwmun/index.html",
-    "main.35ec50b3.css.map": "/dwmun/static/css/main.35ec50b3.css.map",
-    "main.a232c2aa.js.map": "/dwmun/static/js/main.a232c2aa.js.map",
+    "main.41e17186.css.map": "/dwmun/static/css/main.41e17186.css.map",
+    "main.09799921.js.map": "/dwmun/static/js/main.09799921.js.map",
     "453.bd2ad9c5.chunk.js.map": "/dwmun/static/js/453.bd2ad9c5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.35ec50b3.css",
-    "static/js/main.a232c2aa.js"
+    "static/css/main.41e17186.css",
+    "static/js/main.09799921.js"
   ]
 }
