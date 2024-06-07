@@ -1,17 +1,16 @@
-.parent {
+.topnav {
     height: 7.5vh;
-    /* background-color: var(--primary); */
     background-color: #192822;
-    padding-left: 5vw;
-    padding-right: 5vw;
     display: flex;
     align-items: center;
     justify-content: center;
     border-bottom: 1px solid var(--secondary-light);
+    overflow: hidden;
 }
 
-.parent > *:not(:first-child) {
-    margin-left: 5%;
+.topnav a {
+    margin: 0 2vw;
+    font-size: 2vh;
 }
 
 .logo {

@@ -1,5 +1,43 @@
 import '../styles/committees.css'
 import Contact from '../components/contact'
+import { Link } from 'react-router-dom'
+import styled from 'styled-components'
+
+const CommLink = styled(Link)`
+    font-size: 10vh;
+    line-height: 10vh;
+    margin-top: 0;
+    margin-bottom: 1%;
+    font-weight: 700;
+
+    color: black;
+    width: fit-content;
+    text-decoration: none;
+
+    color: white;
+
+    background:
+        linear-gradient(to right, #192822, #192822),
+        linear-gradient(to right, #192822, #fff, #1A2922);
+    background-size: 100% 0.1em, 0 0.1em;
+    background-position: 100% 100%, 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 400ms;
+
+    text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
+    1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
+
+    &::before {
+        content: 'The';
+        display: block;
+        font-size: 3vh;
+        line-height: 3vh;
+    }
+
+    &:hover {
+        background-size: 0 0.1em, 100% 0.1em;
+    }
+`
 
 function Committees() {
     return <div>
@@ -7,33 +45,25 @@ function Committees() {
             <h1 className='header'>Committees</h1>
             <div className='committees'>
                 <section className='comm' id="unsc">
-                    <h1>UNSC</h1>
-                    <p>Coming soon...</p>
-                    {/* <button className='learn-more'>Learn More</button> */}
+                    <CommLink to="/committees/unsc">UNSC</CommLink>
                 </section>
                 <section className='comm' id="unhrc">
-                    <h1>UNHRC</h1>
-                    <p>Coming soon...</p>
+                    <CommLink to="/committees/unhrc">UNHRC</CommLink>
                 </section>
                 <section className='comm' id="disec">
-                    <h1>DISEC</h1>
-                    <p>Coming soon...</p>
+                    <CommLink to="/committees/disec">DISEC</CommLink>
                 </section>
                 <section className='comm' id="lok-sabha">
-                    <h1>Lok Sabha</h1>
-                    <p>Coming soon...</p>
+                    <CommLink to="/committees/lok-sabha">Lok Sabha</CommLink>
                 </section>
                 <section className='comm' id="ipc">
-                    <h1>IPC</h1>
-                    <p>Coming soon...</p>
+                    <CommLink to="/committees/ipc">IPC</CommLink>
                 </section>
                 <section className='comm' id="ssci">
-                    <h1>SSCI</h1>
-                    <p>Coming soon...</p>
+                    <CommLink to="/committees/ssci">SSCI</CommLink>
                 </section>
                 <section className='comm' id="ccc">
-                    <h1>CCC</h1>
-                    <p>Coming soon...</p>
+                    <CommLink to="/committees/ccc">CCC</CommLink>
                 </section>
             </div>
         </div>

@@ -1,13 +1,17 @@
 :root {
-    --primary: #303030;
-    --secondary: #83d4cb;
-    --accent: #6bb58d;
+    --primary: rgba(0, 0, 0, 0);
+    --secondary: rgb(25, 40, 34);
 
-    --secondary-light: rgb(0, 0, 0, 0.2);
+    --secondary-light: rgb(104, 129, 119);
 
     --contrast-primary: #fff;
     --contrast-secondary: #fff;
     --contrast-accent: #fff;
+}
+
+@font-face {
+    font-family: "Glockenspiel";
+    src: url('./assets/LT\ Glockenspiel\ Black.ttf') format('truetype');
 }
 
 body {
@@ -17,6 +21,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 code {

@@ -8,17 +8,19 @@ const NavLink = styled(Link)`
 
     transition-duration: 250ms;
 
-    &:hover {
-        color: var(--accent);
+    &:hover, &:focus {
+        color: #a0a0a0;
         transition-duration: 250ms;
     }
 `
 
 function Navbar() {
-    return <nav className='parent'>
+    return <nav className='topnav' id="topnav">
         <div className='logo'></div>
         <NavLink to="/dwmun">Home</NavLink>
         <NavLink to="/committees">Committees</NavLink>
+        <NavLink to="/secretariat">Secretariat</NavLink>
+        <NavLink to="/registration">Registration</NavLink>
     </nav>
 }
 

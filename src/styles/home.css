@@ -1,8 +1,3 @@
-@font-face {
-    font-family: "Glockenspiel";
-    src: url('../assets/LT\ Glockenspiel\ Black.ttf') format('truetype');
-}
-
 * {
     font-family: "Onest", sans-serif;
 }
@@ -187,6 +182,41 @@ body {
     padding-right: 2vw;
 }
 
+#principal-letter-section {
+    background-color: rgba(25, 40, 34, 0.8);
+    padding: 2%;
+    box-sizing: border-box;
+    color: white;
+}
+
+#image-placeholder-3 {
+    background-color: red;
+    width: 40%;
+    aspect-ratio: 2/3;
+}
+
+#principal-letter {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#principal-letter h1 {
+    font-family: "Glockenspiel", serif;
+    margin: 0;
+    padding-bottom: 2vh;
+    font-size: 7vh;
+    text-align: center;
+}
+
+#principal-letter-content {
+    display: flex;
+}
+
+#principal-letter-content p {
+    margin-left: 2vw;
+}
+
 /* Compatability VVVVVVVVV */
 
 @media screen and (max-width: 1200px) {
@@ -228,5 +258,26 @@ body {
 
     .dwmun-logo {
         width: 40vh;
+    }
+
+    #principal-letter-content {
+        display: block;
+    }
+
+    #image-placeholder-3 {
+        width: 100%;
+    }
+
+    #principal-letter {
+        width: 90%;
+    }
+
+    #principal-letter h1 {
+        font-size: 4vh;
+    }
+
+    #principal-letter p {
+        font-size: 2vh;
+        line-height: 2vh;
     }
 }

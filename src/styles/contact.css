@@ -3,10 +3,12 @@
     background-color: var(--secondary);
     padding: 2%;
     color: var(--contrast-secondary);
+    opacity: 0.9;
 }
 
 .gradient {
     height: 5vh;
     width: 100%;
     background-image: linear-gradient(to top, var(--secondary), var(--primary));
+    opacity: 0.9;
 }
