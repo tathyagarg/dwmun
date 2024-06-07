@@ -216,6 +216,8 @@ body {
 #principal-letter-content p {
     margin-left: 2vw;
     width: 100%;
+    font-size: 2vh;
+    line-height: 2vh;
 }
 
 /* Compatability VVVVVVVVV */

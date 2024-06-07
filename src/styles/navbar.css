@@ -19,3 +19,13 @@
     background-color: green;
     aspect-ratio: 1/1;
 }
+
+@media screen and (max-width: 1200px) {
+    .topnav a {
+        font-size: 1.5vh;
+    }
+
+    .topnav {
+        justify-content: flex-start;
+    }
+}

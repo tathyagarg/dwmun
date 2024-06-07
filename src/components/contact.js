@@ -17,15 +17,17 @@ function Contact() {
             <div className='contact-details'>
                 <div className='phone'>
                     <h2>Phone</h2>
-                    <div id="p1">
-                        <p>Number</p>
-                        <p>Person</p>
-                        <p>Role</p>
-                    </div>
-                    <div id="p2">
-                        <p>Number</p>
-                        <p>Person</p>
-                        <p>Role</p>
+                    <div className='details'>
+                        <div id="p1">
+                            <p>Number</p>
+                            <p>Person</p>
+                            <p>Role</p>
+                        </div>
+                        <div id="p2">
+                            <p>Number</p>
+                            <p>Person</p>
+                            <p>Role</p>
+                        </div>
                     </div>
                 </div>
                 <div className='mail'>
@@ -34,7 +36,7 @@ function Contact() {
                 </div>
                 <div className='social'>
                     <h2>Socials</h2>
-                    <a href="https://instagram.com/dwmun"><img src={instagram} height={"30vh"} style={{filter: "invert(1)"}}></img></a>
+                    <a href="https://instagram.com/dwmun"><img src={instagram} height={"20%"} width={"20%"} style={{filter: "invert(1)"}}></img></a>
                 </div>
             </div>
         </div>

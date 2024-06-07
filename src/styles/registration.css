@@ -30,8 +30,7 @@
     border: 0.2em solid var(--secondary-light);
     border-radius: 1em;
     width: 100%;
-    aspect-ratio: 1/1;
-    padding: 2%;
+    height: auto;
     box-sizing: border-box;
     display: flex;
     align-items: flex-start;
@@ -49,5 +48,21 @@
 }
 
 .option > img {
+    width: 100%;
     filter: invert(1) opacity(0.5);
+    object-fit: scale-down;
+}
+
+@media screen and (max-width: 1200px) {
+    .registration-content {
+        width: 90%;
+    }
+
+    .option p {
+        font-size: 1.5vh;
+    }
+
+    .registration-header {
+        font-size: 7vh;
+    }
 }

@@ -10,13 +10,13 @@ function Registration() {
             <div className='registration-options'>
                 <a>
                     <div className='option'>
-                        <img src={indi} height={"75%"}></img>
+                        <img src={indi}></img>
                         <p>Individual Registration</p>
                     </div>
                 </a>
                 <a>
                     <div className='option'>
-                        <img src={group} height={"75%"}></img>
+                        <img src={group}></img>
                         <p>Delegation Registration</p>
                     </div>
                 </a>

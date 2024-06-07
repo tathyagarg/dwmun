@@ -31,14 +31,6 @@
     font-family: "Glockenspiel", serif;
 }
 
-.comm p {
-    font-size: 4vh;
-    color: black;
-    background-color: #ffffff40;
-    width: fit-content;
-    padding: 0.2%;
-}
-
 #ssci {
     background-image: url('../assets/comm-bgs/ssci.jpeg');
 }
@@ -166,17 +158,27 @@
     margin-left: auto;
 }
 
+p {
+    font-size: 2vh;
+}
+
+h1 {
+    font-size: 3vh;
+}
+
 @media screen and (max-width: 1200px) {
     .header {
-        font-size: 8vh;
+        font-size: 7vh;
     }
 
-    .comm h1 {
-        font-size: 8vh;
+    .comm a {
+        font-size: 7vh;
+        width: fit-content;
+        overflow-x: hidden;
     }
 
-    .comm {
-        width: 100%;
+    .committees {
+        overflow-x: hidden;
     }
 
     .comm-content {
