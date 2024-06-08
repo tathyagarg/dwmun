@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/dwmun/static/css/main.40dcd193.css",
+    "main.css": "/dwmun/static/css/main.c58a9bac.css",
     "main.js": "/dwmun/static/js/main.e8fd9e40.js",
     "static/js/453.bd2ad9c5.chunk.js": "/dwmun/static/js/453.bd2ad9c5.chunk.js",
     "static/media/unhrc.png": "/dwmun/static/media/unhrc.75aef115f027e499bd29.png",
@@ -19,12 +19,12 @@
     "static/media/indi.png": "/dwmun/static/media/indi.fc924c15018ea86f96d2.png",
     "static/media/stacked-waves-haikei.svg": "/dwmun/static/media/stacked-waves-haikei.46383e39c9885d1ca5eb.svg",
     "index.html": "/dwmun/index.html",
-    "main.40dcd193.css.map": "/dwmun/static/css/main.40dcd193.css.map",
+    "main.c58a9bac.css.map": "/dwmun/static/css/main.c58a9bac.css.map",
     "main.e8fd9e40.js.map": "/dwmun/static/js/main.e8fd9e40.js.map",
     "453.bd2ad9c5.chunk.js.map": "/dwmun/static/js/453.bd2ad9c5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.40dcd193.css",
+    "static/css/main.c58a9bac.css",
     "static/js/main.e8fd9e40.js"
   ]
 }
