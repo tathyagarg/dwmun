@@ -166,6 +166,42 @@ h1 {
     font-size: 3vh;
 }
 
+.loader {
+    background-color: var(--secondary-light);
+    top: 0;
+    left: 0;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.75s, visibility 0.75s;
+}
+
+.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader::after {
+    content: "";
+    height: 25vh;
+    width: 25vh;
+    border-radius: 100%;
+    border: 2em solid rgb(58, 83, 73);
+    border-top-color: var(--secondary);
+    animation: 1s loading ease infinite;
+}
+
+@keyframes loading {
+    from {
+        transform: rotate(0turn);
+    } to {
+        transform: rotate(1turn);
+    }
+}
+
 @media screen and (max-width: 1200px) {
     .header {
         font-size: 7vh;

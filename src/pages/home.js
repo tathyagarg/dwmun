@@ -30,7 +30,6 @@ function Home() {
 
     return <div>
         <section className="title">
-            {/* change to img vvv */}
             <img src={logo} className='dwmun-logo' style={{height: "40vh"}}></img>
             <div className="header">
                 <h1>D</h1>
