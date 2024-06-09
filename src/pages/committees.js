@@ -16,16 +16,9 @@ const CommLink = styled(Link)`
 
     color: white;
 
-    background:
-        linear-gradient(to right, #192822, #192822),
-        linear-gradient(to right, #192822, #fff, #1A2922);
-    background-size: 100% 0.1em, 0 0.1em;
-    background-position: 100% 100%, 0 100%;
-    background-repeat: no-repeat;
-    transition: background-size 400ms;
-
     text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
     1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
+    transition-duration: 500ms;
 
     &::before {
         content: 'The';
@@ -35,7 +28,8 @@ const CommLink = styled(Link)`
     }
 
     &:hover {
-        background-size: 0 0.1em, 100% 0.1em;
+        font-size: 35vh;
+        line-height: 35vh;
     }
 `
 
