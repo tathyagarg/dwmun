@@ -58,37 +58,37 @@ body {
 
 .header h1:nth-child(1) {
     animation: title-anim .5s normal forwards ease-in-out;
-    animation-delay: 3000ms;
+    animation-delay: 1000ms;
 }
 
 .header h1:nth-child(2) {
     animation: title-anim .5s normal forwards ease-in-out;
-    animation-delay: 3100ms;
+    animation-delay: 1100ms;
 }
 
 .header h1:nth-child(3) {
     animation: title-anim .5s normal forwards ease-in-out;
-    animation-delay: 3200ms;
+    animation-delay: 1200ms;
 }
 
 .header h1:nth-child(4) {
     animation: title-anim .5s normal forwards ease-in-out;
-    animation-delay: 3300ms;
+    animation-delay: 1300ms;
 }
 
 .header h1:nth-child(5) {
     animation: title-anim .5s normal forwards ease-in-out;
-    animation-delay: 3400ms;
+    animation-delay: 1400ms;
 }
 
 .header h1:nth-child(6) {
     animation: title-anim .5s normal forwards ease-in-out;
-    animation-delay: 3500ms;
+    animation-delay: 1500ms;
 }
 
 .header h1:nth-child(7) {
     animation: title-anim .5s normal forwards ease-in-out;
-    animation-delay: 3600ms;
+    animation-delay: 1600ms;
 }
 
 .title p {
