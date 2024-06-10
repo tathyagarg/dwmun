@@ -3,7 +3,7 @@
 }
 
 body {
-    background-image: url('../assets/bg.png');
+    background-image: url('../assets/bg.webp');
     background-attachment: fixed;
 }
 
@@ -47,7 +47,7 @@ body {
     line-height: 20vw;
 
     font-family: "Glockenspiel", sans-serif;
-    background-image: url('../assets/marble.png');
+    background-image: url('../assets/marble.webp');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

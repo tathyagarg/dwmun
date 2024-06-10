@@ -26,11 +26,6 @@ const CommLink = styled(Link)`
         font-size: 3vh;
         line-height: 3vh;
     }
-
-    &:hover {
-        font-size: 35vh;
-        line-height: 35vh;
-    }
 `
 
 function Committees() {

@@ -1,7 +1,7 @@
 import '../styles/home.css'
 import Contact from '../components/contact';
 import Countdown from '../components/countdown';
-import logo from '../assets/logo.png';
+import logo from '../assets/logo.webp';
 
 const start_date = new Date('August 01, 2024 08:00:00').getTime();
 

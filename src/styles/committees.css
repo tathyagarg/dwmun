@@ -32,36 +32,42 @@
     background-color: rgba(25, 40, 34, 0.3);
 }
 
+.comm:hover > a {
+    font-size: 35vh;
+    line-height: 35vh;
+    margin: 0;
+}
+
 .comm a {
     font-family: "Glockenspiel", serif;
 }
 
 #ssci {
-    background-image: url('../assets/comm-bgs/ssci.jpeg');
+    background-image: url('../assets/comm-bgs/ssci.webp');
 }
 
 #unsc {
-    background-image: url('../assets/comm-bgs/unsc.jpeg');
+    background-image: url('../assets/comm-bgs/unsc.webp');
 }
 
 #ccc {
-    background-image: url('../assets/comm-bgs/ccc.jpeg');
+    background-image: url('../assets/comm-bgs/ccc.webp');
 }
 
 #lok-sabha {
-    background-image: url('../assets/comm-bgs/lok-sabha.jpeg');
+    background-image: url('../assets/comm-bgs/lok-sabha.webp');
 }
 
 #unhrc {
-    background-image: url('../assets/comm-bgs/unhrc.png');
+    background-image: url('../assets/comm-bgs/unhrc.webp');
 }
 
 #ipc {
-    background-image: url('../assets/comm-bgs/ipc.jpg');
+    background-image: url('../assets/comm-bgs/ipc.webp');
 }
 
 #disec {
-    background-image: url('../assets/comm-bgs/disec.jpeg');
+    background-image: url('../assets/comm-bgs/disec.webp');
 }
 
 .comm-content {

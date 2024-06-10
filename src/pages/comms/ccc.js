@@ -1,4 +1,4 @@
-import logo from '../../assets/logo.png';
+import logo from '../../assets/logo.webp';
 
 function CCC() {
     window.scroll(0, 0);

@@ -28,15 +28,14 @@
 .contact-details {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    width: min-content;
     grid-column-gap: 10vw;
-    width: fit-content;
     height: 20%;
 }
 
 .phone {
     margin: 0;
     padding: 0;
-    width: 100%;
     height: 80%;
 }
 
@@ -48,8 +47,9 @@
     padding-right: 1vw;
 }
 
-.mail, .social {
-    height: fit-content;
+.social img {
+    width: 100%;
+    height: auto;
 }
 
 @media screen and (max-width: 1200px) {
