@@ -13,18 +13,21 @@
 }
 
 .committees {
-    width: 100%;
+    display: inline-flex;
+    flex-wrap: nowrap;
+    width: calc(700% + 100px);
+    height: 100vh;
 }
 
 .comm {
     background-color: rgba(25, 40, 34, 0.5);
     background-blend-mode: multiply;
-    height: 50vh;
-    padding-top: 5%;
-    padding-left: 5%;
+    height: 100vh;
+    padding-top: 0.5%;
+    padding-left: 0.5%;
     background-size: cover;
     background-attachment: fixed;
-    width: 100%;
+    width: 100vw;
     transition-duration: 500ms;
 }
 
@@ -33,8 +36,8 @@
 }
 
 .comm:hover > a {
-    font-size: 35vh;
-    line-height: 35vh;
+    font-size: 45vh;
+    line-height: 45vh;
     margin: 0;
 }
 
@@ -219,13 +222,29 @@ h1 {
     }
 
     .comm a {
-        font-size: 7vh;
+        font-size: 10vh;
+        line-height: 10vh;
         width: fit-content;
         overflow-x: hidden;
     }
 
+    .comm a::before {
+        font-size: 3vh;
+        line-height: 3vh;
+    }
+
     .committees {
+        display: block;
+        width: 100%;
         overflow-x: hidden;
+        height: auto;
+    }
+
+    .comm {
+        height: 50vh;
+        padding-top: 5%;
+        padding-left: 5%;
+        width: 100%;
     }
 
     .comm-content {

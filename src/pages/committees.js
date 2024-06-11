@@ -2,10 +2,12 @@ import '../styles/committees.css'
 import Contact from '../components/contact'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { gsap, ScrollTrigger } from 'gsap/all'
+import { useGSAP } from '@gsap/react'
 
 const CommLink = styled(Link)`
-    font-size: 10vh;
-    line-height: 10vh;
+    font-size: 20vh;
+    line-height: 20vh;
     margin-top: 0;
     margin-bottom: 1%;
     font-weight: 700;
@@ -23,16 +25,48 @@ const CommLink = styled(Link)`
     &::before {
         content: 'The';
         display: block;
-        font-size: 3vh;
-        line-height: 3vh;
+        font-size: 5vh;
+        line-height: 5vh;
     }
 `
 
 function Committees() {
+    // if (window.innerWidth > 1200)
+    useGSAP(() => {
+        if (window.innerWidth > 1200) {
+            console.log('using gsap')
+            gsap.registerPlugin(ScrollTrigger);
+            const comms = document.querySelector('.committees')
+
+            const items = gsap.utils.toArray('.comm')
+
+            function getScrollAmount() {
+                let width = comms.scrollWidth
+                return -(width - window.innerWidth)
+            }
+
+            const tween = gsap.to(items, {
+                x: getScrollAmount,
+                ease: "none",
+                duration: 1,
+            })
+
+            ScrollTrigger.create({
+                trigger: '.committees',
+                pin: true,
+                start: 'top top',
+                scrub: true,
+                snap: 1 / 6,
+                end: () => `+=${getScrollAmount() * -1} + 100`,
+                animation: tween
+            })
+        }
+    })
+
     return <div>
         <div className="all">
             <h1 className='header'>Committees</h1>
-            <div className='committees'>
+            <div className='committees' id="committees">
                 <section className='comm' id="unsc">
                     <CommLink to="/committees/unsc">UNSC</CommLink>
                 </section>
