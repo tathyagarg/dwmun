@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import '../styles/navbar.css'
 import styled from "styled-components";
-
+import { gsap } from 'gsap/all';
 import rotary from '../assets/rotary.png'
 
 const NavLink = styled(Link)`
@@ -17,7 +17,8 @@ const NavLink = styled(Link)`
 `
 
 const scrollToTop = () => {
-    window.scroll(0, 0)
+    try { window.scroll(0, 0) }
+    catch {}
 }
 
 function Navbar() {

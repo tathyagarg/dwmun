@@ -1,0 +1,9 @@
+.countdown {
+    background-image: url('../assets/marble.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+}

@@ -95,23 +95,19 @@ body {
 }
 
 @keyframes flag-rotate {
-    from {
-        background-position-x: 0%;
-    }
-
-    to {
-        background-position-x: 225%;
+    0% {
+        background-position-x: 0;
+    } 100% {
+        background-position-x: 281%;
     }
 }
 
 .flags {
-    height: 50vh;
-    width: 100%;
+    height: 10vh;
     background-color: pink;
     background-image: url('../assets/flags.webp');
-    background-size: cover;
-    /* background-repeat: no-repeat; */
-    animation: flag-rotate 7.5s linear infinite;
+    background-size: contain;
+    animation: flag-rotate 10s linear infinite;
 }
 
 .about-div {
@@ -281,6 +277,19 @@ body {
 
     .dwmun-logo {
         width: 40vh;
+    }
+
+    @keyframes flag-rotate {
+        0% {
+            background-position-x: 0;
+        } 100% {
+            background-position-x: -310%;
+        }
+    }
+
+    .flags {
+        background-size: cover;
+        animation: flag-rotate 3s linear infinite;
     }
 
     #principal-letter-content {

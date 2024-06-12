@@ -39,6 +39,7 @@ function Contact() {
                     <a href="https://instagram.com/dwmun"><img src={instagram} height={"20%"} width={"20%"} style={{filter: "invert(1)"}}></img></a>
                 </div>
             </div>
+            {/* <iframe width="600" height="450" style={{border:0}} loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJadhySlAOrjsRP39V-IyzTLc&key=AIzaSyCIuyI7-E4RSfpQIlyJ0XF-SBUuTfJuJ9w"></iframe> */}
         </div>
     </div>
 }

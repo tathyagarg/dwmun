@@ -19,8 +19,8 @@ const CommLink = styled(Link)`
 
     color: white;
 
-    text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
-    1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
+    // text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
+    // 1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
     transition-duration: 500ms;
 
     &::before {
