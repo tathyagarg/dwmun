@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom'
 import '../styles/navbar.css'
 import styled from "styled-components";
 
+import rotary from '../assets/rotary.png'
+
 const NavLink = styled(Link)`
     color: #fff;
     text-decoration: none;
@@ -14,13 +16,21 @@ const NavLink = styled(Link)`
     }
 `
 
+const scrollToTop = () => {
+    window.scroll(0, 0)
+}
+
 function Navbar() {
     return <nav className='topnav' id="topnav">
-        <div className='logo'></div>
-        <NavLink to="/dwmun">Home</NavLink>
-        <NavLink to="/committees">Committees</NavLink>
-        <NavLink to="/secretariat">Secretariat</NavLink>
-        <NavLink to="/registration">Registration</NavLink>
+        <NavLink to="/dwmun" onClick={scrollToTop}>Home</NavLink>
+        <NavLink to="/committees" onClick={scrollToTop}>Committees</NavLink>
+        <NavLink to="/secretariat" onClick={scrollToTop}>Secretariat</NavLink>
+        <NavLink to="/registration" onClick={scrollToTop}>Registration</NavLink>
+        <div className='logo'>
+            <a href="https://rcb1934.in">
+                <img src={rotary}></img>
+            </a>
+        </div>
     </nav>
 }
 

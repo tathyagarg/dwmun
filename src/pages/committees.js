@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { gsap, ScrollTrigger } from 'gsap/all'
 import { useGSAP } from '@gsap/react'
+import Lenis from 'lenis'
 
 const CommLink = styled(Link)`
     font-size: 20vh;
@@ -31,10 +32,17 @@ const CommLink = styled(Link)`
 `
 
 function Committees() {
-    // if (window.innerWidth > 1200)
     useGSAP(() => {
         if (window.innerWidth > 1200) {
-            console.log('using gsap')
+            const lenis = new Lenis()
+            lenis.on('scroll', ScrollTrigger.update)
+
+            gsap.ticker.add((time) => {
+                lenis.raf(time * 1000)
+            })
+
+            gsap.ticker.lagSmoothing(0)
+
             gsap.registerPlugin(ScrollTrigger);
             const comms = document.querySelector('.committees')
 
@@ -45,20 +53,17 @@ function Committees() {
                 return -(width - window.innerWidth)
             }
 
-            const tween = gsap.to(items, {
+            gsap.to(items, {
                 x: getScrollAmount,
                 ease: "none",
-                duration: 1,
-            })
-
-            ScrollTrigger.create({
-                trigger: '.committees',
-                pin: true,
-                start: 'top top',
-                scrub: true,
-                snap: 1 / 6,
-                end: () => `+=${getScrollAmount() * -1} + 100`,
-                animation: tween
+                duration: 0.1,
+                scrollTrigger: {
+                    trigger: '.committees',
+                    pin: true,
+                    start: 'top 12.5%',
+                    scrub: true,
+                    end: () => `+=${getScrollAmount() * -1} + 100`
+                }
             })
         }
     })

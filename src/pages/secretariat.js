@@ -3,6 +3,7 @@ import Contact from '../components/contact'
 import '../styles/secretariat.css'
 
 function Secretariat() {
+    window.scroll(0, 0)
     return <div>
         <div className="secretariat">
             <h1 id="secretariat-heading">Secretariat</h1>

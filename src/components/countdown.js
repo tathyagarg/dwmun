@@ -30,7 +30,7 @@ function Countdown() {
                     <h3>Minutes</h3>
                 </div>
             </div>
-            <div style={{marginBottom: "10vh"}}>
+            <div style={{marginBottom: "10vh", fontSize: "3vh"}}>
                 1st, 2nd, and 3rd August
             </div>
         </section>

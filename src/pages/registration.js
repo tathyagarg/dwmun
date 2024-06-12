@@ -4,6 +4,7 @@ import Contact from '../components/contact'
 import '../styles/registration.css'
 
 function Registration() {
+    window.scroll(0, 0)
     return <div>
         <div className='registration-content'>
             <h1 className="registration-header">Registration</h1>

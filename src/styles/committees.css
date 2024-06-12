@@ -4,7 +4,7 @@
 
 .header {
     text-align: center;
-    font-size: 10vh;
+    font-size: 20vh;
     font-weight: 400;
     color: white;
 
@@ -16,19 +16,20 @@
     display: inline-flex;
     flex-wrap: nowrap;
     width: calc(700% + 100px);
-    height: 100vh;
+    height: auto;
 }
 
 .comm {
     background-color: rgba(25, 40, 34, 0.5);
     background-blend-mode: multiply;
-    height: 100vh;
+    height: 75vh;
     padding-top: 0.5%;
     padding-left: 0.5%;
     background-size: cover;
     background-attachment: fixed;
     width: 100vw;
     transition-duration: 500ms;
+    background-position-y: 50%;
 }
 
 .comm:hover {
@@ -36,8 +37,8 @@
 }
 
 .comm:hover > a {
-    font-size: 45vh;
-    line-height: 45vh;
+    font-size: 35vh;
+    line-height: 35vh;
     margin: 0;
 }
 
@@ -71,6 +72,7 @@
 
 #disec {
     background-image: url('../assets/comm-bgs/disec.webp');
+    background-position-y: 0%;
 }
 
 .comm-content {
@@ -266,5 +268,9 @@ h1 {
 
     .eb > div > div > p {
         font-size: 2vh;
+    }
+
+    #ccc, #ssci, #lok-sabha, #unhrc, #unsc {
+        background-position-x: 50%;
     }
 }
