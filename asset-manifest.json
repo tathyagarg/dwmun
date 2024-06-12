@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/dwmun/static/css/main.ef89a43f.css",
-    "main.js": "/dwmun/static/js/main.6febfe22.js",
+    "main.css": "/dwmun/static/css/main.02069a8a.css",
+    "main.js": "/dwmun/static/js/main.5e41f71d.js",
     "static/js/453.bd2ad9c5.chunk.js": "/dwmun/static/js/453.bd2ad9c5.chunk.js",
     "static/media/unhrc.webp": "/dwmun/static/media/unhrc.e5a3fde0597ce356b8d3.webp",
     "static/media/logo.webp": "/dwmun/static/media/logo.2334a0180a1478ca5234.webp",
-    "static/media/marble.webp": "/dwmun/static/media/marble.f94076998a3e3e7d3547.webp",
     "static/media/disec.webp": "/dwmun/static/media/disec.29663121105bb481cbf7.webp",
     "static/media/unsc.webp": "/dwmun/static/media/unsc.59c22b33e99eb5ea42c3.webp",
     "static/media/ipc.webp": "/dwmun/static/media/ipc.dbd218fb072ab2a115ac.webp",
     "static/media/lok-sabha.webp": "/dwmun/static/media/lok-sabha.ef822fc797ee78767aee.webp",
     "static/media/ccc.webp": "/dwmun/static/media/ccc.49afe0f931496643c712.webp",
     "static/media/ssci.webp": "/dwmun/static/media/ssci.9cd9deb88819295e5998.webp",
-    "static/media/bg.webp": "/dwmun/static/media/bg.9e2c187e7ed02e670d68.webp",
+    "static/media/bg.webp": "/dwmun/static/media/bg.7069c92847097e916b45.webp",
     "static/media/LT Glockenspiel Black.ttf": "/dwmun/static/media/LT Glockenspiel Black.0229ba300be64ce718f5.ttf",
+    "static/media/marble.webp": "/dwmun/static/media/marble.6da3cf13e794fe7b197b.webp",
     "static/media/rotary.png": "/dwmun/static/media/rotary.f97761c18e7e12bb5bc5.png",
     "static/media/flags.webp": "/dwmun/static/media/flags.672270af247091281093.webp",
     "static/media/group.png": "/dwmun/static/media/group.9b0c33ce296c267bd518.png",
@@ -21,12 +21,12 @@
     "static/media/indi.png": "/dwmun/static/media/indi.fc924c15018ea86f96d2.png",
     "static/media/stacked-waves-haikei.svg": "/dwmun/static/media/stacked-waves-haikei.46383e39c9885d1ca5eb.svg",
     "index.html": "/dwmun/index.html",
-    "main.ef89a43f.css.map": "/dwmun/static/css/main.ef89a43f.css.map",
-    "main.6febfe22.js.map": "/dwmun/static/js/main.6febfe22.js.map",
+    "main.02069a8a.css.map": "/dwmun/static/css/main.02069a8a.css.map",
+    "main.5e41f71d.js.map": "/dwmun/static/js/main.5e41f71d.js.map",
     "453.bd2ad9c5.chunk.js.map": "/dwmun/static/js/453.bd2ad9c5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ef89a43f.css",
-    "static/js/main.6febfe22.js"
+    "static/css/main.02069a8a.css",
+    "static/js/main.5e41f71d.js"
   ]
 }
