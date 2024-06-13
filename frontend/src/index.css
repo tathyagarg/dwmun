@@ -7,6 +7,8 @@
     --contrast-primary: #fff;
     --contrast-secondary: #fff;
     --contrast-accent: #fff;
+
+    color: white;
 }
 
 @font-face {

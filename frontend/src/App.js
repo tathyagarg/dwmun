@@ -12,12 +12,15 @@ import CCC from './pages/comms/ccc';
 import Secretariat from './pages/secretariat';
 import Registration from './pages/registration';
 
+import IndividualRegistration from './pages/registrations/individual';
+
+import Navbar from './components/navbar';
+
 import {
     BrowserRouter as Router,
     Routes,
     Route
 } from "react-router-dom"
-import Navbar from './components/navbar';
 
 function App() {
     return (
@@ -35,6 +38,7 @@ function App() {
                 <Route path="/committees/ccc" element={<CCC/>}/>
                 <Route path="/secretariat" element={<Secretariat/>}/>
                 <Route path="/registration" element={<Registration/>}/>
+                <Route path="/registration/individual" element={<IndividualRegistration/>}/>
             </Routes>
         </Router>
     )

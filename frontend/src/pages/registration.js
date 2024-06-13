@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import indi from '../assets/registration/indi.png'
 import group from '../assets/registration/group.png'
 import Contact from '../components/contact'
@@ -9,18 +10,18 @@ function Registration() {
         <div className='registration-content'>
             <h1 className="registration-header">Registration</h1>
             <div className='registration-options'>
-                <a>
+                <Link to="/registration/individual">
                     <div className='option'>
                         <img src={indi}></img>
                         <p>Individual Registration</p>
                     </div>
-                </a>
-                <a>
+                </Link>
+                <Link>
                     <div className='option'>
                         <img src={group}></img>
                         <p>Delegation Registration</p>
                     </div>
-                </a>
+                </Link>
             </div>
         </div>
         <Contact></Contact>
