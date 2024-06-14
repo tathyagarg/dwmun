@@ -2,7 +2,7 @@ import logo from '../assets/logo.webp'
 import Contact from '../components/contact'
 import '../styles/secretariat.css'
 
-function Secretariat() {
+export default function Secretariat() {
     window.scroll(0, 0)
     return <div>
         <div className="secretariat">
@@ -67,5 +67,3 @@ function Secretariat() {
         <Contact></Contact>
     </div>
 }
-
-export default Secretariat;

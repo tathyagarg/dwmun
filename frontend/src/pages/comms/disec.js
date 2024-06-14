@@ -1,6 +1,6 @@
 import logo from '../../assets/logo.webp';
 
-function DISEC() {
+export default function DISEC() {
     window.scroll(0, 0);
     return <div className="comm-content">
         <h1 className="comm-header">
@@ -41,5 +41,3 @@ function DISEC() {
         </div>
     </div>
 }
-
-export default DISEC;

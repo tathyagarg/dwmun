@@ -1,12 +1,11 @@
 from fastapi import (
     APIRouter,
     status,
-    Depends,
     File,
     UploadFile,
 )
 from fastapi.responses import JSONResponse
-from utils.models import DelegateRegistrationData
+from utils.models import DelegateRegistrationData, convert_comm_to_pure
 from utils.database_handler import (
     register_individual,
     register_delegation,
@@ -16,8 +15,10 @@ from utils.database_handler import (
 from utils.utils import (
     get_filetype,
     check_valid_image_filetype,
-    check_valid_image_filesize
+    check_valid_image_filesize,
+    parse_str_to_dict
 )
+import json
 
 router = APIRouter(prefix='/registration', tags=['registrations'])
 
@@ -40,9 +41,16 @@ async def get_indis_ep():
 
 
 @router.post("/individual", response_class=JSONResponse, status_code=status.HTTP_200_OK)
-async def individual_registration_ep(registration_data: DelegateRegistrationData = Depends(), payment: UploadFile = File(...)):
+async def individual_registration_ep(registration_data: str, payment: UploadFile = File(...)):
     payment_content = await payment.read()
     filetype: str = get_filetype(payment.filename)
+
+    parsed = parse_str_to_dict(registration_data)
+
+    registration_data: DelegateRegistrationData = DelegateRegistrationData.model_validate_json(json.dumps(parsed))
+
+    registration_data.primary_comm = convert_comm_to_pure(registration_data.primary_comm)
+    registration_data.secondary_comm = convert_comm_to_pure(registration_data.secondary_comm)
 
     if check_delegate_is_registered(registration_data.email):
         return "DELEGATE ALREADY REGISTERED"  # TODO: add proper response
@@ -60,8 +68,10 @@ async def individual_registration_ep(registration_data: DelegateRegistrationData
 
 @router.post("/delegation", response_class=JSONResponse, status_code=status.HTTP_200_OK)
 async def delegation_registration_ep(registration_data: list[DelegateRegistrationData], payment: UploadFile = File(...)):
-    payment_content = payment.read()
+    payment_content = await payment.read()
     filetype: str = get_filetype(payment.filename)
+
+    print(registration_data)
 
     for delegate in registration_data:
         if check_delegate_is_registered(delegate.email):

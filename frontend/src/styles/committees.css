@@ -46,7 +46,7 @@
     font-family: "Glockenspiel", serif;
 }
 
-#ssci {
+#board-room {
     background-image: url('../assets/comm-bgs/ssci.webp');
 }
 
@@ -270,7 +270,7 @@ h1 {
         font-size: 2vh;
     }
 
-    #ccc, #ssci, #lok-sabha, #unhrc, #unsc {
+    #ccc, #board-room, #lok-sabha, #unhrc, #unsc {
         background-position-x: 50%;
     }
 }

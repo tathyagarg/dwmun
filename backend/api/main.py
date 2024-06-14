@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routes import registration
+from routes import registration, matricies
 
-from utils.database_handler import create_tables, run_sql
+from utils.database_handler import create_tables
 
 app = FastAPI()
 app.add_middleware(
@@ -12,7 +12,7 @@ app.add_middleware(
     allow_headers=["*"]
 )
 
-routers = [registration.router]
+routers = [registration.router, matricies.router]
 
 for router in routers:
     app.include_router(router)

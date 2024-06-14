@@ -5,7 +5,7 @@ import instagram from '../assets/instagram.png'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-function Contact() {
+export default function Contact() {
     useEffect(() => {
         AOS.init({duration: 1000})
     }, [])
@@ -43,5 +43,3 @@ function Contact() {
         </div>
     </div>
 }
-
-export default Contact;

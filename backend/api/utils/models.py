@@ -1,7 +1,14 @@
 import pydantic
 from typing import Literal
 
-COMMITTEE = Literal['CCC', 'DISEC', 'IPC', 'Lok Sabha', 'SSCI', 'UNHRC', 'UNSC']
+COMMITTEES = ['CCC', 'DISEC', 'IPC', 'Lok-Sabha', 'Board-Room', 'UNHRC', 'UNSC']
+COMMITTEE = Literal['CCC', 'DISEC', 'IPC', 'Lok-Sabha', 'Board-Room', 'UNHRC', 'UNSC']
+
+def convert_comm_to_pure(comm: str) -> int:
+    if comm.isupper():
+        return comm
+
+    return comm.replace('-', ' ')
 
 class DelegateRegistrationData(pydantic.BaseModel):
     name: str

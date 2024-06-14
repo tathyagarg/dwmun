@@ -1,6 +1,6 @@
 import logo from '../../assets/logo.webp';
 
-function UNHRC() {
+export default function UNHRC() {
     window.scroll(0, 0);
     return <div className="comm-content">
         <h1 className="comm-header">
@@ -42,5 +42,3 @@ function UNHRC() {
     </div>
 
 }
-
-export default UNHRC;

@@ -24,7 +24,7 @@ function updateDate() {
 }
 
 
-function Home() {
+export default function Home() {
     window.scroll(0, 0)
     new Promise(resolve => setTimeout(resolve, 1000)).then(updateDate);
     setInterval(updateDate, (1000 * 60))
@@ -92,5 +92,3 @@ function Home() {
         <Contact></Contact>
     </div>
 }
-
-export default Home;

@@ -4,7 +4,7 @@ import group from '../assets/registration/group.png'
 import Contact from '../components/contact'
 import '../styles/registration.css'
 
-function Registration() {
+export default function Registration() {
     window.scroll(0, 0)
     return <div>
         <div className='registration-content'>
@@ -27,5 +27,3 @@ function Registration() {
         <Contact></Contact>
     </div>
 }
-
-export default Registration;

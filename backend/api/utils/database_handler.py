@@ -1,9 +1,9 @@
 import mysql.connector
 from .models import DelegateRegistrationData
-from logger import log, LogType
-import traceback
 import dotenv
 import os
+import base64
+
 
 dotenv.load_dotenv()
 
@@ -25,7 +25,6 @@ def run_sql(sql: str) -> None:
 
 
 def create_tables() -> STATUS:
-    log(LogType.INFO, 'Making Databases')
     try:
         cursor.execute('''CREATE TABLE IF NOT EXISTS delegations (
             id INT AUTO_INCREMENT,
@@ -55,10 +54,7 @@ def create_tables() -> STATUS:
             FOREIGN KEY (delegation_id)
                 REFERENCES delegations(id)
         );''')
-
-        log(LogType.INFO, 'Databases Made')
     except Exception as e:
-        log(LogType.CRIT, f'Database Creation Failed:\n\t{e}')
         return 1, str(e)
     else:
         return 0, ''
@@ -81,13 +77,12 @@ def register_individual(data: DelegateRegistrationData, file_data: str, filetype
             filetype
         )
 
-        log(LogType.INFO, f'Registering Delegate - {data.name}')
         cursor.execute('''INSERT INTO delegates (
             name, email, phone_number, school, grade, primary_comm, primary_country,
                 secondary_comm, secondary_country, prior_experience, payment, filetype
         ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)''', delegate_data)
+        db.commit()
     except Exception as e:
-        log(LogType.CRIT, f'Failed to register Delegate - {data.name}\n\t{e}')
         return 1, str(e)
     else:
         return 0, ''
@@ -115,7 +110,6 @@ def register_delegation(delegates: list[DelegateRegistrationData], file_data: st
         delegation_id = cursor.lastrowid()
 
         # Register the head del
-        log(LogType.INFO, f'Registering Head Delegate - {head_del.name}')
         cursor.execute('''INSERT INTO delegates (
             name, email, phone_number, school, grade, primary_comm, primary_country,
                 secondary_comm, secondary_country, prior_experience, payment, filetype, is_head, delegation_id
@@ -136,25 +130,27 @@ def register_delegation(delegates: list[DelegateRegistrationData], file_data: st
                 filetype
             )
 
-            log(LogType.INFO, f'Registering Delegate - {delegate.name}')
             cursor.execute('''INSERT INTO delegates (
                 name, email, phone_number, school, grade, primary_comm, primary_country,
                     secondary_comm, secondary_country, prior_experience, payment, filetype, is_head, delegation_id
             ) VALUES (%s, %s, %s, %s, %d, %s, %s, %s, %s, FALSE, %s, %d)''', (*delegate_data, delegation_id))
-
+        db.commit()
     except Exception as e:
-        try:
-            log(LogType.CRIT, f'Failed to register Delegate in a delegation: - {delegate.name}')
-        except NameError:
-            log(LogType.CRIT, f'Failed to register Head Delegate in a delegation: - {head_del.name}')
         return 1, str(e)
     else:
         return 0, ''
 
 
-def fetch_all_delegates(condition: str = ''):
-    cursor.execute('SELECT name FROM delegates ' + condition)
-    return cursor.fetchall()
+def fetch_all_delegates(condition: str = '', params: str = 'name, payment, filetype'):
+    cursor.execute(f'SELECT {params} FROM delegates ' + condition)
+    data = cursor.fetchall()
+    decoded = []
+    for (name, payment, filetype) in data:
+        encoded = base64.b64encode(payment).decode('utf-8')
+        payment = f'data:image/{filetype};base64,{encoded}'
+
+        decoded.append((name, payment, filetype))
+    return decoded
 
 
 def check_delegate_is_registered(email_id: str) -> bool:

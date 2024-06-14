@@ -13,14 +13,11 @@ const CommLink = styled(Link)`
     margin-bottom: 1%;
     font-weight: 700;
 
-    color: black;
     width: fit-content;
     text-decoration: none;
 
     color: white;
 
-    // text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
-    // 1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
     transition-duration: 500ms;
 
     &::before {
@@ -31,7 +28,7 @@ const CommLink = styled(Link)`
     }
 `
 
-function Committees() {
+export default function Committees() {
     useGSAP(() => {
         if (window.innerWidth > 1200) {
             const lenis = new Lenis()
@@ -87,8 +84,8 @@ function Committees() {
                 <section className='comm' id="ipc">
                     <CommLink to="/committees/ipc">IPC</CommLink>
                 </section>
-                <section className='comm' id="ssci">
-                    <CommLink to="/committees/ssci">SSCI</CommLink>
+                <section className='comm' id="board-room">
+                    <CommLink to="/committees/board-room">Board Room</CommLink>
                 </section>
                 <section className='comm' id="ccc">
                     <CommLink to="/committees/ccc">CCC</CommLink>
@@ -98,5 +95,3 @@ function Committees() {
         <Contact></Contact>
     </div>
 }
-
-export default Committees

@@ -19,7 +19,7 @@ const scrollToTop = () => {
     window.scroll(0, 0)
 }
 
-function Navbar() {
+export default function Navbar() {
     return <nav className='topnav' id="topnav">
         <NavLink to="/dwmun" onClick={scrollToTop}>Home</NavLink>
         <NavLink to="/committees" onClick={scrollToTop}>Committees</NavLink>
@@ -32,5 +32,3 @@ function Navbar() {
         </div>
     </nav>
 }
-
-export default Navbar

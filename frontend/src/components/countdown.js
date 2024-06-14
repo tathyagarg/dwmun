@@ -4,7 +4,7 @@ import 'aos/dist/aos.css';
 import '../styles/countdown.css'
 
 
-function Countdown() {
+export default function Countdown() {
     useEffect(() => {
         AOS.init({duration: 1000})
     }, []);
@@ -37,5 +37,3 @@ function Countdown() {
         </section>
     </div>
 }
-
-export default Countdown
