@@ -13,6 +13,7 @@ import Secretariat from './pages/secretariat';
 import Registration from './pages/registration';
 
 import IndividualRegistration from './pages/registrations/individual';
+import DelegationRegistration from './pages/registrations/delegation';
 
 import Navbar from './components/navbar';
 
@@ -39,6 +40,7 @@ function App() {
                 <Route path="/secretariat" element={<Secretariat/>}/>
                 <Route path="/registration" element={<Registration/>}/>
                 <Route path="/registration/individual" element={<IndividualRegistration/>}/>
+                <Route path="/registration/delegation" element={<DelegationRegistration/>}/>
             </Routes>
         </Router>
     )

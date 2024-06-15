@@ -23,75 +23,49 @@ body {
     margin: 0;
     padding-top: 10vh;
     text-align: center;
-
     color: white;
-}
 
-.title div {
-    margin-left: auto;
-    margin-right: auto;
+    & > div {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    & > p {
+        margin: 0;
+        margin-bottom: 5vh;
+        font-size: 1.6em;
+    }
 }
 
 .header {
     display: flex;
     justify-content: center;
-}
 
-.header h1 {
-    font-size: 15vw;
-    line-height: 15vw;
-    font-weight: 400;
-    margin: 0;
+    & > h1 {
+        font-size: 15vw;
+        line-height: 15vw;
+        font-weight: 400;
+        margin: 0;
 
-    font-family: "Glockenspiel", sans-serif;
-    background-image: url('../assets/marble.webp');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    color: transparent;
-    background-clip: text;
-    -webkit-background-clip: text;
-}
+        font-family: "Glockenspiel", sans-serif;
+        background-image: url('../assets/marble.webp');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        color: transparent;
+        background-clip: text;
+        -webkit-background-clip: text;
+        animation: title-anim .5s normal forwards ease-in-out;
+    }
 
-.header h1:nth-child(1) {
-    animation: title-anim .5s normal forwards ease-in-out;
-    animation-delay: 1000ms;
-}
-
-.header h1:nth-child(2) {
-    animation: title-anim .5s normal forwards ease-in-out;
-    animation-delay: 1100ms;
-}
-
-.header h1:nth-child(3) {
-    animation: title-anim .5s normal forwards ease-in-out;
-    animation-delay: 1200ms;
-}
-
-.header h1:nth-child(4) {
-    animation: title-anim .5s normal forwards ease-in-out;
-    animation-delay: 1300ms;
-}
-
-.header h1:nth-child(5) {
-    animation: title-anim .5s normal forwards ease-in-out;
-    animation-delay: 1400ms;
-}
-
-.header h1:nth-child(6) {
-    animation: title-anim .5s normal forwards ease-in-out;
-    animation-delay: 1500ms;
-}
-
-.header h1:nth-child(7) {
-    animation: title-anim .5s normal forwards ease-in-out;
-    animation-delay: 1600ms;
-}
-
-.title p {
-    margin: 0;
-    margin-bottom: 5vh;
-    font-size: 1.6em;
+    & > h1:nth-child(1) { animation-delay: 1000ms; }
+    & > h1:nth-child(2) { animation-delay: 1100ms; }
+    & > h1:nth-child(3) { animation-delay: 1200ms; }
+    & > h1:nth-child(4) { animation-delay: 1300ms; }
+    & > h1:nth-child(5) { animation-delay: 1400ms; }
+    & > h1:nth-child(6) { animation-delay: 1500ms; }
+    & > h1:nth-child(7) { animation-delay: 1600ms; }
+    & > h1:nth-child(8) { animation-delay: 1700ms; }
 }
 
 @keyframes flag-rotate {
@@ -117,11 +91,36 @@ body {
     box-sizing: border-box;
     padding: 2%;
     height: 100%;
+
+    & > p {
+        font-size: 2vh;
+        font-weight: 100;
+    }
 }
 
 .about-heading {
     display: flex;
     padding-top: 1vh;
+
+    & > ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    & h2 {
+        line-height: 3vh;
+        font-size: 3vh;
+        font-weight: 500;
+        margin: 0;
+    }
+
+    & h1 {
+        line-height: 5vh;
+        font-size: 5vh;
+        font-weight: 500;
+        margin: 0;
+    }
 }
 
 .about {
@@ -133,67 +132,39 @@ body {
     color: #fff;
 }
 
-.about-heading ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-.about-heading h2 {
-    line-height: 3vh;
-    font-size: 3vh;
-    font-weight: 500;
-    margin: 0;
-}
-
-.about-heading h1 {
-    line-height: 5vh;
-    font-size: 5vh;
-    font-weight: 500;
-    margin: 0;
-}
-
-.about-div p {
-    font-size: 2vh;
-    font-weight: 100;
-}
-
 .countdown {
     padding-top: 1px;
     background-attachment: fixed;
     text-align: center;
-
     color: white;
-}
 
-.countdown h1 {
-    font-size: 10vh;
-    line-height: 10vh;
-    margin-bottom: 0;
-    font-weight: 400;
+    & > h1 {
+        font-size: 10vh;
+        line-height: 10vh;
+        margin-bottom: 0;
+        font-weight: 400;
 
-    font-family: "Glockenspiel", sans-serif;
-    letter-spacing: 0.4vw;
-}
+        font-family: "Glockenspiel", sans-serif;
+        letter-spacing: 0.4vw;
+    }
 
-.countdown p {
-    font-size: 2vh;
+    & > p {
+        font-size: 2vh;
+    }
 }
 
 #date {
     margin: 0;
     padding-bottom: 5vh;
-}
 
-#date div > h2 {
-    font-size: 6vh;
-    line-height: 6vh;
-    margin-bottom: 0;
-    font-weight: 200;
-}
+    & > div > h2 {
+        font-size: 6vh;
+        line-height: 6vh;
+        margin-bottom: 0;
+        font-weight: 200;
+    }
 
-#date div:not(:last-child) {
-    padding-right: 2vw;
+    & > div:not(:last-child) { padding-right: 2vw; }
 }
 
 #principal-letter-section {
@@ -214,14 +185,14 @@ body {
     width: 60%;
     margin-left: auto;
     margin-right: auto;
-}
 
-#principal-letter h1 {
-    font-family: "Glockenspiel", serif;
-    margin: 0;
-    padding-bottom: 2vh;
-    font-size: 7vh;
-    text-align: center;
+    & > h1 {
+        font-family: "Glockenspiel", serif;
+        margin: 0;
+        padding-bottom: 2vh;
+        font-size: 7vh;
+        text-align: center;
+    }
 }
 
 #principal-letter-content {
@@ -239,30 +210,29 @@ body {
 /* Compatability VVVVVVVVV */
 
 @media screen and (max-width: 1200px) {
-    .about-div {
-        width: 100%;
-    }
-
     .title {
         height: 100%;
     }
 
-    .about-div p {
-        font-size: 2.5vh;
-    }
-
     .about-div {
+        width: 100%;
         padding-top: 5vh;
+
+        & > p {
+            font-size: 2.5vh;
+        }
     }
 
-    .about-heading h1 {
-        font-size: 4vh;
-        line-height: 4vh;
-    }
+    .about-heading {
+        & > h1 {
+            font-size: 4vh;
+            line-height: 4vh;
+        }
 
-    .about-heading h2 {
-        font-size: 3vh;
-        line-height: 3vh;
+        & > h2 {
+            font-size: 3vh;
+            line-height: 3vh;
+        }
     }
 
     .countdown h1 {
@@ -303,14 +273,12 @@ body {
 
     #principal-letter {
         width: 90%;
+
+        & > h1 { font-size: 4vh; }
+        & > p {
+            font-size: 2vh;
+            line-height: 2vh;
+        }
     }
 
-    #principal-letter h1 {
-        font-size: 4vh;
-    }
-
-    #principal-letter p {
-        font-size: 2vh;
-        line-height: 2vh;
-    }
 }

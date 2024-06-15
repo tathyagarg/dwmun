@@ -2,9 +2,6 @@ import '../styles/committees.css'
 import Contact from '../components/contact'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { gsap, ScrollTrigger } from 'gsap/all'
-import { useGSAP } from '@gsap/react'
-import Lenis from 'lenis'
 
 const CommLink = styled(Link)`
     font-size: 20vh;
@@ -29,45 +26,19 @@ const CommLink = styled(Link)`
 `
 
 export default function Committees() {
-    useGSAP(() => {
-        if (window.innerWidth > 1200) {
-            const lenis = new Lenis()
-            lenis.on('scroll', ScrollTrigger.update)
-
-            gsap.ticker.add((time) => {
-                lenis.raf(time * 1000)
-            })
-
-            gsap.ticker.lagSmoothing(0)
-
-            gsap.registerPlugin(ScrollTrigger);
-            const comms = document.querySelector('.committees')
-
-            const items = gsap.utils.toArray('.comm')
-
-            function getScrollAmount() {
-                let width = comms.scrollWidth
-                return -(width - window.innerWidth)
-            }
-
-            gsap.to(items, {
-                x: getScrollAmount,
-                ease: "none",
-                duration: 0.1,
-                scrollTrigger: {
-                    trigger: '.committees',
-                    pin: true,
-                    start: 'top 12.5%',
-                    scrub: true,
-                    end: () => `+=${getScrollAmount() * -1} + 100`
-                }
-            })
-        }
-    })
-
     return <div>
         <div className="all">
             <h1 className='header'>Committees</h1>
+            <h1 style={{textAlign: "center"}} className='jumpto-header'>Jump To:</h1>
+            <div className='jumpto-bar'>
+                <a href='#unsc'>UNSC</a>
+                <a href='#unhrc'>UNHRC</a>
+                <a href='#disec'>DISEC</a>
+                <a href='#lok-sabha'>Lok Sabha</a>
+                <a href='#ipc'>IPC</a>
+                <a href='#board-room'>Board Room</a>
+                <a href='#ccc'>CCC</a>
+            </div>
             <div className='committees' id="committees">
                 <section className='comm' id="unsc">
                     <CommLink to="/committees/unsc">UNSC</CommLink>

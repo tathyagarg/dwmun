@@ -37,7 +37,7 @@ def check_file_validity(payment, payment_content) -> str | int:
 
 @router.get("/individual", response_class=JSONResponse, status_code=status.HTTP_200_OK)
 async def get_indis_ep():
-    return fetch_all_delegates()
+    return fetch_all_delegates(params='name, email')
 
 
 @router.post("/individual", response_class=JSONResponse, status_code=status.HTTP_200_OK)

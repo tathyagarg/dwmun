@@ -16,7 +16,7 @@ export default function Registration() {
                         <p>Individual Registration</p>
                     </div>
                 </Link>
-                <Link>
+                <Link to="/registration/delegation">
                     <div className='option'>
                         <img src={group}></img>
                         <p>Delegation Registration</p>

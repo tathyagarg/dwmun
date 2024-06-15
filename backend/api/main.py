@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from routes import registration, matricies
 
-from utils.database_handler import create_tables
+from utils.database_handler import create_tables, drop_tables
 
 app = FastAPI()
 app.add_middleware(
@@ -17,6 +17,7 @@ routers = [registration.router, matricies.router]
 for router in routers:
     app.include_router(router)
 
+# drop_tables()
 create_tables()
 
 if __name__ == "__main__":

@@ -37,12 +37,21 @@ export default function IndividualRegistration() {
         let result = {}
 
         const formData = new FormData(event.target)
-        formData.forEach((value, key) => {
+        if (formData.get("confirmation") !== "on") {
+            alert("Please confirm that you have read the Code of Conduct and have filled the form correctly by clicking the checkbox.")
+            return
+        }
+
+        for (let item of formData) {
+            let [key, value] = [item[0], item[1]]
+
             if (value == "" && key !== "prior_experience") {
-                alert("Fill in all the fields")
+                alert(`Field not filled: ${key}`)
+                return
             }
+
             if (key !== "proof") { result[key] = value }
-        })
+        }
 
         let json = JSON.stringify(result)
 
@@ -104,13 +113,23 @@ export default function IndividualRegistration() {
                         <option value={"UNSC"}>UNSC</option>
                     </select>
 
-                    <input name="primary_country" type='text' list='primary-portfolio' id="primary-portfolio-input"/>
+                    <input name="primary_country" type='text' list='primary-portfolio' id="primary-portfolio-input" placeholder='Portfolio Preference'/>
                     <datalist id="primary-portfolio">
                         {options}
                     </datalist>
 
-                    <input name="secondary_country" type='text' list='secondary-portfolio' id="secondary-portfolio-input"/>
+                    <input name="secondary_country" type='text' list='secondary-portfolio' id="secondary-portfolio-input" placeholder='Portfolio Preference'/>
                     <datalist id="secondary-portfolio">
+                        {options2}
+                    </datalist>
+
+                    <input name="primary_country_2" type='text' list='primary-portfolio2' id="primary-portfolio-input2" placeholder='Second Portfolio Preference'/>
+                    <datalist id="primary-portfolio2">
+                        {options}
+                    </datalist>
+
+                    <input name="secondary_country_2" type='text' list='secondary-portfolio2' id="secondary-portfolio-input2" placeholder='Second Portfolio Preference'/>
+                    <datalist id="secondary-portfolio2">
                         {options2}
                     </datalist>
                 </div>
@@ -119,11 +138,11 @@ export default function IndividualRegistration() {
                 <textarea name="prior_experience" id="prior-exp" placeholder='Prior Experience (Leave Blank if None)' rows={4}></textarea>
 
                 <label>Proof of Payment</label>
-                <p>
+                <p className='payment-details'>
                     Lot of Payment detail stuff here
                 </p>
                 <div style={{height: '20vh', width: "20vh", backgroundColor: "red"}}>QR CODE</div>
-                <p>
+                <p className='payment-details'>
                     More Payment details mhmhmhm
                 </p>
                 <input name="proof" type="file" id="proof" onChange={(event) => {

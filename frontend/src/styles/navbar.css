@@ -8,15 +8,13 @@
     position: sticky;
     top: 0;
     z-index: 10;
-}
 
-.topnav a {
-    margin: 0 2vw;
-    font-size: 2vh;
-}
+    & > a {
+        margin: 0 2vw;
+        font-size: 2vh;
+    }
 
-.topnav a:first-child {
-    margin-left: auto;
+    & > a:first-child { margin-left: auto; }
 }
 
 .logo {
@@ -26,23 +24,16 @@
     padding: 0 0.5vw 0 0.5vw;
     background: white;
     margin-left: auto;
-}
 
-.logo > a {
-    margin: 0;
-}
-
-.logo img {
-    height: 100%;
+    & > a { margin: 0; }
+    & img { height: 100%; }
 }
 
 @media screen and (max-width: 1200px) {
-    .topnav a {
-        font-size: 1.25vh;
-    }
-
     .topnav {
         justify-content: flex-start;
+
+        & > a { font-size: 1.25vh; }
     }
 
     .logo {

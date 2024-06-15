@@ -4,6 +4,8 @@
     padding: 2%;
     color: var(--contrast-secondary);
     opacity: 0.9;
+
+    & > h1 { font-size: 5vh; }
 }
 
 .gradient {
@@ -13,24 +15,15 @@
     opacity: 0.9;
 }
 
-.content > h1 {
-    font-size: 5vh;
-}
-
-.contact-details h2 {
-    font-size: 3vh;
-}
-
-.contact-details p {
-    font-size: 2vh;
-}
-
 .contact-details {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     width: min-content;
     grid-column-gap: 10vw;
     height: 20%;
+
+    & > p { font-size: 2vh; }
+    & > h2 { font-size: 3vh; }
 }
 
 .phone {
@@ -57,12 +50,15 @@
         font-size: 3vh;
     }
 
-    .contact-details h2 {
-        font-size: 2vh;
-        line-height: 2vh;
-    }
+    .contact-details {
+        & h2 {
+            font-size: 2vh;
+            line-height: 2vh;
+        }
 
-    .contact-details p {
-        font-size: 1.5vh;
+        & p {
+            font-size: 1.5vh;
+            line-height: 1.5vh;
+        }
     }
 }

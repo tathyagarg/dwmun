@@ -19,9 +19,11 @@ class DelegateRegistrationData(pydantic.BaseModel):
 
     primary_comm: COMMITTEE
     primary_country: str
+    primary_country_2: str
 
     secondary_comm: COMMITTEE
     secondary_country: str
+    secondary_country_2: str
 
     prior_experience: str = ''
 

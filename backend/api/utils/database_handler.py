@@ -19,15 +19,34 @@ db = mysql.connector.connect(**DB_CONFIG)
 
 cursor = db.cursor(buffered=True)
 
+def post_commit(func):
+    def inner(*args, **kwargs):
+        res = func(*args, **kwargs)
+        db.commit()
+
+        return res
+
+    return inner
 
 def run_sql(sql: str) -> None:
     cursor.execute(sql)
 
+@post_commit
+def drop_tables() -> STATUS:
+    try:
+        cursor.execute('''DROP TABLE delegates''')
+        cursor.execute('''DROP TABLE delegations''')
+    except Exception as e:
+        return 1, str(e)
+    else:
+        return 0, ""
 
+@post_commit
 def create_tables() -> STATUS:
     try:
         cursor.execute('''CREATE TABLE IF NOT EXISTS delegations (
             id INT AUTO_INCREMENT,
+            name VARCHAR(255) NOT NULL,
             PRIMARY KEY (id)
         )''')
 
@@ -42,8 +61,10 @@ def create_tables() -> STATUS:
             grade SMALLINT NOT NULL,
             primary_comm ENUM('CCC', 'DISEC', 'IPC', 'Lok Sabha', 'Board Room', 'UNHRC', 'UNSC') NOT NULL,
             primary_country VARCHAR(255) NOT NULL,
+            primary_country_2 VARCHAR(255) NOT NULL,
             secondary_comm ENUM('CCC', 'DISEC', 'IPC', 'Lok Sabha', 'Board Room', 'UNHRC', 'UNSC') NOT NULL,
             secondary_country VARCHAR(255) NOT NULL,
+            secondary_country_2 VARCHAR(255) NOT NULL,
             prior_experience VARCHAR(500),
             payment LONGBLOB NOT NULL,
             filetype VARCHAR(4),
@@ -59,7 +80,7 @@ def create_tables() -> STATUS:
     else:
         return 0, ''
 
-
+@post_commit
 def register_individual(data: DelegateRegistrationData, file_data: str, filetype: str) -> STATUS:
     try:
         delegate_data = (
@@ -70,24 +91,25 @@ def register_individual(data: DelegateRegistrationData, file_data: str, filetype
             data.grade,
             data.primary_comm,
             data.primary_country,
+            data.primary_country_2,
             data.secondary_comm,
             data.secondary_country,
+            data.secondary_country_2,
             data.prior_experience,
             file_data,
             filetype
         )
 
         cursor.execute('''INSERT INTO delegates (
-            name, email, phone_number, school, grade, primary_comm, primary_country,
-                secondary_comm, secondary_country, prior_experience, payment, filetype
-        ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)''', delegate_data)
-        db.commit()
+            name, email, phone_number, school, grade, primary_comm, primary_country, primary_country_2,
+                secondary_comm, secondary_country, secondary_country_2, prior_experience, payment, filetype
+        ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)''', delegate_data)
     except Exception as e:
         return 1, str(e)
     else:
         return 0, ''
 
-
+@post_commit
 def register_delegation(delegates: list[DelegateRegistrationData], file_data: str, filetype: str) -> STATUS:
     try:
         head_del, other = delegates[0], delegates[1:]
@@ -134,7 +156,6 @@ def register_delegation(delegates: list[DelegateRegistrationData], file_data: st
                 name, email, phone_number, school, grade, primary_comm, primary_country,
                     secondary_comm, secondary_country, prior_experience, payment, filetype, is_head, delegation_id
             ) VALUES (%s, %s, %s, %s, %d, %s, %s, %s, %s, FALSE, %s, %d)''', (*delegate_data, delegation_id))
-        db.commit()
     except Exception as e:
         return 1, str(e)
     else:
@@ -144,13 +165,11 @@ def register_delegation(delegates: list[DelegateRegistrationData], file_data: st
 def fetch_all_delegates(condition: str = '', params: str = 'name, payment, filetype'):
     cursor.execute(f'SELECT {params} FROM delegates ' + condition)
     data = cursor.fetchall()
-    decoded = []
-    for (name, payment, filetype) in data:
-        encoded = base64.b64encode(payment).decode('utf-8')
-        payment = f'data:image/{filetype};base64,{encoded}'
 
-        decoded.append((name, payment, filetype))
-    return decoded
+    # encoded = base64.b64encode(payment).decode('utf-8')
+    # payment = f'data:image/{filetype};base64,{encoded}'
+
+    return data
 
 
 def check_delegate_is_registered(email_id: str) -> bool:
