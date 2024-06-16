@@ -15,12 +15,6 @@
     }
 }
 
-button {
-    background-color: red;
-    height: 100px;
-    width: 100px;
-}
-
 form {
     width: 75%;
     margin-left: auto;
@@ -48,6 +42,8 @@ input {
     &::placeholder { color: #ffffffbf; }
 }
 
+input:not(#confirmation), select { height: 4vh }
+
 select {
     padding-left: 0.25vw;
     color: #ffffffbf;
@@ -55,6 +51,7 @@ select {
 
 textarea {
     resize: vertical;
+    padding-left: 0.5vw;
 
     &::placeholder { color: #ffffffbf; }
 }
@@ -62,6 +59,46 @@ textarea {
 .select-placeholder {
     color: #ffffffbf;
     background-color: var(--secondary);
+}
+
+.add-sub-delegate {
+    border: none;
+    border-radius: 100%;
+    width: 5vh;
+    height: 5vh;
+    font-size: 5vh;
+    line-height: 5vh;
+    background-color: green;
+    position: relative;
+    margin-left: auto;
+
+    &:hover:before {
+        position: absolute;
+        content: "Add Delegate";
+        display: inline-block;
+        background-color: #00ff00ba;
+        color: white;
+        font-size: 1.5vh;
+        line-height: 2vh;
+        margin-left: -12vh;
+        margin-top: auto;
+        margin-bottom: auto;
+        width: max-content;
+        height: 2vh;
+        margin-top: 1.25vh;
+        text-align: center;
+        justify-content: center;
+        padding: 0.25vh;
+        border-radius: 5px;
+    }
+}
+
+#submit {
+    background-color: green;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1vh 1vw 1vh 1vw;
 }
 
 #allotment-preferences {
@@ -72,8 +109,13 @@ textarea {
 
     & > * {
         width: 98%;
-        height: 75%;
     }
+}
+
+#double-allotment-preferences {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-row-gap: 1vh;
 }
 
 #primary-comm, #secondary-comm {
@@ -88,6 +130,34 @@ textarea {
     font-size: 1.25vh;
 }
 
+.double-info {
+    display: none;
+    flex-direction: column;
+    border-top: 1px solid white;
+
+    & > * {
+        margin-bottom: 1vh;
+        width: 100%;
+    }
+}
+
+.shown {
+    display: flex;
+}
+
+.sub-delegate-form {
+    width: 100%;
+    border: 1px white solid;
+    border-radius: 20px;
+    padding-top: 1vh;
+    margin-top: 3vh;
+
+    & > * {
+        width: 99%;
+        margin-left: 0.5%;
+    }
+}
+
 @media screen and (max-width: 1200px) {
     .form-page {
         width: 100%;
@@ -96,5 +166,9 @@ textarea {
             font-size: 7.5vh;
             line-height: 7.5vh;
         }
+    }
+
+    #submit {
+        width: 50%;
     }
 }

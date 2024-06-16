@@ -175,4 +175,8 @@ def fetch_all_delegates(condition: str = '', params: str = 'name, payment, filet
 def check_delegate_is_registered(email_id: str) -> bool:
     cursor.execute('''SELECT * FROM delegates WHERE email=%s''', (email_id,))
 
-    return bool(cursor.fetchone())
+    res = cursor.fetchone()
+
+    print(res)
+
+    return bool(res)

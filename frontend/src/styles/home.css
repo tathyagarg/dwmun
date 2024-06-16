@@ -176,15 +176,15 @@ body {
 
 #image-placeholder-3 {
     background-color: red;
-    height: 50vh;
+    height: 25vh;
     aspect-ratio: 2/3;
-    /* float: right; */
 }
 
 #principal-letter {
     width: 60%;
     margin-left: auto;
     margin-right: auto;
+    height: 50vh;
 
     & > h1 {
         font-family: "Glockenspiel", serif;
@@ -203,7 +203,7 @@ body {
 #letter {
     margin-left: 2vw;
     width: 100%;
-    font-size: 2vh;
+    font-size: 1vh;
     font-weight: 100;
 }
 
