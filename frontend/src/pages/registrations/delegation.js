@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import DelegateRegistration from "../../components/delegate_registration";
 
 export default function DelegationRegistration() {
@@ -68,33 +68,35 @@ export default function DelegationRegistration() {
     const handleSubmit = async (event) => {
         event.preventDefault()
 
-        let result = {}
+        const allFormData = delegates.map(ref => ref.current.getFormData().name)
 
-        const formData = new FormData(event.target)
-        formData.forEach((value, key) => {
-            if (value == "" && key !== "prior_experience") {
-                alert("Fill in all the fields")
-            }
-            if (key !== "proof") { result[key] = value }
-        })
+        // let result = {}
 
-        let json = JSON.stringify(result)
+        // const formData = new FormData(event.target)
+        // formData.forEach((value, key) => {
+        //     if (value == "" && key !== "prior_experience") {
+        //         alert("Fill in all the fields")
+        //     }
+        //     if (key !== "proof") { result[key] = value }
+        // })
 
-        const postData = new FormData()
-        postData.append("registration_data", json)
-        postData.append("payment", proof)
+        // let json = JSON.stringify(result)
 
-        const qs = new URLSearchParams(postData).toString()
+        // const postData = new FormData()
+        // postData.append("registration_data", json)
+        // postData.append("payment", proof)
 
-        fetch("individual?" + qs, {
-            method: 'POST',
-            body: postData
-        })
-            .then(response => response.json())
-            .then(data => {alert(JSON.stringify(data))})
-            .catch(error => {
-                console.error(error)
-            })
+        // const qs = new URLSearchParams(postData).toString()
+
+        // fetch("individual?" + qs, {
+        //     method: 'POST',
+        //     body: postData
+        // })
+        //     .then(response => response.json())
+        //     .then(data => {alert(JSON.stringify(data))})
+        //     .catch(error => {
+        //         console.error(error)
+        //     })
     }
 
     return (<div>
@@ -210,11 +212,11 @@ export default function DelegationRegistration() {
                 </div>
 
                 <div className="sub-delegates" id="sub-delegates">
-                    {delegates}
+                    {delegates.map((ref, index) => <DelegateRegistration elemNo={index+1} ref={ref}/>)}
                 </div>
 
                 <button className="add-sub-delegate" type="button" onClick={() => {
-                    setDelegates([...delegates, <DelegateRegistration elemNo={delegates.length + 1}/>])
+                    setDelegates([...delegates, React.createRef()])
                 }}>+</button>
 
                 <label>Proof of Payment</label>

@@ -21,14 +21,14 @@ class DelegateRegistrationData(pydantic.BaseModel):
 
     prior_experience: str = ''
 
-    double_name: str
-    double_email: str
-    double_phone_number: str
-    double_grade: int
+    double_name: str = ''
+    double_email: str = ''
+    double_phone_number: str = ''
+    double_grade: int = 0
 
-    double_primary_comm: COMMITTEE
-    double_primary_country: str
-    double_secondary_country: str
+    double_primary_comm: COMMITTEE = ''
+    double_primary_country: str = ''
+    double_secondary_country: str = ''
 
     double_prior_experience: str = ''
 

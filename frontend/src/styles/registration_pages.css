@@ -68,7 +68,7 @@ textarea {
     height: 5vh;
     font-size: 5vh;
     line-height: 5vh;
-    background-color: green;
+    background-color: #0A5C36;
     position: relative;
     margin-left: auto;
 
@@ -76,7 +76,7 @@ textarea {
         position: absolute;
         content: "Add Delegate";
         display: inline-block;
-        background-color: #00ff00ba;
+        background-color: #0A5C36BA;
         color: white;
         font-size: 1.5vh;
         line-height: 2vh;
@@ -94,7 +94,7 @@ textarea {
 }
 
 #submit {
-    background-color: green;
+    background-color: #0A5C36;
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
@@ -156,6 +156,18 @@ textarea {
         width: 99%;
         margin-left: 0.5%;
     }
+}
+
+.error {
+    color: red;
+}
+
+.success {
+    color: #0A5C36;
+}
+
+#status {
+    text-align: center;
 }
 
 @media screen and (max-width: 1200px) {

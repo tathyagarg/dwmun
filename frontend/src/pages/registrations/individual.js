@@ -17,6 +17,8 @@ export default function IndividualRegistration() {
             .map(w => w.charAt(0).toUpperCase() + w.slice(1))
             .join(' ')
             .replace("Double", "Partner's")
+            .replace("Comm", "Commitee")
+            .replace("Country", "Portfolio Preference")
     }
 
     const handlePrimaryCommChange = e => {
@@ -72,15 +74,54 @@ export default function IndividualRegistration() {
 
         const formData = new FormData(event.target)
         if (formData.get("confirmation") !== "on") {
-            alert("Please confirm that you have read the Code of Conduct and have filled the form correctly by clicking the checkbox.")
+            const elem = document.getElementById('status')
+            elem.innerHTML = "Please check the confirmation box to confirm that you have read our Code of Conduct and have filled the form correctly."
+            elem.classList.add('error')
+            elem.classList.remove('success')
+            window.scroll(0, 0)
             return
+        }
+
+        for (let element of [
+            document.getElementById("grade"),
+            document.getElementById("primary-comm"),
+            document.getElementById("secondary-comm")
+        ]) {
+            if (element.value == "") {
+                const elem = document.getElementById('status')
+                elem.innerHTML = `Field not filled: ${purify(element.name)}`
+                elem.classList.add('error')
+                elem.classList.remove('success')
+                window.scroll(0, 0)
+                return
+            }
+        }
+
+        if (comm1 == "UNSC" || comm2 == "UNSC") {
+            for (let element of [
+                document.getElementById("double-primary-comm"),
+                document.getElementById("double-grade")
+            ]) {
+                if (element.value == "") {
+                    const elem = document.getElementById('status')
+                    elem.innerHTML = `Field not filled: ${purify(element.name)}`
+                    elem.classList.add('error')
+                    elem.classList.remove('success')
+                    window.scroll(0, 0)
+                    return
+                }
+            }
         }
 
         for (let item of formData) {
             let [key, value] = [item[0], item[1]]
 
-            if ((value == "" && key !== "prior_experience") && (value == "" && key.includes("double") && (comm1 === "UNSC" || comm2 === "UNSC") && key !== "double_prior_experience")) {
-                alert(`Field not filled: ${purify(key)} (${key})`)
+            if ((value == "" && (key !== "prior_experience" && (key.includes("double") && (comm1 === "UNSC" || comm2 === "UNSC") && key !== "double_prior_experience")))) {
+                const elem = document.getElementById('status')
+                elem.innerHTML = `Field not filled: ${purify(key)}`
+                elem.classList.add('error')
+                elem.classList.remove('success')
+                window.scroll(0, 0)
                 return
             }
 
@@ -93,23 +134,39 @@ export default function IndividualRegistration() {
         postData.append("registration_data", json)
         postData.append("payment", proof)
 
-        const qs = new URLSearchParams(postData).toString()
-
-        fetch("individual?" + qs, {
+        fetch("individual", {
             method: 'POST',
             body: postData
         })
             .then(response => response.json())
-            .then(data => {alert(JSON.stringify(data))})
-            .catch(error => {
-                console.error(error)
+            .then(data => {
+                const {status, response} = data
+                const elem = document.getElementById('status')
+                if (status == 1) {
+                    elem.innerHTML = response
+                    elem.classList.add('error')
+                    elem.classList.remove('success')
+                } else {
+                    elem.innerHTML = "You have been registered!"
+                    elem.classList.add('success')
+                    elem.classList.remove('error')
+                    event.target.reset()
+                    document.getElementById("grade").selectedIndex = 0
+                    document.getElementById("primary-comm").selectedIndex = 0
+                    document.getElementById("secondary-comm").selectedIndex = 0
+                    document.getElementById("double-primary-comm").selectedIndex = 0
+                    document.getElementById("double-grade").selectedIndex = 0
+                }
             })
+
+        window.scroll(0, 0)
     }
 
     return (<div>
         <div className='form-page'>
             <h1>Individual Registration</h1>
             <form id="registration-form" onSubmit={handleSubmit}>
+                <h2 id='status'></h2>
                 <label>General</label>
                 <input name="name" type='text' id="name" placeholder='Name' className='textinput'></input>
                 <input name="email" type='email' id="email" placeholder='E-Mail' className='textinput'></input>

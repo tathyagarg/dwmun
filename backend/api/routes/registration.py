@@ -3,6 +3,7 @@ from fastapi import (
     status,
     File,
     UploadFile,
+    Body
 )
 from fastapi.responses import JSONResponse
 from utils.models import (
@@ -44,11 +45,13 @@ async def get_indis_ep():
 
 
 @router.post("/individual", response_class=JSONResponse, status_code=status.HTTP_200_OK)
-async def individual_registration_ep(registration_data: str, payment: UploadFile = File(...)):
+async def individual_registration_ep(registration_data: str = Body(...), payment: UploadFile = File(...)):
     payment_content = await payment.read()
     filetype: str = get_filetype(payment.filename)
 
     parsed = parse_str_to_dict(registration_data)
+
+    print(json.dumps(parsed))
 
     registration_data: DelegateRegistrationData = DelegateRegistrationData.model_validate_json(json.dumps(parsed))
 
@@ -119,7 +122,7 @@ async def individual_registration_ep(registration_data: str, payment: UploadFile
     return response
 
 @router.post("/delegation", response_class=JSONResponse, status_code=status.HTTP_200_OK)
-async def delegation_registration_ep(registration_data: list[DelegateRegistrationData], payment: UploadFile = File(...)):
+async def delegation_registration_ep(registration_data: str = Body(...), payment: UploadFile = File(...)):
     payment_content = await payment.read()
     filetype: str = get_filetype(payment.filename)
 

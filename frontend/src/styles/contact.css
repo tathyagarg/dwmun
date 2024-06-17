@@ -5,7 +5,13 @@
     color: var(--contrast-secondary);
     opacity: 0.9;
 
-    & > h1 { font-size: 5vh; }
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    & > div > h1 {
+        font-size: 5vh;
+        width: fit-content;
+    }
 }
 
 .gradient {
@@ -17,10 +23,9 @@
 
 .contact-details {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     width: min-content;
     grid-column-gap: 10vw;
-    height: 20%;
 
     & > p { font-size: 2vh; }
     & > h2 { font-size: 3vh; }
@@ -45,7 +50,26 @@
     height: auto;
 }
 
+.left {
+    width: fit-content;
+}
+
+.right {
+    float: right;
+}
+
+.map {
+    height: 100%;
+    width: 100%;
+}
+
 @media screen and (max-width: 1200px) {
+    .content {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        height: auto;
+    }
+
     .content > h1 {
         font-size: 3vh;
     }

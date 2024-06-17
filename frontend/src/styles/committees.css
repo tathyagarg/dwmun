@@ -10,6 +10,7 @@
 
     font-family: "Glockenspiel";
     letter-spacing: 0.4vh;
+    margin-bottom: 2vh;
 }
 
 .committees {
@@ -168,7 +169,7 @@
     &:nth-child(2) { margin-left: auto; }
 }
 
-p {
+.comm-content p {
     font-size: 2vh;
 }
 

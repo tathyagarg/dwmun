@@ -18,3 +18,6 @@ def parse_str_to_dict(text: str) -> dict:
     result.pop('confirmation')
 
     return result
+
+def parse_str_to_list(text: str) -> dict:
+    ...

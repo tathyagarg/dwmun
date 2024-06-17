@@ -29,7 +29,6 @@ export default function Committees() {
     return <div>
         <div className="all">
             <h1 className='header'>Committees</h1>
-            <h1 style={{textAlign: "center"}} className='jumpto-header'>Jump To:</h1>
             <div className='jumpto-bar'>
                 <a href='#unsc'>UNSC</a>
                 <a href='#unhrc'>UNHRC</a>

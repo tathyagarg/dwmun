@@ -15,9 +15,9 @@ function updateDate() {
     const minutes_count = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
 
     try {
-        document.getElementById("days").textContent = ((day_count === 0) ? "0" : "") + ((day_count < 10) ? "0" : "") + day_count;
-        document.getElementById("hours").textContent = ((hours_count === 0) ? "0" : "") + ((hours_count < 10) ? "0" : "") + hours_count;
-        document.getElementById("minutes").textContent = ((minutes_count === 0) ? "0" : "") + ((minutes_count < 10) ? "0" : "") + minutes_count;
+        document.getElementById("days").textContent = ((day_count < 10) ? "0" : "") + day_count;
+        document.getElementById("hours").textContent = ((hours_count < 10) ? "0" : "") + hours_count;
+        document.getElementById("minutes").textContent = ((minutes_count < 10) ? "0" : "") + minutes_count;
     } catch (err) {
         ;
     }

@@ -85,7 +85,7 @@ body {
 }
 
 .about-div {
-    width: 50%;
+    width: 60%;
     margin-left: auto;
     margin-right: auto;
     box-sizing: border-box;
@@ -109,13 +109,16 @@ body {
     }
 
     & h2 {
+        font-family: "Glockenspiel", serif;
         line-height: 3vh;
+        letter-spacing: 2px;
         font-size: 3vh;
-        font-weight: 500;
         margin: 0;
     }
 
     & h1 {
+        font-family: "Glockenspiel", serif;
+        letter-spacing: 2px;
         line-height: 5vh;
         font-size: 5vh;
         font-weight: 500;
@@ -203,7 +206,7 @@ body {
 #letter {
     margin-left: 2vw;
     width: 100%;
-    font-size: 1vh;
+    font-size: 1.5vh;
     font-weight: 100;
 }
 
@@ -273,6 +276,7 @@ body {
 
     #principal-letter {
         width: 90%;
+        height: auto;
 
         & > h1 { font-size: 4vh; }
         & > p {
