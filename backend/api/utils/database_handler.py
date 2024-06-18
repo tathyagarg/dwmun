@@ -110,52 +110,60 @@ def register_individual(data: DelegateRegistrationData, file_data: str, filetype
         return 0, ''
 
 @post_commit
-def register_delegation(delegates: list[DelegateRegistrationData], file_data: str, filetype: str) -> STATUS:
+def register_delegation(name: str, delegates: list[DelegateRegistrationData], file_data: str, filetype: str) -> STATUS:
     try:
         head_del, other = delegates[0], delegates[1:]
 
         delegate_data = (
             head_del.name,
             head_del.email,
+            head_del.phone_number,
             head_del.school,
+            head_del.grade,
             head_del.primary_comm,
             head_del.primary_country,
+            head_del.primary_country_2,
             head_del.secondary_comm,
             head_del.secondary_country,
+            head_del.secondary_country_2,
             head_del.prior_experience,
             file_data,
             filetype
         )
 
         # Register the delegation
-        cursor.execute('''INSERT INTO delegations () VALUES ()''')
-        delegation_id = cursor.lastrowid()
+        cursor.execute('''INSERT INTO delegations (name) VALUES (%s)''', (name,))
+        delegation_id = cursor.lastrowid
 
         # Register the head del
         cursor.execute('''INSERT INTO delegates (
-            name, email, phone_number, school, grade, primary_comm, primary_country,
-                secondary_comm, secondary_country, prior_experience, payment, filetype, is_head, delegation_id
-        ) VALUES (%s, %s, %s, %s, %d, %s, %s, %s, %s, %s, TRUE, %d)''', (*delegate_data, delegation_id))
+            name, email, phone_number, school, grade, primary_comm, primary_country, primary_country_2,
+                secondary_comm, secondary_country, secondary_country_2, prior_experience, payment, filetype, is_head, delegation_id
+        ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, TRUE, %s)''', (*delegate_data, delegation_id))
 
         # Register other dels
         for delegate in other:
             delegate_data = (
                 delegate.name,
                 delegate.email,
+                delegate.phone_number,
                 delegate.school,
+                delegate.grade,
                 delegate.primary_comm,
                 delegate.primary_country,
+                delegate.primary_country_2,
                 delegate.secondary_comm,
                 delegate.secondary_country,
+                delegate.secondary_country_2,
                 delegate.prior_experience,
-                '--REFER TO HEAD DEL--',
+                '---REFER TO HEAD DELEGATE---',
                 filetype
             )
 
             cursor.execute('''INSERT INTO delegates (
-                name, email, phone_number, school, grade, primary_comm, primary_country,
-                    secondary_comm, secondary_country, prior_experience, payment, filetype, is_head, delegation_id
-            ) VALUES (%s, %s, %s, %s, %d, %s, %s, %s, %s, FALSE, %s, %d)''', (*delegate_data, delegation_id))
+                name, email, phone_number, school, grade, primary_comm, primary_country, primary_country_2,
+                    secondary_comm, secondary_country, secondary_country_2, prior_experience, payment, filetype, is_head, delegation_id
+            ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, FALSE, %s)''', (*delegate_data, delegation_id))
     except Exception as e:
         return 1, str(e)
     else:
@@ -176,7 +184,5 @@ def check_delegate_is_registered(email_id: str) -> bool:
     cursor.execute('''SELECT * FROM delegates WHERE email=%s''', (email_id,))
 
     res = cursor.fetchone()
-
-    print(res)
 
     return bool(res)

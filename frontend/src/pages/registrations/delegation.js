@@ -8,7 +8,10 @@ export default function DelegationRegistration() {
     const [options3, setOptions3] = useState(<option value={""} disabled selected>Loading...</option>)
     const [comm1, setComm1] = useState("")
     const [comm2, setComm2] = useState("")
+    const [comm3, setComm3] = useState("")
     const [delegates, setDelegates] = useState([])
+    const [grade, setGrade] = useState(0)
+    const [doubleGrade, setDoubleGrade] = useState(0)
 
     const purify = (word) => {
         return word
@@ -17,6 +20,8 @@ export default function DelegationRegistration() {
             .map(w => w.charAt(0).toUpperCase() + w.slice(1))
             .join(' ')
             .replace("Double", "Partner's")
+            .replace("Comm", "Commitee")
+            .replace("Country", "Portfolio Preference")
     }
 
     const handlePrimaryCommChange = e => {
@@ -63,12 +68,133 @@ export default function DelegationRegistration() {
 
                 setOptions3(option_lis)
             })
+
+        setComm3(e.target.value)
+    }
+
+    const triggerError = (element) => {
+        element.classList.add('error')
+        element.classList.remove('success')
+
+        return window.scroll(0, 0)
+    }
+
+    const triggerSuccess = (element) => {
+        element.classList.add('success')
+        element.classList.remove('error')
+
+        return window.scroll(0, 0)
+    }
+
+    const getDelegateData = (data, isHeadDel, index) => {
+        let res = {}
+        const statusElement = document.getElementById("status")
+        const append = isHeadDel ? "" : ` for Delegate #${index+1}`
+
+        if (isHeadDel && data.get("confirmation") !== "on") {
+            statusElement.innerHTML = "Please check the confirmation box to confirm that you have read our Code of Conduct and have filled the form correctly."
+            return triggerError(statusElement)
+        }
+
+        const toCheck = isHeadDel ? [grade, comm1, comm2] : [data["grade"], data["primary_comm"], data["secondary_comm"]]
+        const failure = [0, "", ""]
+        const purified = ["Grade", "Primary Committee Preference", "Secondary Committee Preference"]
+
+        for (let i = 0; i < 3; i++) {
+            if (toCheck[i] === failure[i]) {
+                statusElement.innerHTML = `Field not filled: ${purified[i]}` + append
+                return triggerError(statusElement)
+            }
+        }
+
+        const [uComm1, uComm2] = isHeadDel ? [comm1, comm2] : [data["primary_comm"], data["secondary_comm"]]
+
+        if (uComm1 === "UNSC" || uComm2 === "UNSC") {
+            const uDoubleGrade = isHeadDel ? doubleGrade : data["double_grade"]
+            if (uDoubleGrade === 0) {
+                statusElement.innerHTML = `Field not filled: Partner's Grade` + append
+                return triggerError(statusElement)
+            }
+
+            const uComm3 = isHeadDel ? comm3 : data["double_primary_comm"]
+
+            if (uComm3 === "") {
+                statusElement.innerHTML = `Field not filled: Partner's Committee Preference` + append
+                return triggerError(statusElement)
+            }
+        }
+
+        if (isHeadDel) {
+            for (let item of data) {
+                let [key, value] = [item[0], item[1]]
+
+                if (value == "" && !["grade", "primary_comm", "secondary_comm", "double_grade", "double_primary_comm", "prior_experience", "double_prior_experience"].includes(key)) {
+                    if (!key.includes('double') || (key.includes("double") && (comm1 === "UNSC" || comm2 === "UNSC"))) {
+                        statusElement.innerHTML = `Field not filled: ${purify(key)}` + append
+                        return triggerError(statusElement)
+                    }
+                }
+
+                if (key !== "proof") {
+                    res[key] = value
+                }
+            }
+
+            res["double_grade"] = doubleGrade
+            res["double_primary_comm"] = comm3
+        } else {
+            for (let [key, value] of Object.entries(data)) {
+                if (value == "" && !["grade", "primary_comm", "secondary_comm", "double_grade", "double_primary_comm", "prior_experience", "double_prior_experience"].includes(key)) {
+                    if (!key.includes('double') || (key.includes("double") && (comm1 === "UNSC" || comm2 === "UNSC"))) {
+                        statusElement.innerHTML = `Field not filled: ${purify(key)}` + append
+                        return triggerError(statusElement)
+                    }
+                }
+
+                if (key !== "proof") {
+                    res[key] = value
+                }
+            }
+        }
+
+        return res
     }
 
     const handleSubmit = async (event) => {
         event.preventDefault()
 
-        const allFormData = delegates.map(ref => ref.current.getFormData().name)
+        const allFormData = delegates.map(ref => ref.current.getFormData())
+
+        let res = []
+
+        const headData = new FormData(event.target)
+
+        res.push(JSON.stringify(getDelegateData(headData, true)))
+
+        allFormData.forEach((data, index) => res.push(JSON.stringify(getDelegateData(data, false, index))))
+
+        const postData = new FormData()
+        postData.append('registration_data', JSON.stringify(res))
+        postData.append('payment', proof)
+        postData.append('name', 'gigachads')
+
+        const requestData = {
+            method: 'POST',
+            body: postData
+        }
+
+        console.log(`Headers: ${JSON.stringify(requestData.headers)}\n\nBody:\n`)
+        requestData.body.forEach((value, key) => console.log(`${key}: ${value}`))
+
+        fetch("delegation", requestData)
+            .then(response => response.json())
+            .then(data => alert(data))
+
+        // allFormData.forEach(del => {
+        //     for (var key in del) {
+        //         alert(`${key} : ${del[key]}`)
+        //     }
+        // })
 
         // let result = {}
 
@@ -103,6 +229,7 @@ export default function DelegationRegistration() {
         <div className='form-page'>
             <h1>Delegation Registration</h1>
             <form id="registration-form" onSubmit={handleSubmit}>
+                <h2 id="status"></h2>
                 <ul className="instructions">
                     <li>Do this</li>
                     <li>And Do this</li>
@@ -113,7 +240,9 @@ export default function DelegationRegistration() {
                 <input name="email" type='email' id="email" placeholder='E-Mail' className='textinput'></input>
                 <input name="phone_number" type='tel' id="phone-no" placeholder='Phone Number (10 Digit)' className='textinput'></input>
                 <input name="school" type='text' id="school" placeholder='School' className='textinput'></input>
-                <select name="grade" id="grade">
+                <select name="grade" id="grade" onChange={(e) => {
+                    setGrade(e.target.value)
+                }}>
                     <option value={""} disabled selected className="select-placeholder">Select your grade</option>
                     <option value={9}>Grade 9</option>
                     <option value={10}>Grade 10</option>
@@ -175,7 +304,9 @@ export default function DelegationRegistration() {
                     <input name="double_name" type='text' id="double-name" placeholder={'Partner\'s Name'} className='textinput'></input>
                     <input name="double_email" type='email' id="double-email" placeholder={'Partner\'s E-Mail'} className='textinput'></input>
                     <input name="double_phone_number" type='text' id="double-phone-no" placeholder={'Partner\'s Phone Number'} className='textinput'></input>
-                    <select name="double_grade" id="double-grade">
+                    <select name="double_grade" id="double-grade" onChange={(e) => {
+                        setDoubleGrade(e.target.value)
+                    }}>
                         <option value={""} disabled selected className="select-placeholder">Select your partner's grade</option>
                         <option value={9}>Grade 9</option>
                         <option value={10}>Grade 10</option>

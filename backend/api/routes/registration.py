@@ -23,26 +23,30 @@ from utils.utils import (
     parse_str_to_dict
 )
 import json
+import ast
 
 router = APIRouter(prefix='/registration', tags=['registrations'])
 
 
-def check_file_validity(payment, payment_content) -> str | int:
+def check_file_validity(payment, payment_content) -> tuple[int, str]:
     if payment == '':
-        return "PAYMENT PROOF NOT SUBMITTED"  # TODO: add proper response
+        return 1, "Payment Proof not submitted"  # TODO: add proper response
 
     if payment.filename == '' or not check_valid_image_filetype(payment.filename):
-        return "INVALID FILE FORMAT"  # TODO: add proper response
+        return 1, "Invalid file format"  # TODO: add proper response
 
     if not check_valid_image_filesize(payment_content):
-        return "FILE TOO LARGE"  # TODO: add proper response
+        return 1, "File too large"  # TODO: add proper response
 
-    return 0
+    return 0, ""
 
 @router.get("/individual", response_class=JSONResponse, status_code=status.HTTP_200_OK)
 async def get_indis_ep():
     return fetch_all_delegates(params='name, email')
 
+@router.get("/delegation", response_class=JSONResponse, status_code=status.HTTP_200_OK)
+async def get_delegation_ep():
+    return fetch_all_delegates(condition='WHERE delegation_id IS NOT NULL', params='name, email, delegation_id')
 
 @router.post("/individual", response_class=JSONResponse, status_code=status.HTTP_200_OK)
 async def individual_registration_ep(registration_data: str = Body(...), payment: UploadFile = File(...)):
@@ -51,18 +55,13 @@ async def individual_registration_ep(registration_data: str = Body(...), payment
 
     parsed = parse_str_to_dict(registration_data)
 
-    print(json.dumps(parsed))
-
     registration_data: DelegateRegistrationData = DelegateRegistrationData.model_validate_json(json.dumps(parsed))
 
     if check_delegate_is_registered(registration_data.email):
-        print(registration_data.email)
-        return "DELEGATE ALREADY REGISTERED"  # TODO: add proper response
+        return 1, "Delegate already registered!"  # TODO: add proper response
 
-    if (validity := check_file_validity(payment, payment_content)) != 0:
+    if (validity := check_file_validity(payment, payment_content)) != (0, ""):
         return validity
-
-    print(registration_data.primary_comm)
 
     primary_registration_data = SingleDelegateRegistrationData(
         name=registration_data.name,
@@ -122,21 +121,34 @@ async def individual_registration_ep(registration_data: str = Body(...), payment
     return response
 
 @router.post("/delegation", response_class=JSONResponse, status_code=status.HTTP_200_OK)
-async def delegation_registration_ep(registration_data: str = Body(...), payment: UploadFile = File(...)):
+async def delegation_registration_ep(name: str = Body(...), registration_data: str = Body(...), payment: UploadFile = File(...)):
     payment_content = await payment.read()
     filetype: str = get_filetype(payment.filename)
 
-    print(registration_data)
+    registration_data = ast.literal_eval(registration_data)
+    registration_data = [ast.literal_eval(elem) for elem in registration_data]
 
-    for delegate in registration_data:
+    head_del = DelegateRegistrationData.model_validate_json(json.dumps(registration_data[0]))
+
+    school = head_del.school
+
+    result = [head_del]
+
+    for parsed in registration_data[1:]:
+        parsed['school'] = school
+
+        result.append(DelegateRegistrationData.model_validate_json(json.dumps(parsed)))
+
+    for delegate in result:
         if check_delegate_is_registered(delegate.email):
             return f"DELEGATE {delegate.email} ALREADY REGISTERED"  # TODO: add proper response
 
-    if (validity := check_file_validity(payment, payment_content)) != 0:
+    if (validity := check_file_validity(payment, payment_content)) != (0, ""):
         return validity
 
     response = register_delegation(
-        delegates=registration_data,
+        name=name,
+        delegates=result,
         file_data=payment_content,
         filetype=filetype
     )

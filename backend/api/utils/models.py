@@ -3,6 +3,7 @@ from typing import Literal
 
 COMMITTEES = ['CCC', 'DISEC', 'IPC', 'Lok Sabha', 'Board Room', 'UNHRC', 'UNSC']
 COMMITTEE = Literal['CCC', 'DISEC', 'IPC', 'Lok Sabha', 'Board Room', 'UNHRC', 'UNSC']
+COMMITTEE_ALLOW_EMPTY = Literal['CCC', 'DISEC', 'IPC', 'Lok Sabha', 'Board Room', 'UNHRC', 'UNSC', '']
 
 class DelegateRegistrationData(pydantic.BaseModel):
     name: str
@@ -26,7 +27,7 @@ class DelegateRegistrationData(pydantic.BaseModel):
     double_phone_number: str = ''
     double_grade: int = 0
 
-    double_primary_comm: COMMITTEE = ''
+    double_primary_comm: COMMITTEE_ALLOW_EMPTY = ''
     double_primary_country: str = ''
     double_secondary_country: str = ''
 

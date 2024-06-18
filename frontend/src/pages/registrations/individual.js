@@ -9,6 +9,8 @@ export default function IndividualRegistration() {
     const [options3, setOptions3] = useState(<option value={""} disabled selected>Loading...</option>)
     const [comm1, setComm1] = useState("")
     const [comm2, setComm2] = useState("")
+    const [comm3, setComm3] = useState("")
+    const [doubleGrade, setDoubleGrade] = useState(0)
 
     const purify = (word) => {
         return word
@@ -65,6 +67,8 @@ export default function IndividualRegistration() {
 
                 setOptions3(option_lis)
             })
+
+        setComm3(e.target.value)
     }
 
     const handleSubmit = async (event) => {
@@ -127,6 +131,9 @@ export default function IndividualRegistration() {
 
             if (key !== "proof") { result[key] = value }
         }
+
+        result["double_grade"] = doubleGrade
+        result["double_primary_comm"] = comm3
 
         let json = JSON.stringify(result)
 
@@ -234,7 +241,7 @@ export default function IndividualRegistration() {
                     <input name="double_name" type='text' id="double-name" placeholder={'Partner\'s Name'} className='textinput'></input>
                     <input name="double_email" type='email' id="double-email" placeholder={'Partner\'s E-Mail'} className='textinput'></input>
                     <input name="double_phone_number" type='text' id="double-phone-no" placeholder={'Partner\'s Phone Number'} className='textinput'></input>
-                    <select name="double_grade" id="double-grade">
+                    <select name="double_grade" id="double-grade" onChange={e => setDoubleGrade(e.target.value)}>
                         <option value={""} disabled selected className="select-placeholder">Select your partner's grade</option>
                         <option value={9}>Grade 9</option>
                         <option value={10}>Grade 10</option>
