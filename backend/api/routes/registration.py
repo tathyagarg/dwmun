@@ -6,22 +6,7 @@ from fastapi import (
     Body
 )
 from fastapi.responses import JSONResponse
-from utils.models import (
-    DelegateRegistrationData,
-    SingleDelegateRegistrationData
-)
-from utils.database_handler import (
-    register_individual,
-    register_delegation,
-    check_delegate_is_registered,
-    fetch_all_delegates
-)
-from utils.utils import (
-    get_filetype,
-    check_valid_image_filetype,
-    check_valid_image_filesize,
-    parse_str_to_dict
-)
+from utils import *
 import json
 import ast
 
@@ -42,7 +27,7 @@ def check_file_validity(payment, payment_content) -> tuple[int, str]:
 
 @router.get("/individual", response_class=JSONResponse, status_code=status.HTTP_200_OK)
 async def get_indis_ep():
-    return fetch_all_delegates(params='name, email')
+    return fetch_all_delegates()
 
 @router.get("/delegation", response_class=JSONResponse, status_code=status.HTTP_200_OK)
 async def get_delegation_ep():
@@ -58,7 +43,7 @@ async def individual_registration_ep(registration_data: str = Body(...), payment
     registration_data: DelegateRegistrationData = DelegateRegistrationData.model_validate_json(json.dumps(parsed))
 
     if check_delegate_is_registered(registration_data.email):
-        return 1, "Delegate already registered!"  # TODO: add proper response
+        return 1, "Delegate already registered!"
 
     if (validity := check_file_validity(payment, payment_content)) != (0, ""):
         return validity
@@ -121,7 +106,7 @@ async def individual_registration_ep(registration_data: str = Body(...), payment
     return response
 
 @router.post("/delegation", response_class=JSONResponse, status_code=status.HTTP_200_OK)
-async def delegation_registration_ep(name: str = Body(...), registration_data: str = Body(...), payment: UploadFile = File(...)):
+async def delegation_registration_ep(registration_data: str = Body(...), payment: UploadFile = File(...)):
     payment_content = await payment.read()
     filetype: str = get_filetype(payment.filename)
 
@@ -139,16 +124,60 @@ async def delegation_registration_ep(name: str = Body(...), registration_data: s
 
         result.append(DelegateRegistrationData.model_validate_json(json.dumps(parsed)))
 
+    final = []
+
     for delegate in result:
+        data = SingleDelegateRegistrationData(
+            name=delegate.name,
+            email=delegate.email,
+            phone_number=delegate.phone_number,
+            school=delegate.school,
+            grade=delegate.grade,
+            primary_comm=delegate.primary_comm,
+            secondary_comm=delegate.secondary_comm,
+            primary_country=delegate.primary_country,
+            primary_country_2=delegate.primary_country_2,
+            secondary_country=delegate.secondary_country,
+            secondary_country_2=delegate.secondary_country_2,
+            prior_experience=delegate.prior_experience
+        )
+
+        final.append(data)
+
+        if "UNSC" in (delegate.primary_comm, delegate.secondary_comm):
+            if delegate.primary_comm == "UNSC":
+                country = delegate.primary_country
+                country2 = delegate.primary_country_2
+            else:
+                country = delegate.secondary_country
+                country2 = delegate.secondary_country_2
+
+            partner = SingleDelegateRegistrationData(
+                name=delegate.double_name,
+                email=delegate.double_email,
+                phone_number=delegate.double_phone_number,
+                school=delegate.school,
+                grade=delegate.double_grade,
+                primary_comm="UNSC",
+                secondary_comm=delegate.double_primary_comm,
+                primary_country=country,
+                primary_country_2=country2,
+                secondary_country=delegate.double_primary_country,
+                secondary_country_2=delegate.double_secondary_country,
+                prior_experience=delegate.double_prior_experience
+            )
+
+            final.append(partner)
+
+    for delegate in final:
         if check_delegate_is_registered(delegate.email):
-            return f"DELEGATE {delegate.email} ALREADY REGISTERED"  # TODO: add proper response
+            return 1, f"Delegate {delegate.email} is already registered"
 
     if (validity := check_file_validity(payment, payment_content)) != (0, ""):
         return validity
 
     response = register_delegation(
-        name=name,
-        delegates=result,
+        delegates=final,
         file_data=payment_content,
         filetype=filetype
     )

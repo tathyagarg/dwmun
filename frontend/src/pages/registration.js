@@ -8,7 +8,7 @@ export default function Registration() {
     window.scroll(0, 0)
     return <div>
         <div className='registration-content'>
-            <h1 className="registration-header">Registration</h1>
+            <h1 className="header">Registration</h1>
             <div className='registration-options'>
                 <Link to="/registration/individual">
                     <div className='option'>

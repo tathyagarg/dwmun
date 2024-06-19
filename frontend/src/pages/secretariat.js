@@ -6,7 +6,7 @@ export default function Secretariat() {
     window.scroll(0, 0)
     return <div>
         <div className="secretariat">
-            <h1 id="secretariat-heading">Secretariat</h1>
+            <h1 className="header">Secretariat</h1>
             <div className='letters'>
                 <div id="sg">
                     <img src={logo}></img>

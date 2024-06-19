@@ -15,7 +15,10 @@ import Registration from './pages/registration';
 import IndividualRegistration from './pages/registrations/individual';
 import DelegationRegistration from './pages/registrations/delegation';
 
+import LoginPage from './pages/login';
+
 import Navbar from './components/navbar';
+
 
 import {
     BrowserRouter as Router,
@@ -41,6 +44,7 @@ function App() {
                 <Route path="/registration" element={<Registration/>}/>
                 <Route path="/registration/individual" element={<IndividualRegistration/>}/>
                 <Route path="/registration/delegation" element={<DelegationRegistration/>}/>
+                <Route path="/login" element={<LoginPage/>}/>
             </Routes>
         </Router>
     )

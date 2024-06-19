@@ -176,53 +176,21 @@ export default function DelegationRegistration() {
         const postData = new FormData()
         postData.append('registration_data', JSON.stringify(res))
         postData.append('payment', proof)
-        postData.append('name', 'gigachads')
+
+        alert(postData.get("registration_data"))
 
         const requestData = {
             method: 'POST',
             body: postData
         }
 
-        console.log(`Headers: ${JSON.stringify(requestData.headers)}\n\nBody:\n`)
+        // alert(typeof requestData.body.get("registration_data"))
+
         requestData.body.forEach((value, key) => console.log(`${key}: ${value}`))
 
         fetch("delegation", requestData)
             .then(response => response.json())
             .then(data => alert(data))
-
-        // allFormData.forEach(del => {
-        //     for (var key in del) {
-        //         alert(`${key} : ${del[key]}`)
-        //     }
-        // })
-
-        // let result = {}
-
-        // const formData = new FormData(event.target)
-        // formData.forEach((value, key) => {
-        //     if (value == "" && key !== "prior_experience") {
-        //         alert("Fill in all the fields")
-        //     }
-        //     if (key !== "proof") { result[key] = value }
-        // })
-
-        // let json = JSON.stringify(result)
-
-        // const postData = new FormData()
-        // postData.append("registration_data", json)
-        // postData.append("payment", proof)
-
-        // const qs = new URLSearchParams(postData).toString()
-
-        // fetch("individual?" + qs, {
-        //     method: 'POST',
-        //     body: postData
-        // })
-        //     .then(response => response.json())
-        //     .then(data => {alert(JSON.stringify(data))})
-        //     .catch(error => {
-        //         console.error(error)
-        //     })
     }
 
     return (<div>

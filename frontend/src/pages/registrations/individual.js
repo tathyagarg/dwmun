@@ -75,10 +75,10 @@ export default function IndividualRegistration() {
         event.preventDefault()
 
         let result = {}
+        const elem = document.getElementById('status')
 
         const formData = new FormData(event.target)
         if (formData.get("confirmation") !== "on") {
-            const elem = document.getElementById('status')
             elem.innerHTML = "Please check the confirmation box to confirm that you have read our Code of Conduct and have filled the form correctly."
             elem.classList.add('error')
             elem.classList.remove('success')
@@ -92,7 +92,6 @@ export default function IndividualRegistration() {
             document.getElementById("secondary-comm")
         ]) {
             if (element.value == "") {
-                const elem = document.getElementById('status')
                 elem.innerHTML = `Field not filled: ${purify(element.name)}`
                 elem.classList.add('error')
                 elem.classList.remove('success')
@@ -107,7 +106,6 @@ export default function IndividualRegistration() {
                 document.getElementById("double-grade")
             ]) {
                 if (element.value == "") {
-                    const elem = document.getElementById('status')
                     elem.innerHTML = `Field not filled: ${purify(element.name)}`
                     elem.classList.add('error')
                     elem.classList.remove('success')
@@ -121,12 +119,15 @@ export default function IndividualRegistration() {
             let [key, value] = [item[0], item[1]]
 
             if ((value == "" && (key !== "prior_experience" && (key.includes("double") && (comm1 === "UNSC" || comm2 === "UNSC") && key !== "double_prior_experience")))) {
-                const elem = document.getElementById('status')
                 elem.innerHTML = `Field not filled: ${purify(key)}`
                 elem.classList.add('error')
                 elem.classList.remove('success')
                 window.scroll(0, 0)
                 return
+            }
+
+            if ((key === "phone_number" || key === "double_phone_number") && value.length !== 10) {
+                elem.innerHTML = `Please enter a 10-digit long phone number in the field: ${purify(key)}`
             }
 
             if (key !== "proof") { result[key] = value }
@@ -147,7 +148,7 @@ export default function IndividualRegistration() {
         })
             .then(response => response.json())
             .then(data => {
-                const {status, response} = data
+                const [status, response] = data
                 const elem = document.getElementById('status')
                 if (status == 1) {
                     elem.innerHTML = response

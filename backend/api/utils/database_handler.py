@@ -1,9 +1,9 @@
 import mysql.connector
-from .models import DelegateRegistrationData
+from .models import SingleDelegateRegistrationData
 import dotenv
 import os
 import base64
-
+from .encryption import encrypt
 
 dotenv.load_dotenv()
 
@@ -46,7 +46,6 @@ def create_tables() -> STATUS:
     try:
         cursor.execute('''CREATE TABLE IF NOT EXISTS delegations (
             id INT AUTO_INCREMENT,
-            name VARCHAR(255) NOT NULL,
             PRIMARY KEY (id)
         )''')
 
@@ -70,10 +69,15 @@ def create_tables() -> STATUS:
             filetype VARCHAR(4),
             assigned_comm ENUM('CCC', 'DISEC', 'IPC', 'Lok Sabha', 'Board Room', 'UNHRC', 'UNSC'),
             assigned_country VARCHAR(255),
-            email_sent BOOL,
+            email_sent BOOL DEFAULT FALSE,
             PRIMARY KEY (id),
             FOREIGN KEY (delegation_id)
                 REFERENCES delegations(id)
+        );''')
+
+        cursor.execute('''CREATE TABLE IF NOT EXISTS admin (
+            name VARCHAR(255) NOT NULL,
+            password BINARY(60) NOT NULL
         );''')
     except Exception as e:
         return 1, str(e)
@@ -81,7 +85,8 @@ def create_tables() -> STATUS:
         return 0, ''
 
 @post_commit
-def register_individual(data: DelegateRegistrationData, file_data: str, filetype: str) -> STATUS:
+def register_individual(data: SingleDelegateRegistrationData, file_data: str, filetype: str) -> STATUS:
+    print(f"Registering {data.name}")
     try:
         delegate_data = (
             data.name,
@@ -107,10 +112,11 @@ def register_individual(data: DelegateRegistrationData, file_data: str, filetype
     except Exception as e:
         return 1, str(e)
     else:
+        print("we chill")
         return 0, ''
 
 @post_commit
-def register_delegation(name: str, delegates: list[DelegateRegistrationData], file_data: str, filetype: str) -> STATUS:
+def register_delegation(delegates: list[SingleDelegateRegistrationData], file_data: str, filetype: str) -> STATUS:
     try:
         head_del, other = delegates[0], delegates[1:]
 
@@ -132,7 +138,7 @@ def register_delegation(name: str, delegates: list[DelegateRegistrationData], fi
         )
 
         # Register the delegation
-        cursor.execute('''INSERT INTO delegations (name) VALUES (%s)''', (name,))
+        cursor.execute('''INSERT INTO delegations () VALUES ()''')
         delegation_id = cursor.lastrowid
 
         # Register the head del
@@ -170,14 +176,34 @@ def register_delegation(name: str, delegates: list[DelegateRegistrationData], fi
         return 0, ''
 
 
-def fetch_all_delegates(condition: str = '', params: str = 'name, payment, filetype'):
-    cursor.execute(f'SELECT {params} FROM delegates ' + condition)
+def fetch_all_delegates(condition: str = ''):
+    cursor.execute(f'SELECT * FROM delegates ' + condition)
     data = cursor.fetchall()
 
-    # encoded = base64.b64encode(payment).decode('utf-8')
-    # payment = f'data:image/{filetype};base64,{encoded}'
+    result = []
 
-    return data
+    for item in data:
+        curr = []
+        for i, piece in enumerate(item):
+            if i == 15:
+                curr.append(decode_file(piece, item[i+1]))
+            else:
+                curr.append(piece)
+
+        result.append(curr)
+
+    return result
+
+
+def decode_file(file_data, filetype):
+    encoded = base64.b64encode(file_data).decode('utf-8')
+    return f'data:image/{filetype};base64,{encoded}'
+
+
+def fetch_admin_data() -> tuple[str, bytes]:
+    cursor.execute('SELECT name, password FROM admin')
+
+    return cursor.fetchone()
 
 
 def check_delegate_is_registered(email_id: str) -> bool:
