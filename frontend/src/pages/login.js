@@ -27,7 +27,7 @@ export default function LoginPage() {
             link.download = 'data.xlsx';
             document.body.appendChild(link);
             link.click();
-            // document.body.removeChild(link);
+            document.body.removeChild(link);
         } else {
             const postData = new FormData()
             postData.append("file", data)

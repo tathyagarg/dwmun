@@ -187,7 +187,7 @@ body {
     width: 60%;
     margin-left: auto;
     margin-right: auto;
-    height: 50vh;
+    height: fit-content;
 
     & > h1 {
         font-family: "Glockenspiel", serif;

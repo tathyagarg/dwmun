@@ -3,6 +3,7 @@
     background-color: #192822;
     display: flex;
     align-items: center;
+    justify-content: center;
     border-bottom: 1px solid var(--secondary-light);
     overflow: hidden;
     position: sticky;
@@ -13,8 +14,6 @@
         margin: 0 2vw;
         font-size: 2vh;
     }
-
-    & > a:first-child { margin-left: auto; }
 }
 
 .logo {

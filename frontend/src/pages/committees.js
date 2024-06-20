@@ -35,7 +35,7 @@ export default function Committees() {
                 <a href='#disec'>DISEC</a>
                 <a href='#lok-sabha'>Lok Sabha</a>
                 <a href='#ipc'>IPC</a>
-                <a href='#board-room'>Board Room</a>
+                <a href='#commitee-x'>Committee X</a>
                 <a href='#ccc'>CCC</a>
             </div>
             <div className='committees' id="committees">
@@ -54,8 +54,8 @@ export default function Committees() {
                 <section className='comm' id="ipc">
                     <CommLink to="/committees/ipc">IPC</CommLink>
                 </section>
-                <section className='comm' id="board-room">
-                    <CommLink to="/committees/board-room">Board Room</CommLink>
+                <section className='comm' id="committee-x">
+                    <CommLink to="/committees/committee-x">Committee X</CommLink>
                 </section>
                 <section className='comm' id="ccc">
                     <CommLink to="/committees/ccc">CCC</CommLink>

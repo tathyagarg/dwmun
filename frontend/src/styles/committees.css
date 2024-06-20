@@ -49,15 +49,15 @@
 
     &:hover { background-color: rgba(25, 40, 34, 0.3); }
     &:hover > a {
-        font-size: 35vh;
-        line-height: 35vh;
+        font-size: 33vh;
+        line-height: 33vh;
         margin: 0;
     }
     & > a { font-family: "Glockenspiel", serif; }
     & > a::before { margin-top: 7.5vh; }
 }
 
-#board-room { background-image: url('../assets/comm-bgs/ssci.webp'); }
+#committee-x { background-image: url('../assets/comm-bgs/ssci.webp'); }
 
 #unsc { background-image: url('../assets/comm-bgs/unsc.webp'); }
 
@@ -74,108 +74,212 @@
     background-position-y: 0%;
 }
 
+/* --------------------------------------------------------- */
+
 .comm-content {
-    width: 50%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 5vh;
     color: white;
 
-    padding-bottom: 5vh;
+    height: 82.5vh;
+    width: 90vw;
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0.25vw;
+    grid-row-gap: 0.25vw;
+
+    & > div {
+        border: 1px solid white;
+        border-radius: 10px;
+        background-color: #192822da;
+    }
 }
 
 .comm-header {
-    font-family: "Glockenspiel", serif;
-    font-size: 19vh;
-    line-height: 19vh;
-    margin-top: 0;
-    margin-bottom: 1%;
-    font-weight: 700;
+    grid-area: 1 / 1 / 4 / 4;
+    text-align: right;
+    & > h1 {
+        font-family: "Glockenspiel", serif;
+        font-size: 17vh;
+        line-height: 17vh;
+        margin-top: 28.5vh;
+        margin-bottom: 2vh;
+        margin-right: 2vh;
 
-    color: black;
-    width: fit-content;
-    text-decoration: none;
-
-    background: inherit;
-    background-clip: text;
-    color: white;
-    filter: drop-shadow(.06em .06em #192822);
-
-    text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
-    1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
-
-    &::before {
-        content: 'The';
-        display: block;
-        font-size: 3vh;
-        line-height: 3vh;
+        &::before {
+            content: 'The';
+            font-size: 4vh;
+            line-height: 4vh;
+            display: block;
+        }
     }
 }
 
-.items {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 2vw;
-    width: 100%;
-    margin-bottom: 5vh;
-
-    & > div {
-        border-radius: 1em;
-        background-color: var(--secondary);
-        border: 0.2em solid var(--secondary-light);
-        width: 100%;
-        height: 100%;
-        padding: 3%;
-        text-align: center;
-        box-sizing: border-box;
-    }
-
-    & > div > a { font-size: 3vh; }
-}
-
-.agenda {
-    margin-bottom: 3vh;
+.agenda-header {
+    grid-area: 4 / 1 / 6 / 2;
+    text-align: center;
 
     &::before {
         content: 'Agenda';
         display: block;
         font-size: 4vh;
-        font-weight: 500;
-        margin-bottom: 1vh;
+        margin: 0.5vh 0 0.5vh 0;
+        font-family: "Glockenspiel", serif;
+        letter-spacing: 0.075vw;
     }
 }
 
-.eb {
+.carousel {
+    grid-area: 4 / 2 / 6 / 4;
+    position: relative;
+}
+
+.nav-controller {
     width: 100%;
-    display: grid;
-    grid-template-rows: repeat(3, 1fr);
-    grid-row-gap: 2vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1vw;
+    margin-bottom: 1vh;
+    z-index: 1;
 
-    & > div {
-        width: 100%;
-        height: 30vh;
-        background-color: var(--secondary);
-        border: 0.2em solid var(--secondary-light);
-        border-radius: 1em;
-        display: flex;
-        padding-left: 2%;
-        box-sizing: border-box;
+
+    & > a {
+        width: 1.5vh;
+        height: 1.5vh;
+        background-color: #fff;
+        opacity: 0.75;
+        border-radius: 50%;
+        border: 20px;
+        cursor: pointer;
     }
 }
 
-.eb-photo {
-    height: 100%;
-
-    &:nth-child(2) { margin-left: auto; }
+.inactive {
+    display: none !important;
 }
 
-.comm-content p {
-    font-size: 2vh;
+.slide {
+    width: 32vw;
+    height: 90%;
+    margin-left: auto;
+    margin-right: auto;
+
+    & > p {
+        font-size: 1.5vh;
+        margin: 0;
+    }
+
+    & > h1 {
+        font-size: 3vh;
+        line-height: 3vh;
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+
+    & > img {
+        height: 100%;
+    }
 }
 
-h1 {
-    font-size: 3vh;
+#logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.bg-guide {
+    grid-area: 4 / 4 / 6 / 5;
+
+    & > a {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    & > a > p {
+        margin: 0 auto 0 auto;
+        font-size: 5vh;
+        font-family: "Glockenspiel", serif;
+        letter-spacing: 0.075vw;
+    }
+
+    & > a::after {
+        content: "(To Be Revealed)";
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.chair {
+    grid-area: 1 / 4 / 4 / 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    & > h1 {
+        font-family: "Glockenspiel", serif;
+        font-size: 4vh;
+        line-height: 4vh;
+        letter-spacing: 0.075vw;
+        margin: 1vh 0 1vh 0;
+    }
+}
+
+.chairperson {
+    width: 100%;
+    height: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-top: 1px solid white;
+
+    & > p {
+        font-size: 1.5vh;
+        margin: 0;
+    }
+
+    & > h1 {
+        font-size: 3vh;
+        margin: 0;
+        font-family: "Glockenspiel", serif;
+        letter-spacing: 0.075vw;
+    }
+
+    & > img {
+        width: 100%;
+    }
+}
+
+.matrix {
+    grid-area: 1 / 5 / 6 / 6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    & > h1 {
+        font-size: 4vh;
+        line-height: 4vh;
+        font-family: "Glockenspiel", serif;
+        letter-spacing: 0.075vw;
+    }
+
+    & > iframe {
+        height: 72.25vh;
+        filter: invert(1) hue-rotate(70deg) contrast(0.85);
+    }
+}
+
 
 @media screen and (max-width: 1200px) {
     .header {
@@ -209,25 +313,71 @@ h1 {
     }
 
     .comm-content {
-        width: 90%;
+        display: block;
 
-        & > p {
-            font-size: 2vh;
+        & > div {
+            margin-bottom: 1vh;
         }
     }
 
     .comm-header {
-        font-size: 10vh;
-        line-height: 10vh;
+        & > h1 {
+            font-size: 7vh;
+            line-height: 7vh;
+            margin: 0;
+            margin-right: 1vw;
+        }
+
+        & > h1::before {
+            font-size: 2vh;
+            line-height: 2vh;
+        }
     }
 
-    .eb > div > div {
-        & > h1 { font-size: 4vh; }
+    .agenda-header {
+        font-size: 1.25vh;
 
-        & > p { font-size: 2vh; }
+        &::before {
+            font-size: 4vh;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
     }
 
-    #ccc, #board-room, #lok-sabha, #unhrc, #unsc {
+    .slide {
+        width: 90%;
+        margin-bottom: 2vh;
+
+        & > img {
+            margin: 0;
+            aspect-ratio: 1/1;
+        }
+    }
+
+    .nav-controller {
+        margin-top: 1vh;
+        margin-bottom: 1vh;
+    }
+
+    #logo {
+        display: flex;
+        justify-content: center;
+    }
+
+    .bg-guide {
+        grid-area: 4 / 1 / 5 / 2;
+    }
+
+    .chair {
+        grid-area: 4 / 2 / 5 / 3;
+    }
+
+    .matrix {
+        grid-area: 5 / 1 / 7 / 3;
+    }
+
+    #ccc, #commitee-x, #lok-sabha, #unhrc, #unsc {
         background-position-x: 50%;
     }
 

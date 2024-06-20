@@ -38,7 +38,7 @@ function App() {
                 <Route path="/committees/disec" element={<DISEC/>}/>
                 <Route path="/committees/lok-sabha" element={<LokSabha/>}/>
                 <Route path="/committees/ipc" element={<IPC/>}/>
-                <Route path="/committees/board-room" element={<BoardRoom/>}/>
+                <Route path="/committees/committee-x" element={<BoardRoom/>}/>
                 <Route path="/committees/ccc" element={<CCC/>}/>
                 <Route path="/secretariat" element={<Secretariat/>}/>
                 <Route path="/registration" element={<Registration/>}/>
