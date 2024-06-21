@@ -35,7 +35,7 @@ export default function Committees() {
                 <a href='#disec'>DISEC</a>
                 <a href='#lok-sabha'>Lok Sabha</a>
                 <a href='#ipc'>IPC</a>
-                <a href='#commitee-x'>Committee X</a>
+                <a href='#committee-x'>Committee X</a>
                 <a href='#ccc'>CCC</a>
             </div>
             <div className='committees' id="committees">

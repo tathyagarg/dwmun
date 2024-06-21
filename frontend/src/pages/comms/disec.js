@@ -1,6 +1,7 @@
 import logo from '../../assets/logo.webp';
+import DISECLogo from '../../assets/comm-logos/DISEC.png'
 
-export default function CCC() {
+export default function DISEC() {
     const updateSlides = (classname, navigator, index) => {
         const slides = document.getElementsByClassName(classname)
 
@@ -23,7 +24,7 @@ export default function CCC() {
     window.scroll(0, 0);
     return <div className="comm-content">
         <div className="comm-header">
-            <h1>CCC</h1>
+            <h1>DISEC</h1>
         </div>
         <div className="agenda-header">
             Lorem ipsum dolor, sit amet
@@ -38,7 +39,7 @@ export default function CCC() {
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada, orci non placerat vestibulum, quam orci pharetra dolor, sit amet consequat urna justo non leo. Cras suscipit, erat accumsan semper pellentesque, lorem tellus hendrerit lacus, quis blandit turpis neque sit amet justo. Aenean varius felis ipsum. Cras sagittis at nunc nec commodo. Suspendisse potenti. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Etiam viverra purus sed egestas pellentesque. Cras blandit eleifend arcu. In eu ex mattis, congue nulla id, mollis purus. Duis laoreet, ipsum vitae ultricies consequat, nisl mauris varius magna, sit amet pharetra ante dui quis lacus. Aenean ut enim consequat, sodales libero at, pretium est.</p>
             </div>
             <div className="slide inactive" id="logo">
-                <img src={logo} height={"100%"}></img>
+                <img src={DISECLogo} height={"100%"}></img>
             </div>
             <div className='nav-controller information'>
                 <a onClick={() => {
@@ -59,6 +60,7 @@ export default function CCC() {
             </a>
         </div>
         <div className="chair">
+            <h1>Chairpersons</h1>
             <div className='chairperson active'>
                 <h1>Name</h1>
                 <img src={logo}></img>
@@ -88,7 +90,7 @@ export default function CCC() {
         </div>
         <div className="matrix">
             <h1>Country Matrix</h1>
-            <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSMBfKFMRBXz3MvB1DmcWKtSh7BgP-Vk6frtT0wpv9TNxTbqDAK18Sf19UxwCkH9NlSZFtrPeqXVaa2/pubhtml?widget=true&amp;headers=false"></iframe>
+            <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSMBfKFMRBXz3MvB1DmcWKtSh7BgP-Vk6frtT0wpv9TNxTbqDAK18Sf19UxwCkH9NlSZFtrPeqXVaa2/pubhtml?gid=1495021896&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
         </div>
     </div>
 }

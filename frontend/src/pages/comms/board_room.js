@@ -1,4 +1,5 @@
 import logo from '../../assets/logo.webp';
+import CommitteeX from '../../assets/comm-logos/CommitteeX.png'
 
 export default function BoardRoom() {
     const updateSlides = (classname, navigator, index) => {
@@ -38,7 +39,7 @@ export default function BoardRoom() {
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada, orci non placerat vestibulum, quam orci pharetra dolor, sit amet consequat urna justo non leo. Cras suscipit, erat accumsan semper pellentesque, lorem tellus hendrerit lacus, quis blandit turpis neque sit amet justo. Aenean varius felis ipsum. Cras sagittis at nunc nec commodo. Suspendisse potenti. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Etiam viverra purus sed egestas pellentesque. Cras blandit eleifend arcu. In eu ex mattis, congue nulla id, mollis purus. Duis laoreet, ipsum vitae ultricies consequat, nisl mauris varius magna, sit amet pharetra ante dui quis lacus. Aenean ut enim consequat, sodales libero at, pretium est.</p>
             </div>
             <div className="slide inactive" id="logo">
-                <img src={logo} height={"100%"}></img>
+                <img src={CommitteeX} height={"100%"}></img>
             </div>
             <div className='nav-controller information'>
                 <a onClick={() => {
