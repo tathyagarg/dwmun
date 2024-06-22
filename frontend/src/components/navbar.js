@@ -25,6 +25,7 @@ export default function Navbar() {
         <NavLink to="/committees" onClick={scrollToTop}>Committees</NavLink>
         <NavLink to="/secretariat" onClick={scrollToTop}>Secretariat</NavLink>
         <NavLink to="/registration" onClick={scrollToTop}>Registration</NavLink>
+        <NavLink to="/resources" onClick={scrollToTop}>Rsources</NavLink>
         {/* <div className='logo'>
             <a href="https://rcb1934.in">
                 <img src={rotary}></img>

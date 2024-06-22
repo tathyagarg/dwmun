@@ -11,6 +11,7 @@ import CCC from './pages/comms/ccc';
 
 import Secretariat from './pages/secretariat';
 import Registration from './pages/registration';
+import Resources from './pages/resources';
 
 import IndividualRegistration from './pages/registrations/individual';
 import DelegationRegistration from './pages/registrations/delegation';
@@ -18,7 +19,6 @@ import DelegationRegistration from './pages/registrations/delegation';
 import LoginPage from './pages/login';
 
 import Navbar from './components/navbar';
-
 
 import {
     BrowserRouter as Router,
@@ -45,6 +45,7 @@ function App() {
                 <Route path="/registration/individual" element={<IndividualRegistration/>}/>
                 <Route path="/registration/delegation" element={<DelegationRegistration/>}/>
                 <Route path="/login" element={<LoginPage/>}/>
+                <Route path="/resources" element={<Resources/>}/>
             </Routes>
         </Router>
     )

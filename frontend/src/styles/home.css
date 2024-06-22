@@ -175,11 +175,13 @@ body {
     padding: 2%;
     box-sizing: border-box;
     color: white;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
 }
 
 #image-placeholder-3 {
     background-color: red;
-    height: 25vh;
+    height: 45vh;
     aspect-ratio: 2/3;
 }
 
@@ -206,7 +208,7 @@ body {
 #letter {
     margin-left: 2vw;
     width: 100%;
-    font-size: 1.5vh;
+    font-size: 2vh;
     font-weight: 100;
 }
 

@@ -19,6 +19,7 @@ db = mysql.connector.connect(**DB_CONFIG)
 
 cursor = db.cursor(buffered=True)
 
+
 def post_commit(func):
     def inner(*args, **kwargs):
         res = func(*args, **kwargs)
@@ -28,8 +29,9 @@ def post_commit(func):
 
     return inner
 
-def run_sql(sql: str) -> None:
-    cursor.execute(sql)
+
+def run_sql(sql: str) -> None: cursor.execute(sql)
+
 
 @post_commit
 def drop_tables() -> STATUS:
@@ -40,6 +42,7 @@ def drop_tables() -> STATUS:
         return 1, str(e)
     else:
         return 0, ""
+
 
 @post_commit
 def create_tables() -> STATUS:
@@ -84,9 +87,9 @@ def create_tables() -> STATUS:
     else:
         return 0, ''
 
+
 @post_commit
 def register_individual(data: SingleDelegateRegistrationData, file_data: str, filetype: str) -> STATUS:
-    print(f"Registering {data.name}")
     try:
         delegate_data = (
             data.name,
@@ -112,8 +115,8 @@ def register_individual(data: SingleDelegateRegistrationData, file_data: str, fi
     except Exception as e:
         return 1, str(e)
     else:
-        print("we chill")
         return 0, ''
+
 
 @post_commit
 def register_delegation(delegates: list[SingleDelegateRegistrationData], file_data: str, filetype: str) -> STATUS:
@@ -208,7 +211,5 @@ def fetch_admin_data() -> tuple[str, bytes]:
 
 def check_delegate_is_registered(email_id: str) -> bool:
     cursor.execute('''SELECT * FROM delegates WHERE email=%s''', (email_id,))
-
     res = cursor.fetchone()
-
     return bool(res)
