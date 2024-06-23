@@ -141,7 +141,6 @@ async def update_registration_data(username: str, password: str, file: UploadFil
                 run_sql('UPDATE delegates SET email_sent=TRUE WHERE email=%s', (email,))
 
 create_tables()
-run_sql('UPDATE delegates SET email_sent=FALSE')
 
 if __name__ == "__main__":
     import uvicorn
