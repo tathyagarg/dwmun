@@ -1,5 +1,6 @@
-import pydantic
 from typing import Literal
+
+import pydantic
 
 COMMITTEES = ['CCC', 'DISEC', 'IPC', 'Lok Sabha', 'Board Room', 'UNHRC', 'UNSC']
 COMMITTEE = Literal['CCC', 'DISEC', 'IPC', 'Lok Sabha', 'Board Room', 'UNHRC', 'UNSC']

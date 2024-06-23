@@ -1,6 +1,7 @@
+import os
+
 import bcrypt
 import dotenv
-import os
 
 dotenv.load_dotenv()
 

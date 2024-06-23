@@ -16,8 +16,10 @@ export default function LoginPage() {
             })
 
             if (!resp.ok) {
-                alert("Eror :(")
-                alert(resp)
+                const status = document.getElementById("status")
+                status.classList.add("error")
+                status.innerHTML = "Some error"
+                alert(JSON.stringify(await resp.json()))
                 return
             }
 
@@ -36,11 +38,22 @@ export default function LoginPage() {
                 method: "POST",
                 body: postData
             })
+
+            if (!resp.ok) {
+                const status = document.getElementById("status")
+                status.classList.add("error")
+                status.innerHTML = "Some error"
+                alert(JSON.stringify(await resp.json()))
+                return
+            }
         }
+
+        window.location.reload()
     }
 
     return (<div className="login-page">
         <h1 className='header'>Login</h1>
+        <h2 id="status"></h2>
         <p style={{textAlign: "center"}}>OC Members only</p>
         <form>
             <input name='username' id="username" placeholder='Username'></input>

@@ -1,3 +1,6 @@
+import json
+import ast
+
 from fastapi import (
     APIRouter,
     status,
@@ -6,9 +9,8 @@ from fastapi import (
     Body
 )
 from fastapi.responses import JSONResponse
+
 from utils import *
-import json
-import ast
 
 router = APIRouter(prefix='/registration', tags=['registrations'])
 

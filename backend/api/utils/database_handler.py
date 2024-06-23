@@ -30,7 +30,9 @@ def post_commit(func):
     return inner
 
 
-def run_sql(sql: str) -> None: cursor.execute(sql)
+def run_sql(sql: str, params: tuple[str, ...] = None) -> None:
+    params = params or ()
+    cursor.execute(sql, params)
 
 
 @post_commit
@@ -213,3 +215,16 @@ def check_delegate_is_registered(email_id: str) -> bool:
     cursor.execute('''SELECT * FROM delegates WHERE email=%s''', (email_id,))
     res = cursor.fetchone()
     return bool(res)
+
+
+def fetch_delegate_field(field: str, email: str) -> tuple[str | int | bool, ...]:
+    cursor.execute(f"SELECT {field} FROM delegates WHERE email=%s", (email,))
+    data = cursor.fetchone()
+
+    return data
+
+def fetch_delegates_field(field: str, condition: str) -> list[tuple[str | int | bool, ...]]:
+    cursor.execute(f"SELECT {field} FROM delegates WHERE {condition}")
+    data = cursor.fetchall()
+
+    return data

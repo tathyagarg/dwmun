@@ -177,20 +177,26 @@ export default function DelegationRegistration() {
         postData.append('registration_data', JSON.stringify(res))
         postData.append('payment', proof)
 
-        alert(postData.get("registration_data"))
-
         const requestData = {
             method: 'POST',
             body: postData
         }
 
-        // alert(typeof requestData.body.get("registration_data"))
-
         requestData.body.forEach((value, key) => console.log(`${key}: ${value}`))
 
         fetch("delegation", requestData)
             .then(response => response.json())
-            .then(data => alert(data))
+            .then(data => {
+                const [status, response] = data
+                const elem = document.getElementById('status')
+                if (status == 1) {
+                    elem.innerHTML = response
+                    elem.classList.add('error')
+                    elem.classList.remove('success')
+                } else {
+                    window.location.reload()
+                }
+            })
     }
 
     return (<div>

@@ -1,15 +1,35 @@
+import os
+import re
+import ssl
+import dotenv
+import smtplib
+import urllib.request
+
+import xlsxwriter
+import pylightxl as xl
+from fastapi.responses import FileResponse
 from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse
-from routes import registration, matricies
-from utils.encryption import encrypt
-from utils.database_handler import fetch_admin_data, fetch_all_delegates
-import xlsxwriter
-import urllib.request
-import re
-import os
 
-from utils.database_handler import create_tables, drop_tables
+from utils.mailman import send_mail
+from utils.encryption import encrypt
+from routes import registration, matricies
+from utils.database_handler import (
+    create_tables,
+    drop_tables,
+    fetch_admin_data,
+    fetch_all_delegates,
+    run_sql,
+    fetch_delegate_field,
+    fetch_delegates_field
+)
+
+dotenv.load_dotenv()
+
+MAIL_PORT = os.getenv('MAIL_PORT')
+MAIL_SERVER = os.getenv('MAIL_SERVER')
+MAIL_SENDER = os.getenv('MAIL_SENDER')
+MAIL_PASSW = os.getenv('MAIL_PASSW')
 
 app = FastAPI()
 app.add_middleware(
@@ -19,13 +39,19 @@ app.add_middleware(
     allow_headers=["*"]
 )
 
+MAIL_BODY_DELEGATE = """You've got mail {comm} and {port}"""
+
+def make_head_del_mail_body(delegates) -> str:
+    SINGLE_DELEGATE = "{0} ({1}): {2}, {3}"
+
+    return "\n".join(SINGLE_DELEGATE.format(*delegate) for delegate in delegates)
+
 routers = [registration.router, matricies.router]
 
 for router in routers:
     app.include_router(router)
 
 # drop_tables()
-create_tables()
 
 @app.get('/admin')
 async def get_registration_data(username: str, password: str):
@@ -70,19 +96,52 @@ async def get_registration_data(username: str, password: str):
 
         return FileResponse('data.xlsx', media_type="application/octet-stream")
 
+
 @app.post('/admin')
 async def update_registration_data(username: str, password: str, file: UploadFile = File(...)):
     if fetch_admin_data() == (username, encrypt(password)):
-        data = fetch_all_delegates()
-
         contents = file.file.read()
         with open('data.xlsx', 'wb') as f:
             f.write(contents)
 
+        df = xl.readxl('data.xlsx')
+        ws_name = df.ws_names[0]
 
-        # Process new data
+        assigned_comms = df.ws(ws_name).col(18)[1:]
+        assigned_ports = df.ws(ws_name).col(19)[1:]
+        email_status = df.ws(ws_name).col(20)[1:]
 
+        context = ssl.create_default_context()
 
+        with smtplib.SMTP_SSL(MAIL_SERVER, MAIL_PORT, context=context) as server:
+            server.login(MAIL_SENDER, MAIL_PASSW)
+
+            for i, (comm, portfolio, email_sent) in enumerate(zip(assigned_comms, assigned_ports, email_status)):
+                if (comm and portfolio) and not email_sent:
+                    recver = df.ws(ws_name).index(row=i+2, col=5)
+                    run_sql('UPDATE delegates SET assigned_comm=%s, assigned_country=%s WHERE email=%s', (comm, portfolio, recver))
+
+            delegations = fetch_delegates_field('delegation_id', 'email_sent=FALSE AND assigned_comm IS NOT NULL AND delegation_id IS NOT NULL')
+            delegations = {item[0] for item in delegations}
+            for delegation in delegations:
+                delegates = fetch_delegates_field('is_head, email, assigned_comm, assigned_country', f'delegation_id={delegation}')
+                for is_head, email, assigned_comm, assigned_country in delegates:
+                    if is_head:
+                        delegate_data = fetch_delegates_field('name, email, assigned_country, assigned_comm', f'delegation_id={delegation}')
+                        body = make_head_del_mail_body(delegates=delegate_data)
+                        send_mail(server, email, body)
+                    else:
+                        send_mail(server, email, MAIL_BODY_DELEGATE.format(comm=assigned_comm, port=assigned_country))
+
+                    run_sql('UPDATE delegates SET email_sent=TRUE WHERE email=%s', (email,))
+
+            indis = fetch_delegates_field('email, assigned_comm, assigned_country', 'email_sent=FALSE AND assigned_comm IS NOT NULL AND delegation_id IS NULL')
+            for email, comm, country in indis:
+                send_mail(server, email, MAIL_BODY_DELEGATE.format(comm=comm, port=country))
+                run_sql('UPDATE delegates SET email_sent=TRUE WHERE email=%s', (email,))
+
+create_tables()
+run_sql('UPDATE delegates SET email_sent=FALSE')
 
 if __name__ == "__main__":
     import uvicorn
