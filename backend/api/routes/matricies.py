@@ -3,7 +3,7 @@ from fastapi import APIRouter
 router = APIRouter(prefix="/matricies", tags=['matricies'])
 
 MATRIX_DATA = {
-    'Board-Room': ['Test A', 'Test B'],
+    'Committee-X': ['Test A', 'Test B'],
     'CCC': ['Test C', 'Test D'],
     'UNSC': ['Test E', 'Test F']
 }

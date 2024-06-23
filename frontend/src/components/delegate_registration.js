@@ -111,7 +111,7 @@ const DelegateRegistration = forwardRef((props, ref) => {
             <div id="allotment-preferences">
                 <select name="primary_comm" id="primary-comm" onChange={handlePrimaryCommChange}>
                     <option value={""} disabled selected className="select-placeholder">Primary Committee Preference</option>
-                    <option value={"Board Room"}>Board Room</option>
+                    <option value={"Committee X"}>Committee X</option>
                     <option value={"CCC"}>CCC</option>
                     <option value={"DISEC"}>DISEC</option>
                     <option value={"IPC"}>IPC</option>
@@ -122,7 +122,7 @@ const DelegateRegistration = forwardRef((props, ref) => {
 
                 <select name="secondary_comm" id="secondary-comm" onChange={handleSecondaryCommChange}>
                     <option value={""} disabled selected className="select-placeholder">Secondary Committee Preference</option>
-                    <option value={"Board Room"}>Board Room</option>
+                    <option value={"Committee X"}>Committee X</option>
                     <option value={"CCC"}>CCC</option>
                     <option value={"DISEC"}>DISEC</option>
                     <option value={"IPC"}>IPC</option>
@@ -173,7 +173,7 @@ const DelegateRegistration = forwardRef((props, ref) => {
                 <div id="double-allotment-preferences">
                     <select name="double_primary_comm" id="double-primary-comm" onChange={handleDoubleCommChange}>
                         <option value={""} disabled selected className="select-placeholder">Committee Preference</option>
-                        <option value={"Board Room"}>Board Room</option>
+                        <option value={"Committee X"}>Committee X</option>
                         <option value={"CCC"}>CCC</option>
                         <option value={"DISEC"}>DISEC</option>
                         <option value={"IPC"}>IPC</option>

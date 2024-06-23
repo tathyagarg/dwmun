@@ -39,12 +39,18 @@ app.add_middleware(
     allow_headers=["*"]
 )
 
-MAIL_BODY_DELEGATE = """You've got mail {comm} and {port}"""
+MAIL_BODY_INDIVIDUAL = os.getenv('MAIL_BODY_INDIVIDUAL')
+MAIL_BODY_DELEGATION = os.getenv('MAIL_BODY_DELEGATION')
 
-def make_head_del_mail_body(delegates) -> str:
-    SINGLE_DELEGATE = "{0} ({1}): {2}, {3}"
+def make_head_del_mail_body(school, delegates) -> str:
+    SINGLE_DELEGATE = "{name}: {comm} - {port}"
 
-    return "\n".join(SINGLE_DELEGATE.format(*delegate) for delegate in delegates)
+    delegate_text = ""
+
+    for i, (name, comm, portfolio) in enumerate(delegates, 1):
+        delegate_text += f"{i}. {SINGLE_DELEGATE.format(name=name, comm=comm, port=portfolio)}\n"
+
+    return MAIL_BODY_DELEGATION.format(school=school, delegates=delegate_text)
 
 routers = [registration.router, matricies.router]
 
@@ -127,17 +133,17 @@ async def update_registration_data(username: str, password: str, file: UploadFil
                 delegates = fetch_delegates_field('is_head, email, assigned_comm, assigned_country', f'delegation_id={delegation}')
                 for is_head, email, assigned_comm, assigned_country in delegates:
                     if is_head:
-                        delegate_data = fetch_delegates_field('name, email, assigned_country, assigned_comm', f'delegation_id={delegation}')
+                        delegate_data = fetch_delegates_field('name, assigned_country, assigned_comm', f'delegation_id={delegation}')
                         body = make_head_del_mail_body(delegates=delegate_data)
                         send_mail(server, email, body)
                     else:
-                        send_mail(server, email, MAIL_BODY_DELEGATE.format(comm=assigned_comm, port=assigned_country))
+                        send_mail(server, email, MAIL_BODY_INDIVIDUAL.format(comm=assigned_comm, port=assigned_country))
 
                     run_sql('UPDATE delegates SET email_sent=TRUE WHERE email=%s', (email,))
 
             indis = fetch_delegates_field('email, assigned_comm, assigned_country', 'email_sent=FALSE AND assigned_comm IS NOT NULL AND delegation_id IS NULL')
             for email, comm, country in indis:
-                send_mail(server, email, MAIL_BODY_DELEGATE.format(comm=comm, port=country))
+                send_mail(server, email, MAIL_BODY_INDIVIDUAL.format(comm=comm, port=country))
                 run_sql('UPDATE delegates SET email_sent=TRUE WHERE email=%s', (email,))
 
 create_tables()

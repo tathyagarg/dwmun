@@ -170,8 +170,9 @@ body {
     & > div:not(:last-child) { padding-right: 2vw; }
 }
 
-#principal-letter-section {
-    background-color: rgba(25, 40, 34, 0.8);
+#principal-letter-section, #oc-letter-section {
+    background-color: transparent;
+    backdrop-filter: blur(10px);
     padding: 2%;
     box-sizing: border-box;
     color: white;
@@ -185,7 +186,7 @@ body {
     aspect-ratio: 2/3;
 }
 
-#principal-letter {
+#principal-letter, #oc-letter {
     width: 60%;
     margin-left: auto;
     margin-right: auto;
@@ -200,17 +201,19 @@ body {
     }
 }
 
-#principal-letter-content {
+#principal-letter-content, #oc-letter-content {
     display: flex;
     flex-direction: row;
 }
 
-#letter {
-    margin-left: 2vw;
+#letter, #actual-oc-letter {
     width: 100%;
     font-size: 2vh;
     font-weight: 100;
 }
+
+#letter { margin-left: 2vw; }
+#actual-oc-letter { margin-right: 2vw; }
 
 /* Compatability VVVVVVVVV */
 

@@ -1,6 +1,6 @@
 .content {
     height: 40vh;
-    background-color: var(--secondary);
+    backdrop-filter: blur(10px);
     padding: 2%;
     color: var(--contrast-secondary);
     opacity: 0.9;
@@ -14,18 +14,10 @@
     }
 }
 
-.gradient {
-    height: 5vh;
-    width: 100%;
-    background-image: linear-gradient(to top, var(--secondary), #00000000);
-    opacity: 0.9;
-}
-
 .contact-details {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    width: min-content;
-    grid-column-gap: 10vw;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 2vw;
 
     & > p { font-size: 2vh; }
     & > h2 { font-size: 3vh; }
@@ -35,6 +27,7 @@
     margin: 0;
     padding: 0;
     height: 80%;
+    text-wrap: nowrap;
 }
 
 .details {
@@ -43,15 +36,11 @@
 
 #p1 {
     padding-right: 1vw;
+    border-right: 1px solid white;
 }
 
-.social img {
-    width: 100%;
-    height: auto;
-}
-
-.left {
-    width: fit-content;
+#p2 {
+    margin-left: 1vw;
 }
 
 .right {
@@ -81,8 +70,13 @@
         }
 
         & p {
-            font-size: 1.5vh;
-            line-height: 1.5vh;
+            font-size: 1.25vh;
+            line-height: 1.25vh;
+        }
+
+        & img {
+            width: 100%;
+            height: auto;
         }
     }
 }

@@ -155,15 +155,7 @@ export default function IndividualRegistration() {
                     elem.classList.add('error')
                     elem.classList.remove('success')
                 } else {
-                    elem.innerHTML = "You have been registered!"
-                    elem.classList.add('success')
-                    elem.classList.remove('error')
-                    event.target.reset()
-                    document.getElementById("grade").selectedIndex = 0
-                    document.getElementById("primary-comm").selectedIndex = 0
-                    document.getElementById("secondary-comm").selectedIndex = 0
-                    document.getElementById("double-primary-comm").selectedIndex = 0
-                    document.getElementById("double-grade").selectedIndex = 0
+                    document.location.reload()
                 }
             })
 
@@ -192,7 +184,7 @@ export default function IndividualRegistration() {
                 <div id="allotment-preferences">
                     <select name="primary_comm" id="primary-comm" onChange={handlePrimaryCommChange}>
                         <option value={""} disabled selected className="select-placeholder">Primary Committee Preference</option>
-                        <option value={"Board Room"}>Board Room</option>
+                        <option value={"Committee X"}>Committee X</option>
                         <option value={"CCC"}>CCC</option>
                         <option value={"DISEC"}>DISEC</option>
                         <option value={"IPC"}>IPC</option>
@@ -203,7 +195,7 @@ export default function IndividualRegistration() {
 
                     <select name="secondary_comm" id="secondary-comm" onChange={handleSecondaryCommChange}>
                         <option value={""} disabled selected className="select-placeholder">Secondary Committee Preference</option>
-                        <option value={"Board Room"}>Board Room</option>
+                        <option value={"Committee X"}>Committee X</option>
                         <option value={"CCC"}>CCC</option>
                         <option value={"DISEC"}>DISEC</option>
                         <option value={"IPC"}>IPC</option>
@@ -254,7 +246,7 @@ export default function IndividualRegistration() {
                     <div id="double-allotment-preferences">
                         <select name="double_primary_comm" id="double-primary-comm" onChange={handleDoubleCommChange}>
                             <option value={""} disabled selected className="select-placeholder">Committee Preference</option>
-                            <option value={"Board Room"}>Board Room</option>
+                            <option value={"Committee X"}>Committee X</option>
                             <option value={"CCC"}>CCC</option>
                             <option value={"DISEC"}>DISEC</option>
                             <option value={"IPC"}>IPC</option>

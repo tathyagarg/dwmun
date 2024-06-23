@@ -10,8 +10,7 @@ export default function Contact() {
         AOS.init({duration: 1000})
     }, [])
 
-    return <div data-aos="fade-in">
-        <div className='gradient'></div>
+    return <div>
         <div className='content'>
             <div className='left'>
                 <h1>Contact Us</h1>
@@ -20,20 +19,20 @@ export default function Contact() {
                         <h2>Phone</h2>
                         <div className='details'>
                             <div id="p1">
-                                <p>Number</p>
-                                <p>Person</p>
-                                <p>Role</p>
+                                <p>+91 75502 87715</p>
+                                <p>Sri Sai Hari</p>
+                                <p>Secretary General</p>
                             </div>
                             <div id="p2">
-                                <p>Number</p>
-                                <p>Person</p>
-                                <p>Role</p>
+                                <p>+91 88672 81354</p>
+                                <p>Chirantana Hegde</p>
+                                <p>Director General</p>
                             </div>
                         </div>
                     </div>
                     <div className='mail'>
                         <h2>Mail</h2>
-                        <p>Mail@mail.com</p>
+                        <p>mundpsw@gmail.com</p>
                     </div>
                     <div className='social'>
                         <h2>Socials</h2>

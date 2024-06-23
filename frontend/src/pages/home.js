@@ -88,11 +88,11 @@ export default function Home() {
                 </div>
             </div>
         </section>
-        <section id='principal-letter-section'>
-            <div id='principal-letter'>
+        <section id='oc-letter-section'>
+            <div id='oc-letter'>
                 <h1>Letter from OC</h1>
-                <div id='principal-letter-content'>
-                    <div id='letter'>
+                <div id='oc-letter-content'>
+                    <div id='actual-oc-letter'>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent pellentesque eget magna sed laoreet. Vivamus pellentesque luctus sem vitae maximus. Aenean vehicula mollis mi sit amet ultricies. Curabitur fermentum dolor lacus, id malesuada lacus pellentesque sed. Suspendisse iaculis felis ac nibh aliquet aliquet. Curabitur vitae tincidunt enim. Nunc ultrices mauris a lacus commodo, dictum interdum nibh convallis.
                         </p><p>

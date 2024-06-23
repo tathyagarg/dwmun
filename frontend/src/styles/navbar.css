@@ -29,13 +29,6 @@
 }
 
 @media screen and (max-width: 1200px) {
-    .topnav {
-        justify-content: flex-start;
-
-        & > a { font-size: 1.25vh; }
-    }
-
-    .logo {
-        height: 75%;
-    }
+    .topnav > a { font-size: 1.25vh; }
+    .logo { height: 75%; }
 }

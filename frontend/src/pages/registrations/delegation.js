@@ -12,6 +12,7 @@ export default function DelegationRegistration() {
     const [delegates, setDelegates] = useState([])
     const [grade, setGrade] = useState(0)
     const [doubleGrade, setDoubleGrade] = useState(0)
+    const [amt, setAmt] = useState(850)
 
     const purify = (word) => {
         return word
@@ -228,7 +229,7 @@ export default function DelegationRegistration() {
                 <div id="allotment-preferences">
                     <select name="primary_comm" id="primary-comm" onChange={handlePrimaryCommChange}>
                         <option value={""} disabled selected className="select-placeholder">Primary Committee Preference</option>
-                        <option value={"Board Room"}>Board Room</option>
+                        <option value={"Committee X"}>Committee X</option>
                         <option value={"CCC"}>CCC</option>
                         <option value={"DISEC"}>DISEC</option>
                         <option value={"IPC"}>IPC</option>
@@ -239,7 +240,7 @@ export default function DelegationRegistration() {
 
                     <select name="secondary_comm" id="secondary-comm" onChange={handleSecondaryCommChange}>
                         <option value={""} disabled selected className="select-placeholder">Secondary Committee Preference</option>
-                        <option value={"Board Room"}>Board Room</option>
+                        <option value={"Committee X"}>Committee X</option>
                         <option value={"CCC"}>CCC</option>
                         <option value={"DISEC"}>DISEC</option>
                         <option value={"IPC"}>IPC</option>
@@ -292,7 +293,7 @@ export default function DelegationRegistration() {
                     <div id="double-allotment-preferences">
                         <select name="double_primary_comm" id="double-primary-comm" onChange={handleDoubleCommChange}>
                             <option value={""} disabled selected className="select-placeholder">Committee Preference</option>
-                            <option value={"Board Room"}>Board Room</option>
+                            <option value={"Committee X"}>Committee X</option>
                             <option value={"CCC"}>CCC</option>
                             <option value={"DISEC"}>DISEC</option>
                             <option value={"IPC"}>IPC</option>
@@ -321,13 +322,16 @@ export default function DelegationRegistration() {
                 </div>
 
                 <button className="add-sub-delegate" type="button" onClick={() => {
-                    setDelegates([...delegates, React.createRef()])
+                    alert(delegates.length)
+                    setDelegates(prev => [...prev, React.createRef()])
+                    setAmt(850 * (delegates.length + 2) * (delegates.length >= 8 ? 0.9 : 1))
                 }}>+</button>
 
                 <label>Proof of Payment</label>
                 <p className='payment-details'>
                     Lot of Payment detail stuff here
                 </p>
+                <p className="payment-details" id="total-amount">Please pay a sum of rupees {amt} to:</p>
                 <div style={{height: '20vh', width: "20vh", backgroundColor: "red"}}>QR CODE</div>
                 <p className='payment-details'>
                     More Payment details mhmhmhm

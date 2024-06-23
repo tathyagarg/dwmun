@@ -26,7 +26,8 @@
 }
 
 .option {
-    background-color: var(--secondary);
+    background-color: transparent;
+    backdrop-filter: blur(10px);
     border: 0.2em solid var(--secondary-light);
     border-radius: 1em;
     width: 100%;

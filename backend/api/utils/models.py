@@ -2,9 +2,9 @@ from typing import Literal
 
 import pydantic
 
-COMMITTEES = ['CCC', 'DISEC', 'IPC', 'Lok Sabha', 'Board Room', 'UNHRC', 'UNSC']
-COMMITTEE = Literal['CCC', 'DISEC', 'IPC', 'Lok Sabha', 'Board Room', 'UNHRC', 'UNSC']
-COMMITTEE_ALLOW_EMPTY = Literal['CCC', 'DISEC', 'IPC', 'Lok Sabha', 'Board Room', 'UNHRC', 'UNSC', '']
+COMMITTEES = ['CCC', 'DISEC', 'IPC', 'Lok Sabha', 'Committee X', 'UNHRC', 'UNSC']
+COMMITTEE = Literal['CCC', 'DISEC', 'IPC', 'Lok Sabha', 'Committee X', 'UNHRC', 'UNSC']
+COMMITTEE_ALLOW_EMPTY = Literal['CCC', 'DISEC', 'IPC', 'Lok Sabha', 'Committee X', 'UNHRC', 'UNSC', '']
 
 class DelegateRegistrationData(pydantic.BaseModel):
     name: str

@@ -6,7 +6,7 @@ import UNHRC from './pages/comms/unhrc';
 import DISEC from './pages/comms/disec';
 import LokSabha from './pages/comms/lok_sabha';
 import IPC from './pages/comms/ipc';
-import BoardRoom from './pages/comms/board_room';
+import CommitteeX from './pages/comms/committee_x.js';
 import CCC from './pages/comms/ccc';
 
 import Secretariat from './pages/secretariat';
@@ -38,7 +38,7 @@ function App() {
                 <Route path="/committees/disec" element={<DISEC/>}/>
                 <Route path="/committees/lok-sabha" element={<LokSabha/>}/>
                 <Route path="/committees/ipc" element={<IPC/>}/>
-                <Route path="/committees/committee-x" element={<BoardRoom/>}/>
+                <Route path="/committees/committee-x" element={<CommitteeX/>}/>
                 <Route path="/committees/ccc" element={<CCC/>}/>
                 <Route path="/secretariat" element={<Secretariat/>}/>
                 <Route path="/registration" element={<Registration/>}/>
