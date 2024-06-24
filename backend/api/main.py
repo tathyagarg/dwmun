@@ -13,7 +13,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from utils.mailman import send_mail
 from utils.encryption import encrypt
-from routes import registration, matricies
+from routes import registration
 from utils.database_handler import (
     create_tables,
     drop_tables,
@@ -42,6 +42,25 @@ app.add_middleware(
 MAIL_BODY_INDIVIDUAL = os.getenv('MAIL_BODY_INDIVIDUAL')
 MAIL_BODY_DELEGATION = os.getenv('MAIL_BODY_DELEGATION')
 
+WHATSAPP_CCC = os.getenv('WHATSAPP_CCC')
+WHATSAPP_COMMITTEE_X = os.getenv('WHATSAPP_COMMITTEE_X')
+WHATSAPP_DISEC = os.getenv('WHATSAPP_DISEC')
+WHATSAPP_IPC = os.getenv('WHATSAPP_IPC')
+WHATSAPP_LOK_SABHA = os.getenv('WHATSAPP_LOK_SABHA')
+WHATSAPP_UNHRC = os.getenv('WHATSAPP_UNHRC')
+WHATSAPP_UNSC = os.getenv('WHATSAPP_UNSC')
+
+WHATSAPP_GROUPS = {
+    'CCC': WHATSAPP_CCC,
+    'Committee X': WHATSAPP_COMMITTEE_X,
+    'DISEC': WHATSAPP_DISEC,
+    'IPC': WHATSAPP_IPC,
+    'Lok Sabha': WHATSAPP_LOK_SABHA,
+    'UNHRC': WHATSAPP_UNHRC,
+    'UNSC': WHATSAPP_UNSC
+}
+
+
 def make_head_del_mail_body(school, delegates) -> str:
     SINGLE_DELEGATE = "{name}: {comm} - {port}"
 
@@ -52,10 +71,10 @@ def make_head_del_mail_body(school, delegates) -> str:
 
     return MAIL_BODY_DELEGATION.format(school=school, delegates=delegate_text)
 
-routers = [registration.router, matricies.router]
+def make_individual_mail_body(name, comm, port):
+    return MAIL_BODY_INDIVIDUAL.format(name=name, comm=comm, port=port, whatsapp=WHATSAPP_GROUPS[comm])
 
-for router in routers:
-    app.include_router(router)
+app.include_router(registration.router)
 
 # drop_tables()
 
@@ -130,20 +149,19 @@ async def update_registration_data(username: str, password: str, file: UploadFil
             delegations = fetch_delegates_field('delegation_id', 'email_sent=FALSE AND assigned_comm IS NOT NULL AND delegation_id IS NOT NULL')
             delegations = {item[0] for item in delegations}
             for delegation in delegations:
-                delegates = fetch_delegates_field('is_head, email, assigned_comm, assigned_country', f'delegation_id={delegation}')
-                for is_head, email, assigned_comm, assigned_country in delegates:
+                delegates = fetch_delegates_field('is_head, name, email, assigned_comm, assigned_country', f'delegation_id={delegation}')
+                for is_head, name, email, assigned_comm, assigned_country in delegates:
                     if is_head:
-                        delegate_data = fetch_delegates_field('name, assigned_country, assigned_comm', f'delegation_id={delegation}')
-                        body = make_head_del_mail_body(delegates=delegate_data)
+                        body = make_head_del_mail_body(delegates=(name, assigned_country, assigned_comm))
                         send_mail(server, email, body)
                     else:
-                        send_mail(server, email, MAIL_BODY_INDIVIDUAL.format(comm=assigned_comm, port=assigned_country))
+                        send_mail(server, email, make_individual_mail_body(name, assigned_comm, assigned_country))
 
                     run_sql('UPDATE delegates SET email_sent=TRUE WHERE email=%s', (email,))
 
-            indis = fetch_delegates_field('email, assigned_comm, assigned_country', 'email_sent=FALSE AND assigned_comm IS NOT NULL AND delegation_id IS NULL')
-            for email, comm, country in indis:
-                send_mail(server, email, MAIL_BODY_INDIVIDUAL.format(comm=comm, port=country))
+            indis = fetch_delegates_field('name, email, assigned_comm, assigned_country', 'email_sent=FALSE AND assigned_comm IS NOT NULL AND delegation_id IS NULL')
+            for name, email, comm, country in indis:
+                send_mail(server, email, make_individual_mail_body(name, comm, country))
                 run_sql('UPDATE delegates SET email_sent=TRUE WHERE email=%s', (email,))
 
 create_tables()

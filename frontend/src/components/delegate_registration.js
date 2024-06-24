@@ -36,14 +36,6 @@ const DelegateRegistration = forwardRef((props, ref) => {
             document.getElementById(`double-info-${props.elemNo}`).classList.remove("shown")
         }
 
-        fetch(`/matricies/${e.target.value}`)
-            .then(response => response.json())
-            .then(data => {
-                const option_lis = data.map((opt) => <option key={opt}>{opt}</option>)
-
-                setOptions(option_lis)
-            })
-
         setComm1(e.target.value)
         handleChange(e)
     }
@@ -55,27 +47,11 @@ const DelegateRegistration = forwardRef((props, ref) => {
             document.getElementById(`double-info-${props.elemNo}`).classList.remove("shown")
         }
 
-        fetch(`/matricies/${e.target.value}`)
-            .then(response => response.json())
-            .then(data => {
-                const option_lis = data.map((opt) => <option key={opt}>{opt}</option>)
-
-                setOptions2(option_lis)
-            })
-
         setComm2(e.target.value)
         handleChange(e)
     }
 
     const handleDoubleCommChange = e => {
-        fetch(`/matricies/${e.target.value}`)
-            .then(response => response.json())
-            .then(data => {
-                const option_lis = data.map((opt) => <option key={opt}>{opt}</option>)
-
-                setOptions3(option_lis)
-            })
-
         handleChange(e)
     }
 

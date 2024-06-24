@@ -1,6 +1,7 @@
 .topnav {
     height: 7.5vh;
-    background-color: #192822;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
     display: flex;
     align-items: center;
     justify-content: center;

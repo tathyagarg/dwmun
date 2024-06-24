@@ -30,14 +30,6 @@ export default function IndividualRegistration() {
             document.getElementById("double-info").classList.remove("shown")
         }
 
-        fetch(`/matricies/${e.target.value}`)
-            .then(response => response.json())
-            .then(data => {
-                const option_lis = data.map((opt) => <option key={opt}>{opt}</option>)
-
-                setOptions(option_lis)
-            })
-
         setComm1(e.target.value)
     }
 
@@ -48,26 +40,10 @@ export default function IndividualRegistration() {
             document.getElementById("double-info").classList.remove("shown")
         }
 
-        fetch(`/matricies/${e.target.value}`)
-            .then(response => response.json())
-            .then(data => {
-                const option_lis = data.map((opt) => <option key={opt}>{opt}</option>)
-
-                setOptions2(option_lis)
-            })
-
         setComm2(e.target.value)
     }
 
     const handleDoubleCommChange = e => {
-        fetch(`/matricies/${e.target.value}`)
-            .then(response => response.json())
-            .then(data => {
-                const option_lis = data.map((opt) => <option key={opt}>{opt}</option>)
-
-                setOptions3(option_lis)
-            })
-
         setComm3(e.target.value)
     }
 
