@@ -12,7 +12,8 @@ DB_CONFIG: dict[str, str] = {
     'host': os.getenv('DB_HOST'),
     'user': os.getenv('DB_USER'),
     'database': os.getenv('DB_DATABASE'),
-    'password': os.getenv('DB_PASSWORD')
+    'password': os.getenv('DB_PASSWORD'),
+    'port': os.getenv('DB_PORT')
 }
 
 db = mysql.connector.connect(**DB_CONFIG)
