@@ -2,6 +2,7 @@ import '../styles/home.css'
 import Contact from '../components/contact';
 import Countdown from '../components/countdown';
 import logo from '../assets/logo.webp';
+import rotary from '../assets/rotary.png'
 
 const start_date = new Date('August 01, 2024 08:00:00').getTime();
 
@@ -30,6 +31,10 @@ export default function Home() {
     setInterval(updateDate, (1000 * 60))
 
     return <div>
+        <div className='rotary'>
+            <img src={rotary} className='rotary-logo'></img>
+            <p>Presents...</p>
+        </div>
         <section className="title">
             <img src={logo} className='dwmun-logo' style={{height: "40vh"}}></img>
             <div className="header">
@@ -90,7 +95,7 @@ export default function Home() {
         </section>
         <section id='oc-letter-section'>
             <div id='oc-letter'>
-                <h1>Letter from OC</h1>
+                <h1>Letter from the OC</h1>
                 <div id='oc-letter-content'>
                     <div id='actual-oc-letter'>
                         <p>

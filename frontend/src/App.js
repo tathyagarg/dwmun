@@ -1,54 +1,50 @@
-import Home from './pages/home';
+import Navbar from './components/navbar.js'
+import Home from './pages/home.js'
+import Committees from './pages/committees.js'
+import UNSC from './pages/comms/unsc.js'
+import UNHRC from './pages/comms/unhrc.js'
+import DISEC from './pages/comms/disec.js'
+import LokSabha from './pages/comms/lok_sabha.js'
+import IPC from './pages/comms/ipc.js'
+import CommitteeX from './pages/comms/committee_x.js'
+import CCC from './pages/comms/ccc.js'
+import Secretariat from './pages/secretariat.js'
+import Registration from './pages/registration.js'
+import IndividualRegistration from './pages/registrations/individual.js'
+import DelegationRegistration from './pages/registrations/delegation.js'
+import Resources from './pages/resources.js'
+import LoginPage from './pages/login.js'
 
-import Committees from './pages/committees';
-import UNSC from './pages/comms/unsc';
-import UNHRC from './pages/comms/unhrc';
-import DISEC from './pages/comms/disec';
-import LokSabha from './pages/comms/lok_sabha';
-import IPC from './pages/comms/ipc';
-import CommitteeX from './pages/comms/committee_x.js';
-import CCC from './pages/comms/ccc';
-
-import Secretariat from './pages/secretariat';
-import Registration from './pages/registration';
-import Resources from './pages/resources';
-
-import IndividualRegistration from './pages/registrations/individual';
-import DelegationRegistration from './pages/registrations/delegation';
-
-import LoginPage from './pages/login';
-
-import Navbar from './components/navbar';
-
-import {
-    BrowserRouter as Router,
-    Routes,
-    Route
-} from "react-router-dom"
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
 function App() {
     return (
-        <Router>
-            <Navbar></Navbar>
+        <BrowserRouter>
+            <Navbar />
             <Routes>
-                <Route exact path="/dwmun" element={<Home/>}/>
-                <Route path="/committees" element={<Committees/>}/>
-                <Route path="/committees/unsc" element={<UNSC/>}/>
-                <Route path="/committees/unhrc" element={<UNHRC/>}/>
-                <Route path="/committees/disec" element={<DISEC/>}/>
-                <Route path="/committees/lok-sabha" element={<LokSabha/>}/>
-                <Route path="/committees/ipc" element={<IPC/>}/>
-                <Route path="/committees/committee-x" element={<CommitteeX/>}/>
-                <Route path="/committees/ccc" element={<CCC/>}/>
-                <Route path="/secretariat" element={<Secretariat/>}/>
-                <Route path="/registration" element={<Registration/>}/>
-                <Route path="/registration/individual" element={<IndividualRegistration/>}/>
-                <Route path="/registration/delegation" element={<DelegationRegistration/>}/>
-                <Route path="/login" element={<LoginPage/>}/>
-                <Route path="/resources" element={<Resources/>}/>
+                <Route exact path='/' Component={Home}/>
+                <Route exact path='/committees' Component={Committees}/>
+                <Route exact path='/committees/unsc' Component={UNSC}/>
+                <Route exact path='/committees/unhrc' Component={UNHRC}/>
+                <Route exact path='/committees/disec' Component={DISEC}/>
+                <Route exact path='/committees/lok-sabha' Component={LokSabha}/>
+                <Route exact path='/committees/ipc' Component={IPC}/>
+                <Route exact path='/committees/committee-x' Component={CommitteeX}/>
+                <Route exact path='/committees/ccc' Component={CCC}/>
+                <Route exact path='/secretariat' Component={Secretariat}/>
+                <Route exact path='/registration' Component={Registration}/>
+                <Route exact path='/registration/individual' Component={IndividualRegistration}/>
+                <Route exact path='/registration/delegation' Component={DelegationRegistration}/>
+                <Route exact path='/resources' Component={Resources}/>
+                <Route exact path='/login' Component={LoginPage}/>
             </Routes>
-        </Router>
+        </BrowserRouter>
     )
 }
+
+// ReactDOM.render(
+//     <App/>,
+//     document.getElementById("root")
+// )
 
 export default App;

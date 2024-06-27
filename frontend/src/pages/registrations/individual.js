@@ -4,9 +4,6 @@ import Contact from '../../components/contact'
 
 export default function IndividualRegistration() {
     const [proof, setproof] = useState(null);
-    const [options, setOptions] = useState(<option value={""} disabled selected>Loading...</option>)
-    const [options2, setOptions2] = useState(<option value={""} disabled selected>Loading...</option>)
-    const [options3, setOptions3] = useState(<option value={""} disabled selected>Loading...</option>)
     const [comm1, setComm1] = useState("")
     const [comm2, setComm2] = useState("")
     const [comm3, setComm3] = useState("")
@@ -67,7 +64,7 @@ export default function IndividualRegistration() {
             document.getElementById("primary-comm"),
             document.getElementById("secondary-comm")
         ]) {
-            if (element.value == "") {
+            if (element.value === "") {
                 elem.innerHTML = `Field not filled: ${purify(element.name)}`
                 elem.classList.add('error')
                 elem.classList.remove('success')
@@ -76,12 +73,12 @@ export default function IndividualRegistration() {
             }
         }
 
-        if (comm1 == "UNSC" || comm2 == "UNSC") {
+        if (comm1 === "UNSC" || comm2 === "UNSC") {
             for (let element of [
                 document.getElementById("double-primary-comm"),
                 document.getElementById("double-grade")
             ]) {
-                if (element.value == "") {
+                if (element.value === "") {
                     elem.innerHTML = `Field not filled: ${purify(element.name)}`
                     elem.classList.add('error')
                     elem.classList.remove('success')
@@ -94,7 +91,7 @@ export default function IndividualRegistration() {
         for (let item of formData) {
             let [key, value] = [item[0], item[1]]
 
-            if ((value == "" && (key !== "prior_experience" && (key.includes("double") && (comm1 === "UNSC" || comm2 === "UNSC") && key !== "double_prior_experience")))) {
+            if ((value === "" && (key !== "prior_experience" && (key.includes("double") && (comm1 === "UNSC" || comm2 === "UNSC") && key !== "double_prior_experience")))) {
                 elem.innerHTML = `Field not filled: ${purify(key)}`
                 elem.classList.add('error')
                 elem.classList.remove('success')
@@ -126,7 +123,7 @@ export default function IndividualRegistration() {
             .then(data => {
                 const [status, response] = data
                 const elem = document.getElementById('status')
-                if (status == 1) {
+                if (status === 1) {
                     elem.innerHTML = response
                     elem.classList.add('error')
                     elem.classList.remove('success')
@@ -181,24 +178,12 @@ export default function IndividualRegistration() {
                     </select>
 
                     <input name="primary_country" type='text' list='primary-portfolio' id="primary-portfolio-input" placeholder='Portfolio Preference'/>
-                    <datalist id="primary-portfolio">
-                        {options}
-                    </datalist>
 
                     <input name="secondary_country" type='text' list='secondary-portfolio' id="secondary-portfolio-input" placeholder='Portfolio Preference'/>
-                    <datalist id="secondary-portfolio">
-                        {options2}
-                    </datalist>
 
                     <input name="primary_country_2" type='text' list='primary-portfolio2' id="primary-portfolio-input2" placeholder='Second Portfolio Preference'/>
-                    <datalist id="primary-portfolio2">
-                        {options}
-                    </datalist>
 
                     <input name="secondary_country_2" type='text' list='secondary-portfolio2' id="secondary-portfolio-input2" placeholder='Second Portfolio Preference'/>
-                    <datalist id="secondary-portfolio2">
-                        {options2}
-                    </datalist>
                 </div>
 
                 <label>Experience</label>
@@ -232,14 +217,8 @@ export default function IndividualRegistration() {
                         </select>
 
                         <input name="double_primary_country" type='text' list='double-primary-portfolio' id="double-primary-portfolio-input" placeholder='Portfolio Preference'/>
-                        <datalist id="double-primary-portfolio">
-                            {options3}
-                        </datalist>
 
                         <input name="double_secondary_country" type='text' list='double-secondary-portfolio' id="double-secondary-portfolio-input" placeholder='Second Portfolio Preference'/>
-                        <datalist id="double-secondary-portfolio">
-                            {options3}
-                        </datalist>
                     </div>
 
                     <label>Experience</label>

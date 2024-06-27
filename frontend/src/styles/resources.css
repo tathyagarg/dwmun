@@ -118,6 +118,12 @@
     }
 
     .resources {
-        grid-template-columns: repeat(2, 1fr);
+        display: block;
+    }
+
+    .resources > div:hover {
+        transform: none;
+        box-shadow: none;
+        background-color: transparent;
     }
 }
