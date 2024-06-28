@@ -63,6 +63,12 @@ export default function DelegationRegistration() {
             return triggerError(statusElement)
         }
 
+        if (data.get('phone_number').length !== 10) {
+            const append2 = isHeadDel ? "issue for the Head Delegate" : `issue for Delegate #${index + 1}`
+            statusElement.innerHTML = `Please enter a 10-digit-long phone number for all delegates (${append2})`
+            return triggerError(statusElement)
+        }
+
         const toCheck = isHeadDel ? [grade, comm1, comm2] : [data["grade"], data["primary_comm"], data["secondary_comm"]]
         const failure = [0, "", ""]
         const purified = ["Grade", "Primary Committee Preference", "Secondary Committee Preference"]
@@ -162,8 +168,7 @@ export default function DelegationRegistration() {
                 const elem = document.getElementById('status')
                 if (status === 1) {
                     elem.innerHTML = response
-                    elem.classList.add('error')
-                    elem.classList.remove('success')
+                    triggerError(statusElement)
                 } else {
                     window.location.reload()
                 }
@@ -274,7 +279,6 @@ export default function DelegationRegistration() {
                 </div>
 
                 <button className="add-sub-delegate" type="button" onClick={() => {
-                    alert(delegates.length)
                     setDelegates(prev => [...prev, React.createRef()])
                     setAmt(850 * (delegates.length + 2) * (delegates.length >= 8 ? 0.9 : 1))
                 }}>+</button>
