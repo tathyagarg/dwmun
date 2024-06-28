@@ -90,8 +90,10 @@ def create_tables() -> STATUS:
 
         print("Creating admin")
         cursor.execute('''CREATE TABLE IF NOT EXISTS admin (
+            admin_id INT AUTO_INCREMENT,
             name VARCHAR(255) NOT NULL,
-            password VARCHAR(255) NOT NULL
+            password VARCHAR(255) NOT NULL,
+            PRIMARY KEY (admin_id)
         );''')
 
         cursor.execute('SELECT * FROM admin')
