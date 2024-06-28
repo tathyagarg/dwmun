@@ -139,6 +139,7 @@ export default function DelegationRegistration() {
 
     const handleSubmit = async (event) => {
         event.preventDefault()
+        const statusElement = document.getElementById("status")
 
         const allFormData = delegates.map(ref => ref.current.getFormData())
 
@@ -170,7 +171,11 @@ export default function DelegationRegistration() {
                     elem.innerHTML = response
                     triggerError(statusElement)
                 } else {
-                    window.location.reload()
+                    const link = document.createElement('a');
+                    link.href = '/thank-you';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
                 }
             })
     }

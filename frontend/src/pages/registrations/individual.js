@@ -132,7 +132,11 @@ export default function IndividualRegistration() {
                     elem.classList.add('error')
                     elem.classList.remove('success')
                 } else {
-                    document.location.reload()
+                    const link = document.createElement('a');
+                    link.href = '/thank-you';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
                 }
             })
 
