@@ -124,7 +124,7 @@ async def get_registration_data(username: str, password: str):
 
 @app.post('/admin')
 async def update_registration_data(username: str, password: str, file: UploadFile = File(...)):
-    if fetch_admin_data() == (username, encrypt(password)):
+    if fetch_admin_data() == (username, password):
         contents = file.file.read()
         with open('data.xlsx', 'wb') as f:
             f.write(contents)
