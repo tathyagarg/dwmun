@@ -140,29 +140,36 @@ async def update_registration_data(username: str, password: str, file: UploadFil
 
         with smtplib.SMTP_SSL(MAIL_SERVER, MAIL_PORT, context=context) as server:
             server.login(MAIL_SENDER, MAIL_PASSW)
+            print("Logged into mail")
 
             for i, (comm, portfolio, email_sent) in enumerate(zip(assigned_comms, assigned_ports, email_status)):
                 if (comm and portfolio) and not email_sent:
                     recver = df.ws(ws_name).index(row=i+2, col=5)
                     run_sql('UPDATE delegates SET assigned_comm=%s, assigned_country=%s WHERE email=%s', (comm, portfolio, recver))
+                    print("Updated comm and portfolio")
 
             delegations = fetch_delegates_field('delegation_id', 'email_sent=FALSE AND assigned_comm IS NOT NULL AND delegation_id IS NOT NULL')
             delegations = {item[0] for item in delegations}
+            print("Delegations for mail sending: ", delegations)
             for delegation in delegations:
                 delegates = fetch_delegates_field('is_head, name, email, assigned_comm, assigned_country', f'delegation_id={delegation}')
                 for is_head, name, email, assigned_comm, assigned_country in delegates:
                     if is_head:
                         body = make_head_del_mail_body(delegates=(name, assigned_country, assigned_comm))
                         send_mail(server, email, body)
+                        print("Sending mail to head del", email)
                     else:
                         send_mail(server, email, make_individual_mail_body(name, assigned_comm, assigned_country))
+                        print("Sending mail to delegate of delegation", email)
 
                     run_sql('UPDATE delegates SET email_sent=TRUE WHERE email=%s', (email,))
 
             indis = fetch_delegates_field('name, email, assigned_comm, assigned_country', 'email_sent=FALSE AND assigned_comm IS NOT NULL AND delegation_id IS NULL')
+            print("Indis to send mail to: ", indis)
             for name, email, comm, country in indis:
                 send_mail(server, email, make_individual_mail_body(name, comm, country))
                 run_sql('UPDATE delegates SET email_sent=TRUE WHERE email=%s', (email,))
+                print("Mail sent to", email)
 
 @app.get('/test')
 async def test_ep():
