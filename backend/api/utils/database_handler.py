@@ -91,17 +91,19 @@ def create_tables() -> STATUS:
         print("Creating admin")
         cursor.execute('''CREATE TABLE IF NOT EXISTS admin (
             name VARCHAR(255) NOT NULL,
-            password BINARY(60) NOT NULL
+            password VARCHAR(255) NOT NULL
         );''')
 
         cursor.execute('SELECT * FROM admin')
         data_exists = cursor.fetchall()
         if not data_exists:
-            cursor.execute('INSERT INTO admin (name, password) VALUES (%s, %s)', (ADMIN_USERNAME, encrypt(ADMIN_PASSWORD)))
+            print("Data does not exist")
+            cursor.execute('INSERT INTO admin (name, password) VALUES (%s, %s)', (ADMIN_USERNAME, ADMIN_PASSWORD))
 
         print("Created admin")
 
     except Exception as e:
+        print(f'Error: {e}')
         return 1, str(e)
     else:
         return 0, ''
