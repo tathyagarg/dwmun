@@ -91,7 +91,11 @@ export default function IndividualRegistration() {
         for (let item of formData) {
             let [key, value] = [item[0], item[1]]
 
-            if ((value === "" && (key !== "prior_experience" && (key.includes("double") && (comm1 === "UNSC" || comm2 === "UNSC") && key !== "double_prior_experience")))) {
+            if (value === "" && !(
+                key.includes('prior_experience') ||
+                !(key.includes('double') &&
+                !(comm1 === "UNSC" || comm2 === "UNSC"))
+            )) {
                 elem.innerHTML = `Field not filled: ${purify(key)}`
                 elem.classList.add('error')
                 elem.classList.remove('success')
