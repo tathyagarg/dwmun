@@ -9,11 +9,11 @@ dotenv.load_dotenv()
 
 STATUS = tuple[int, str]
 DB_CONFIG: dict[str, str] = {
-    'host': os.getenv('DB_HOST'),
-    'user': os.getenv('DB_USER'),
+    'host': 'localhost',
+    'user': 'root',
     'database': os.getenv('DB_DATABASE'),
     'password': os.getenv('DB_PASSWORD'),
-    'port': os.getenv('DB_PORT')
+    # 'port': 8000
 }
 
 db = mysql.connector.connect(**DB_CONFIG)

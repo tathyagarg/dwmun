@@ -33,7 +33,7 @@ async def get_indis_ep():
 
 @router.get("/delegation", response_class=JSONResponse, status_code=status.HTTP_200_OK)
 async def get_delegation_ep():
-    return fetch_all_delegates(condition='WHERE delegation_id IS NOT NULL', params='name, email, delegation_id')
+    return fetch_all_delegates(condition='WHERE delegation_id IS NOT NULL')
 
 @router.post("/individual", response_class=JSONResponse, status_code=status.HTTP_200_OK)
 async def individual_registration_ep(registration_data: str = Body(...), payment: UploadFile = File(...)):

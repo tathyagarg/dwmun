@@ -7,7 +7,7 @@ import urllib.request
 
 import xlsxwriter
 import pylightxl as xl
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, JSONResponse
 from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -20,7 +20,6 @@ from utils.database_handler import (
     fetch_admin_data,
     fetch_all_delegates,
     run_sql,
-    fetch_delegate_field,
     fetch_delegates_field
 )
 
@@ -164,9 +163,13 @@ async def update_registration_data(username: str, password: str, file: UploadFil
                 send_mail(server, email, make_individual_mail_body(name, comm, country))
                 run_sql('UPDATE delegates SET email_sent=TRUE WHERE email=%s', (email,))
 
+@app.get('/test')
+async def test_ep():
+    return JSONResponse({"content": "This orked!"})
+
 create_tables()
 
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run(app, host='0.0.0.0', port=5000)
+    uvicorn.run(app, host='127.0.0.1', port=5000)
