@@ -167,7 +167,9 @@ async def update_registration_data(username: str, password: str, file: UploadFil
 async def test_ep():
     return JSONResponse({"content": "This orked!"})
 
+print("Creating Tables")
 create_tables()
+print("Tables Created")
 
 if __name__ == "__main__":
     import uvicorn

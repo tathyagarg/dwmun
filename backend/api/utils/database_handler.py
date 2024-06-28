@@ -20,6 +20,9 @@ db = mysql.connector.connect(**DB_CONFIG)
 
 cursor = db.cursor(buffered=True)
 
+ADMIN_USERNAME = os.getenv('ADMIN_USER')
+ADMIN_PASSWORD = os.getenv('ADMIN_PASSWORD')
+
 
 def post_commit(func):
     def inner(*args, **kwargs):
@@ -50,11 +53,14 @@ def drop_tables() -> STATUS:
 @post_commit
 def create_tables() -> STATUS:
     try:
+        print("Creating delegations")
         cursor.execute('''CREATE TABLE IF NOT EXISTS delegations (
             id INT AUTO_INCREMENT,
             PRIMARY KEY (id)
         )''')
+        print("Created delegations")
 
+        print("Creating delegates")
         cursor.execute('''CREATE TABLE IF NOT EXISTS delegates (
             id INT AUTO_INCREMENT,
             delegation_id INT,
@@ -80,11 +86,21 @@ def create_tables() -> STATUS:
             FOREIGN KEY (delegation_id)
                 REFERENCES delegations(id)
         );''')
+        print("Created delegates")
 
+        print("Creating admin")
         cursor.execute('''CREATE TABLE IF NOT EXISTS admin (
             name VARCHAR(255) NOT NULL,
             password BINARY(60) NOT NULL
         );''')
+
+        cursor.execute('SELECT * FROM admin')
+        data_exists = cursor.fetchall()
+        if not data_exists:
+            cursor.execute('INSERT INTO admin (name, password) VALUES (%s, %s)', (ADMIN_USERNAME, encrypt(ADMIN_PASSWORD)))
+
+        print("Created admin")
+
     except Exception as e:
         return 1, str(e)
     else:
