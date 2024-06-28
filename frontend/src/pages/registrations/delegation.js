@@ -95,11 +95,13 @@ export default function DelegationRegistration() {
             for (let item of data) {
                 let [key, value] = [item[0], item[1]]
 
-                if (value === "" && !["grade", "primary_comm", "secondary_comm", "double_grade", "double_primary_comm", "prior_experience", "double_prior_experience"].includes(key)) {
-                    if (!key.includes('double') || (key.includes("double") && (comm1 === "UNSC" || comm2 === "UNSC"))) {
-                        statusElement.innerHTML = `Field not filled: ${purify(key)}` + append
-                        return triggerError(statusElement)
-                    }
+                if (value === "" && !(
+                    key.includes('prior_experience') ||
+                    (key.includes('double') &&
+                    !(comm1 === "UNSC" || comm2 === "UNSC"))
+                )) {
+                    statusElement.innerHTML = `Field not filled: ${purify(key)}` + append
+                    return triggerError(statusElement)
                 }
 
                 if (key !== "proof") {
@@ -113,7 +115,7 @@ export default function DelegationRegistration() {
             for (let [key, value] of Object.entries(data)) {
                 if (value === "" && !(
                     key.includes('prior_experience') ||
-                    !(key.includes('double') &&
+                    (key.includes('double') &&
                     !(comm1 === "UNSC" || comm2 === "UNSC"))
                 )) {
                     statusElement.innerHTML = `Field not filled: ${purify(key)}` + append

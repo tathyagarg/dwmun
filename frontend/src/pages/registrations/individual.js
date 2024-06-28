@@ -93,7 +93,7 @@ export default function IndividualRegistration() {
 
             if (value === "" && !(
                 key.includes('prior_experience') ||
-                !(key.includes('double') &&
+                (key.includes('double') &&
                 !(comm1 === "UNSC" || comm2 === "UNSC"))
             )) {
                 elem.innerHTML = `Field not filled: ${purify(key)}`
