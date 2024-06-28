@@ -205,6 +205,7 @@ def register_delegation(delegates: list[SingleDelegateRegistrationData], file_da
 def fetch_all_delegates(condition: str = ''):
     cursor.execute(f'SELECT * FROM delegates ' + condition)
     data = cursor.fetchall()
+    print("Query res: ", data)
 
     result = []
 

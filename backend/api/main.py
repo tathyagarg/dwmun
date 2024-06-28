@@ -81,6 +81,7 @@ app.include_router(registration.router)
 async def get_registration_data(username: str, password: str):
     if fetch_admin_data() == (username, encrypt(password)):
         data = fetch_all_delegates()
+        print(data)
 
         with xlsxwriter.Workbook('data.xlsx') as workbook:
             worksheet = workbook.add_worksheet('Registrations')
