@@ -79,7 +79,7 @@ app.include_router(registration.router)
 
 @app.get('/admin')
 async def get_registration_data(username: str, password: str):
-    if fetch_admin_data() == (username, encrypt(password)):
+    if fetch_admin_data() == (username, password):
         data = fetch_all_delegates()
         print(data)
 
