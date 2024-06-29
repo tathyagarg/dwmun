@@ -87,16 +87,17 @@ body {
     0% {
         background-position-x: 0;
     } 100% {
-        background-position-x: 281%;
+        background-position-x: calc(150px * 2472 / 360);
     }
 }
 
 .flags {
-    height: 10vh;
+    height: 150px;
     background-color: pink;
     background-image: url('../assets/flags.webp');
     background-size: contain;
-    animation: flag-rotate 10s linear infinite;
+    animation: flag-rotate 5s linear infinite;
+    animation-direction: forwards;
 }
 
 .about-div {
@@ -285,17 +286,18 @@ body {
         animation: flag-rotate 3s linear infinite;
     }
 
-    #principal-letter-content {
+    #principal-letter-content, #oc-letter-content {
         display: block;
     }
 
     #image-placeholder-3 {
-        height: 100%;
-        aspect-ratio: 2/3;
+        height: 25vh;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     #principal-letter, #oc-letter {
-        width: 90%;
+        width: 95%;
         height: auto;
 
         & > h1 { font-size: 4vh; }
