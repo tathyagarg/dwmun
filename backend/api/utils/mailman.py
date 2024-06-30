@@ -1,5 +1,4 @@
 import os
-import ssl
 import smtplib
 
 import dotenv
@@ -9,9 +8,9 @@ dotenv.load_dotenv()
 
 SUBJECT = "DWMUN'24 Allotment"
 
-SENDER = os.getenv('MAIL_SENDER')
+SENDER: str = os.getenv('MAIL_SENDER')
 
-def send_mail(server: smtplib.SMTP_SSL, recv: str, body: str):
+def send_mail(server: smtplib.SMTP_SSL, recv: str, body: str) -> None:
     msg = MIMEText(body)
     msg['Subject'] = SUBJECT
     msg['From'] = SENDER

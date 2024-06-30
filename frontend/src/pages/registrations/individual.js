@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import '../../styles/registration_pages.css'
 import Contact from '../../components/contact'
+import CodeOfConduct from '../../assets/DWMUN\'24\ Code\ of\ Conduct.pdf'
+
 
 export default function IndividualRegistration() {
     const [proof, setproof] = useState(null);
@@ -246,7 +248,7 @@ export default function IndividualRegistration() {
                 }}></input>
                 <div>
                     <input name="confirmation" type="checkbox" id="confirmation"></input>
-                    <label for="confirmation" style={{fontSize: "1.25vh"}}>I confirm that I have read and understood the Code of Conduct (???) and filled this form correctly</label>
+                    <label for="confirmation" style={{fontSize: "1.25vh"}}>I confirm that I have read and understood the <a href={CodeOfConduct} style={{color: "#aaa", textDecoration: "none"}} target='_blank'>Code of Conduct</a> and filled this form correctly</label>
                 </div>
                 <input type="submit" id="submit"></input>
             </form>

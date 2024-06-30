@@ -1,5 +1,6 @@
 import '../styles/resources.css'
 import Contact from '../components/contact.js'
+import CodeOfConduct from '../assets/DWMUN\'24\ Code\ of\ Conduct.pdf'
 
 export default function Resources() {
     return (<div>
@@ -43,6 +44,11 @@ export default function Resources() {
                         <a>Matrix</a>
                         <a>Background Guide</a>
                     </div>
+                </div>
+                <h1 className='subhead'>Conference Information</h1>
+                <div class="conf-info">
+                    <a id="coc" href={CodeOfConduct} target='_blank'>Code Of Conduct</a>
+                    <a id="iti" href='/'>Itinerary</a>
                 </div>
             </div>
         </div>

@@ -3,7 +3,6 @@ from .models import SingleDelegateRegistrationData
 import dotenv
 import os
 import base64
-from .encryption import encrypt
 
 dotenv.load_dotenv()
 

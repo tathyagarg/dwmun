@@ -15,39 +15,42 @@ from utils import *
 router = APIRouter(prefix='/registration', tags=['registrations'])
 
 
-def check_file_validity(payment, payment_content) -> tuple[int, str]:
+def check_file_validity(payment: UploadFile, payment_content: bytes) -> STATUS:
     if payment == '':
-        return 1, "Payment Proof not submitted"  # TODO: add proper response
+        return 1, "Payment Proof not submitted"
 
     if payment.filename == '' or not check_valid_image_filetype(payment.filename):
-        return 1, "Invalid file format"  # TODO: add proper response
+        return 1, "Invalid file format"
 
     if not check_valid_image_filesize(payment_content):
-        return 1, "File too large"  # TODO: add proper response
+        return 1, "File too large"
 
     return 0, ""
+
 
 @router.get("/individual", response_class=JSONResponse, status_code=status.HTTP_200_OK)
 async def get_indis_ep():
     return fetch_all_delegates()
 
+
 @router.get("/delegation", response_class=JSONResponse, status_code=status.HTTP_200_OK)
 async def get_delegation_ep():
     return fetch_all_delegates(condition='WHERE delegation_id IS NOT NULL')
 
+
 @router.post("/individual", response_class=JSONResponse, status_code=status.HTTP_200_OK)
 async def individual_registration_ep(registration_data: str = Body(...), payment: UploadFile = File(...)):
-    payment_content = await payment.read()
+    payment_content: bytes = await payment.read()
     filetype: str = get_filetype(payment.filename)
 
-    parsed = parse_str_to_dict(registration_data)
+    parsed: dict = parse_str_to_dict(registration_data)
 
     registration_data: DelegateRegistrationData = DelegateRegistrationData.model_validate_json(json.dumps(parsed))
 
     if check_delegate_is_registered(registration_data.email):
         return 1, "Delegate already registered!"
 
-    if (validity := check_file_validity(payment, payment_content)) != (0, ""):
+    if (validity := check_file_validity(payment, payment_content)) != (0, ""):  # Invalid file check
         return validity
 
     primary_registration_data = SingleDelegateRegistrationData(
@@ -71,11 +74,13 @@ async def individual_registration_ep(registration_data: str = Body(...), payment
         filetype=filetype
     )
 
-    if response[0] == 1:
+    if response[0] == 1:  # Registration threw error
         return response
 
-    if "UNSC" not in (registration_data.primary_comm, registration_data.secondary_comm):
+    if "UNSC" not in (registration_data.primary_comm, registration_data.secondary_comm):  # Single delegate registration
         return response
+
+    #  Delegate opted for UNSC as a committee preference, this handles their partner's registration
 
     if registration_data.primary_comm == "UNSC":
         country = registration_data.primary_country
@@ -107,15 +112,16 @@ async def individual_registration_ep(registration_data: str = Body(...), payment
 
     return response
 
+
 @router.post("/delegation", response_class=JSONResponse, status_code=status.HTTP_200_OK)
 async def delegation_registration_ep(registration_data: str = Body(...), payment: UploadFile = File(...)):
-    payment_content = await payment.read()
+    payment_content: bytes = await payment.read()
     filetype: str = get_filetype(payment.filename)
 
-    registration_data = ast.literal_eval(registration_data)
-    registration_data = [ast.literal_eval(elem) for elem in registration_data]
+    registration_data: list[str] = ast.literal_eval(registration_data)
+    registration_data: list[dict] = [ast.literal_eval(elem) for elem in registration_data]
 
-    head_del = DelegateRegistrationData.model_validate_json(json.dumps(registration_data[0]))
+    head_del: DelegateRegistrationData = DelegateRegistrationData.model_validate_json(json.dumps(registration_data[0]))
 
     school = head_del.school
 
@@ -172,10 +178,10 @@ async def delegation_registration_ep(registration_data: str = Body(...), payment
             final.append(partner)
 
     for delegate in final:
-        if check_delegate_is_registered(delegate.email):
+        if check_delegate_is_registered(delegate.email):  # Make sure none of the delegates have already registered
             return 1, f"Delegate {delegate.email} is already registered"
 
-    if (validity := check_file_validity(payment, payment_content)) != (0, ""):
+    if (validity := check_file_validity(payment, payment_content)) != (0, ""):  # Ensure file validity
         return validity
 
     response = register_delegation(
