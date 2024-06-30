@@ -1,4 +1,4 @@
-from .database_handler import run_sql
+from utils import run_sql
 import asyncio
 import datetime
 
