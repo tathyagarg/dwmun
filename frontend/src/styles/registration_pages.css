@@ -44,6 +44,10 @@ input {
 
 input:not(#confirmation), select { height: 4vh }
 
+label[for=confirmation] {
+    font-size: 2vh !important;
+}
+
 select {
     padding-left: 0.25vw;
     color: #ffffffbf;

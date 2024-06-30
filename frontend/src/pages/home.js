@@ -95,16 +95,30 @@ export default function Home() {
         </section>
         <section id='oc-letter-section'>
             <div id='oc-letter'>
-                <h1>Letter from the OC</h1>
+                <h1>Letter from the Secretary General</h1>
                 <div id='oc-letter-content'>
                     <div id='actual-oc-letter'>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent pellentesque eget magna sed laoreet. Vivamus pellentesque luctus sem vitae maximus. Aenean vehicula mollis mi sit amet ultricies. Curabitur fermentum dolor lacus, id malesuada lacus pellentesque sed. Suspendisse iaculis felis ac nibh aliquet aliquet. Curabitur vitae tincidunt enim. Nunc ultrices mauris a lacus commodo, dictum interdum nibh convallis.
-                        </p><p>
-                            Aliquam vitae dictum dolor. Sed semper neque ac justo egestas consectetur. Aliquam eget mauris laoreet ante hendrerit fermentum. In ornare nunc ut vestibulum ullamcorper. Curabitur dictum mollis leo, sit amet luctus elit tempor ut. Vestibulum dapibus sem et erat finibus, non porta ex hendrerit. Maecenas congue blandit pellentesque. Sed augue tortor, efficitur eu leo sed, congue varius magna. Sed ac tortor eget libero sollicitudin aliquam. Integer feugiat nunc in neque accumsan, euismod rutrum dolor sollicitudin. Phasellus semper lorem ac placerat malesuada. Sed aliquet imperdiet tellus elementum dignissim. Curabitur faucibus lectus urna, sed gravida tellus efficitur in. Nullam hendrerit turpis ut interdum venenatis. Praesent velit orci, maximus non augue ac, dignissim lobortis est.
-                        </p><p>
-                            Nunc congue, justo vel pellentesque lacinia, neque urna imperdiet mi, ut dictum turpis ipsum ac velit. Aliquam elementum vel arcu efficitur tincidunt. Fusce in efficitur felis, nec dictum tellus. Vestibulum vestibulum velit at leo tempus volutpat. Nunc felis lorem, ornare nec fermentum vel, consectetur sed orci. Fusce bibendum arcu a ante pellentesque, quis pharetra nulla bibendum. Integer facilisis mi a purus fringilla, vitae gravida ipsum volutpat. Quisque tempor sit amet sem vel pellentesque. Fusce commodo sed sem at viverra. Proin eget libero in enim aliquet condimentum. Maecenas dapibus purus at sem auctor condimentum. Pellentesque consequat vestibulum arcu. Aenean ac malesuada ex. Vestibulum a lobortis massa. Duis non nibh non ex suscipit convallis. Proin porttitor mi sed ligula dictum, sed mollis nulla interdum.
-                        </p>
+                    Dear Delegates, Distinguished Guests, and Esteemed Participants,
+It is with great pleasure and excitement that I welcome you to the sixth edition of Delhi Public School Whitefield Model United Nations, DWMUN’24. As the Secretary General, I am honoured to share my journey with you and express my utmost enthusiasm for the remarkable experiences that await each and every one of you.
+</p><p>
+Reflecting upon my own MUN journey, I vividly recall the momentous beginning that shaped my passion for diplomacy and global affairs. It was in the 8th grade when I first stepped into the realm of MUNs, embarking on an adventure that would forever change my life. The committee I was assigned to was the Social, Humanitarian, and Cultural Committee (SOCHUM), an assembly of nearly 80 individuals united by their shared commitment to address pressing global issues.
+</p><p>
+As I entered the committee room, a wave of excitement and apprehension washed over me. Thoughts flooded my mind, wondering if I would ever get the chance to voice my opinions amidst such a vast gathering of talented delegates. However, much to my surprise, the dynamics of the committee quickly transformed. Within the first hour of the session, I found myself speaking on three separate occasions, capturing the attention of my fellow delegates and making a meaningful contribution to the discussions at hand. Throughout the three days, I not only spoke multiple times but learned from other delegates too. I learned that MUNs were not only about public speaking and research, but were a complex mix of research, diplomacy, and confidence among others. This motivated me to attend more conferences and hone my skills to perfection.
+</p><p>
+Today, I have attended over 35 plus conferences and while I still don’t believe I’ve reached “perfection,” I am able to quote laws and articles that I once did know existed off the top of my head and teach upcoming MUN delegates in the circuit too. I am proud to be part of some of the best delegations across the MUN circuit and win awards at prestigious institutions.
+</p><p>
+So, I hope MUNs are able to play an impact on your lives, similar to mine. With that, I wish you all a memorable and rewarding Model United Nations experience. May you leave this conference empowered with the belief that each one of you possesses the capacity to shape a better world.
+</p><p>
+
+Regards,
+</p><p>
+Shrisai Hari
+<br/>
+Secretary General
+<br/>
+DWMUN’24
+</p>
                     </div>
                     <div id='image-placeholder-3'></div>
                 </div>

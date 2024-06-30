@@ -12,7 +12,6 @@ from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 
 from utils.mailman import send_mail
-from utils.encryption import encrypt
 from routes import registration
 from utils.database_handler import (
     create_tables,

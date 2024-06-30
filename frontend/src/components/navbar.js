@@ -15,7 +15,7 @@ const NavLink = styled(Link)`
 `
 
 const scrollToTop = () => {
-    window.scroll(0, 0)
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
 }
 
 export default function Navbar() {
