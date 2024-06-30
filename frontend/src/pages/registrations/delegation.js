@@ -69,6 +69,12 @@ export default function DelegationRegistration() {
             return triggerError(statusElement)
         }
 
+        if (data.get('double_phone_number').length !== 10 && (comm1 === "UNSC" || comm2 === "UNSC")) {
+            const append2 = isHeadDel ? "issue for the Head Delegate's Partner" : `issue for Delegate #${index + 1}'s Partner`
+            statusElement.innerHTML = `Please enter a 10-digit-long phone number for all delegates (${append2})`
+            return triggerError(statusElement)
+        }
+
         const toCheck = isHeadDel ? [grade, comm1, comm2] : [data["grade"], data["primary_comm"], data["secondary_comm"]]
         const failure = [0, "", ""]
         const purified = ["Grade", "Primary Committee Preference", "Secondary Committee Preference"]
