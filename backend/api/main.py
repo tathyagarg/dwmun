@@ -216,6 +216,7 @@ async def destroy_ep(username: str, password: str):
         )
 
         drop_tables()
+        create_tables()
 
 create_tables()
 
