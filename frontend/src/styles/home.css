@@ -68,19 +68,16 @@ body {
 }
 
 .rotary {
+    width: 100%;
+
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+}
 
-    & > * {
-        margin-left: auto;
-        margin-right: auto;
-    }
+.rotary-logo {
+    width: 5%;
 
-    & > p {
-        font-size: 15px;
-    }
-
-    & > img { width: 15%; }
+    margin: 2.5vh;
 }
 
 @keyframes flag-rotate {

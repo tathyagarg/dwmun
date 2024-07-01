@@ -48,7 +48,7 @@ export default function Resources() {
                 <h1 className='subhead'>Conference Information</h1>
                 <div class="conf-info">
                     <a id="coc" href={CodeOfConduct} target='_blank'>Code Of Conduct</a>
-                    <a id="iti" href='/'>Itinerary</a>
+                    <a id="iti" href=''>Itinerary</a>
                 </div>
             </div>
         </div>

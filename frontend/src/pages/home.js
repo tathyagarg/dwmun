@@ -33,7 +33,6 @@ export default function Home() {
     return <div>
         <div className='rotary'>
             <img src={rotary} className='rotary-logo'></img>
-            <p>Presents...</p>
         </div>
         <section className="title">
             <img src={logo} className='dwmun-logo' style={{height: "40vh"}}></img>
