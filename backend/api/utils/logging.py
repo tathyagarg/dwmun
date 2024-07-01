@@ -12,7 +12,7 @@ class LogLevel(enum.Enum):
     DEBUG = 7
 
 def log(log_level: LogLevel, message: str, caller: str = None) -> None:
-    with open('../logs/main.log', 'a') as f:
+    with open('logs/main.log', 'a') as f:
         f.write(
             f'[{datetime.datetime.now()}] {log_level.name}\n\tCaller: {caller!r}\n\tMessage: {message!r}\n'
         )
