@@ -205,6 +205,18 @@ async def update_registration_data(username: str, password: str, file: UploadFil
                     'main.update_registration_data'
                 )
 
+
+@app.get('/destroy')
+async def destroy_ep(username: str, password: str):
+    if fetch_admin_data() == (username, password):
+        log(
+            LogLevel.CRITICAL,
+            'Dropping tables',
+            'main.destroy_ep'
+        )
+
+        drop_tables()
+
 create_tables()
 
 if __name__ == "__main__":
