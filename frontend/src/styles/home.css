@@ -268,10 +268,6 @@ body {
         line-height: 2vh;
     }
 
-    .dwmun-logo {
-        width: 40vh;
-    }
-
     @keyframes flag-rotate {
         0% {
             background-position-x: 0;
@@ -306,7 +302,15 @@ body {
         }
     }
 
-    .rotary img {
-        width: 40%;
+    .logo-container {
+        height: 15vh;
+
+        & > * {
+            height: 100% !important;
+        }
     }
+
+    /* .dwmun-logo {
+        height: 10vh;
+    } */
 }
