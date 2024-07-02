@@ -31,11 +31,11 @@ export default function Home() {
     setInterval(updateDate, (1000 * 60))
 
     return <div>
-        <div className='rotary'>
-            <img src={rotary} className='rotary-logo'></img>
-        </div>
         <section className="title">
-            <img src={logo} className='dwmun-logo' style={{height: "40vh"}}></img>
+            <div className='logo-container'>
+                <img src={logo} className='dwmun-logo' style={{height: "40vh"}}></img>
+                <img src={rotary} className='rotary-logo'></img>
+            </div>
             <div className="header">
                 <h1>D</h1>
                 <h1>W</h1>
