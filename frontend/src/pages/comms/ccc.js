@@ -69,7 +69,7 @@ export default function CCC() {
             <a>
                 <h1>Background</h1>
                 <h1>Guide</h1>
-                <p>(To Be Revealed)</p>
+                <p>(Will be shared shortly)</p>
             </a>
         </div>
         <div className="chair" onMouseMove={handleMouseMove}>
