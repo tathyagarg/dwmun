@@ -70,12 +70,12 @@ body {
 .rotary {
     width: 100%;
 
-    display: flex;
-    justify-content: center;
+    position: absolute;
 }
 
 .rotary-logo {
-    width: 5%;
+    width: 12.5%;
+    float: right;
 
     margin: 2.5vh;
 }
