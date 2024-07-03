@@ -40,25 +40,25 @@ export default function Committees() {
             </div>
             <div className='committees' id="committees">
                 <section className='comm' id="unsc">
-                    <CommLink to="/committees/unsc">UNSC</CommLink>
+                    <CommLink to="/committees/unsc" draggable="false">UNSC</CommLink>
                 </section>
                 <section className='comm' id="unhrc">
-                    <CommLink to="/committees/unhrc">UNHRC</CommLink>
+                    <CommLink to="/committees/unhrc" draggable="false">UNHRC</CommLink>
                 </section>
                 <section className='comm' id="disec">
-                    <CommLink to="/committees/disec">DISEC</CommLink>
+                    <CommLink to="/committees/disec" draggable="false">DISEC</CommLink>
                 </section>
                 <section className='comm' id="lok-sabha">
-                    <CommLink to="/committees/lok-sabha">Lok Sabha</CommLink>
+                    <CommLink to="/committees/lok-sabha" draggable="false">Lok Sabha</CommLink>
                 </section>
                 <section className='comm' id="ipc">
-                    <CommLink to="/committees/ipc">IPC</CommLink>
+                    <CommLink to="/committees/ipc" draggable="false">IPC</CommLink>
                 </section>
                 <section className='comm' id="committee-x">
-                    <CommLink to="/committees/committee-x">Committee X</CommLink>
+                    <CommLink to="/committees/committee-x" draggable="false">Committee X</CommLink>
                 </section>
                 <section className='comm' id="ccc">
-                    <CommLink to="/committees/ccc">CCC</CommLink>
+                    <CommLink to="/committees/ccc" draggable="false">CCC</CommLink>
                 </section>
             </div>
         </div>

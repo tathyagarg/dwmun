@@ -23,16 +23,24 @@
     justify-content: center;
     margin-bottom: 5vh;
 
-    & > a {
+    &>a {
         color: white;
         text-decoration: none;
         padding-left: 2.5vw;
         padding-right: 2.5vw;
     }
 
-    & > a:not(:last-child) { border-right: 1px solid #ffffffba; }
-    & > a:visited { color: white; }
-    & > a:hover { color: #cacaca; }
+    &>a:not(:last-child) {
+        border-right: 1px solid #ffffffba;
+    }
+
+    &>a:visited {
+        color: white;
+    }
+
+    &>a:hover {
+        color: #cacaca;
+    }
 }
 
 .comm {
@@ -47,27 +55,48 @@
     transition-duration: 500ms;
     background-position-y: 50%;
 
-    &:hover { background-color: rgba(25, 40, 34, 0.3); }
-    &:hover > a {
+    &:hover {
+        background-color: rgba(25, 40, 34, 0.3);
+    }
+
+    &:hover>a {
         font-size: 33vh;
         line-height: 33vh;
         margin: 0;
     }
-    & > a { font-family: "Glockenspiel", serif; }
-    & > a::before { margin-top: 7.5vh; }
+
+    &>a {
+        font-family: "Glockenspiel", serif;
+    }
+
+    &>a::before {
+        margin-top: 7.5vh;
+    }
 }
 
-#committee-x { background-image: url('../assets/comm-bgs/ssci.webp'); }
+#committee-x {
+    background-image: url('../assets/comm-bgs/ssci.webp');
+}
 
-#unsc { background-image: url('../assets/comm-bgs/unsc.webp'); }
+#unsc {
+    background-image: url('../assets/comm-bgs/unsc.webp');
+}
 
-#ccc { background-image: url('../assets/comm-bgs/ccc.webp'); }
+#ccc {
+    background-image: url('../assets/comm-bgs/ccc.webp');
+}
 
-#lok-sabha { background-image: url('../assets/comm-bgs/lok-sabha.webp'); }
+#lok-sabha {
+    background-image: url('../assets/comm-bgs/lok-sabha.webp');
+}
 
-#unhrc { background-image: url('../assets/comm-bgs/unhrc.webp'); }
+#unhrc {
+    background-image: url('../assets/comm-bgs/unhrc.webp');
+}
 
-#ipc { background-image: url('../assets/comm-bgs/ipc.webp'); }
+#ipc {
+    background-image: url('../assets/comm-bgs/ipc.webp');
+}
 
 #disec {
     background-image: url('../assets/comm-bgs/disec.webp');
@@ -76,7 +105,8 @@
 
 /* --------------------------------------------------------- */
 
-h1, p {
+h1,
+p {
     z-index: 2;
 }
 
@@ -95,19 +125,17 @@ h1, p {
     grid-column-gap: 0.25vw;
     grid-row-gap: 0.25vw;
 
-    & > div {
+    &>div {
         border: 1px solid white;
         border-radius: 10px;
         backdrop-filter: blur(10px);
         position: relative;
     }
 
-    & > div::before {
-        background: radial-gradient(
-            800px circle at var(--mouse-x) var(--mouse-y),
-            rgba(30, 50, 44, 0.9),
-            transparent 40%
-        );
+    &>div::before {
+        background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y),
+                rgba(30, 50, 44, 0.9),
+                transparent 40%);
         border-radius: inherit;
         content: "";
         height: 100%;
@@ -121,7 +149,7 @@ h1, p {
         pointer-events: none;
     }
 
-    & > div:hover::before {
+    &>div:hover::before {
         opacity: 1;
     }
 }
@@ -132,7 +160,7 @@ h1, p {
     justify-content: center;
     align-items: center;
 
-    & > h1 {
+    &>h1 {
         font-family: "Glockenspiel", serif;
         font-size: 17vh;
         line-height: 17vh;
@@ -153,7 +181,7 @@ h1, p {
     align-items: center;
     flex-direction: column;
 
-    & > h1 {
+    &>h1 {
         font-size: 4vh;
         margin: 0.5vh 0 0.5vh 0;
         font-family: "Glockenspiel", serif;
@@ -164,6 +192,18 @@ h1, p {
 .carousel {
     grid-area: 4 / 2 / 6 / 4;
     position: relative;
+
+    &>a {
+        position: absolute;
+        font-size: 2vh;
+        padding: 5% 1%;
+        box-sizing: border-box;
+        cursor: pointer;
+        z-index: 3;
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+    }
 }
 
 .nav-controller {
@@ -178,15 +218,22 @@ h1, p {
     box-sizing: border-box;
 
 
-    & > a {
+    &>a {
         width: 1.5vh;
         height: 1.5vh;
         background-color: #fff;
-        opacity: 0.75;
         border-radius: 50%;
         border: 20px;
         cursor: pointer;
         z-index: inherit;
+    }
+
+    &>a[data-active="false"] {
+        opacity: 0.5;
+    }
+
+    &>a[data-active="true"] {
+        opacity: 1;
     }
 }
 
@@ -204,18 +251,18 @@ h1, p {
     display: flex;
     flex-direction: column;
 
-    & > p {
+    &>p {
         font-size: 1.5vh;
         margin: 0;
     }
 
-    & > h1 {
+    &>h1 {
         font-size: 3vh;
         line-height: 3vh;
         margin-bottom: 2%;
     }
 
-    & > img {
+    &>img {
         height: 100%;
         z-index: 100;
     }
@@ -230,7 +277,7 @@ h1, p {
 .bg-guide {
     grid-area: 4 / 4 / 6 / 5;
 
-    & > a {
+    &>a {
         height: 100%;
         width: 100%;
         display: flex;
@@ -238,14 +285,14 @@ h1, p {
         flex-direction: column;
     }
 
-    & > a > h1 {
+    &>a>h1 {
         margin: 0 auto 0 auto;
         font-size: 5vh;
         font-family: "Glockenspiel", serif;
         letter-spacing: 0.075vw;
     }
 
-    & > a > p {
+    &>a>p {
         margin-left: auto;
         margin-right: auto;
     }
@@ -257,14 +304,39 @@ h1, p {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    position: relative;
 
-    & > h1 {
+    &>h1 {
         font-family: "Glockenspiel", serif;
         font-size: 4vh;
         line-height: 4vh;
         letter-spacing: 0.075vw;
         margin: 1vh 0 1vh 0;
     }
+
+    &>a {
+        position: absolute;
+        font-size: 2vh;
+        padding: 5% 1%;
+        box-sizing: border-box;
+        cursor: pointer;
+        z-index: 3;
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+    }
+}
+
+.left-nav {
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.right-nav {
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .chairperson {
@@ -277,22 +349,33 @@ h1, p {
     align-items: center;
     flex-direction: column;
     border-top: 1px solid white;
+    position: relative;
 
-    & > p {
+    &>p {
+        position: absolute;
+        bottom: 0;
         font-size: 1.5vh;
         margin: 0;
     }
 
-    & > h1 {
+    &>h1 {
+        position: absolute;
+        top: 2%;
         font-size: 3vh;
         margin: 0;
         font-family: "Glockenspiel", serif;
         letter-spacing: 0.075vw;
     }
 
-    & > img {
+    &>img {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
         z-index: 2;
-        width: 100%;
+        max-width: 60%;
+        max-height: 75%;
+
+        object-fit: cover;
     }
 }
 
@@ -303,14 +386,14 @@ h1, p {
     justify-content: center;
     flex-direction: column;
 
-    & > h1 {
+    &>h1 {
         font-size: 4vh;
         line-height: 4vh;
         font-family: "Glockenspiel", serif;
         letter-spacing: 0.075vw;
     }
 
-    & > iframe {
+    &>iframe {
         z-index: 2;
         height: 72.25vh;
         filter: invert(1) hue-rotate(70deg) contrast(0.85);
@@ -336,14 +419,24 @@ h1, p {
         padding-left: 5%;
         width: 100%;
 
-        & > a {
+        &:hover {
+            background-color: unset;
+        }
+
+        &:hover>a {
+            font-size: 9vh;
+            line-height: 9vh;
+            margin: inherit;
+        }
+
+        &>a {
             font-size: 9vh;
             line-height: 9vh;
             width: fit-content;
             overflow-x: hidden;
         }
 
-        & > a::before {
+        &>a::before {
             font-size: 3vh;
             line-height: 3vh;
         }
@@ -352,18 +445,18 @@ h1, p {
     .comm-content {
         display: block;
 
-        & > div {
+        &>div {
             margin-bottom: 1vh;
         }
 
-        & > div::before {
+        &>div::before {
             display: none;
         }
     }
 
     .comm-header {
 
-        & > h1 {
+        &>h1 {
             font-size: 7vh;
             line-height: 7vh;
             margin: 0;
@@ -371,7 +464,7 @@ h1, p {
             margin-bottom: 2vh;
         }
 
-        & > h1::before {
+        &>h1::before {
             font-size: 2vh;
             line-height: 2vh;
             margin-top: 2vh;
@@ -394,7 +487,7 @@ h1, p {
         width: 90%;
         margin-bottom: 2vh;
 
-        & > img {
+        &>img {
             margin: 0;
             aspect-ratio: 1/1;
             width: 100%;
@@ -419,11 +512,19 @@ h1, p {
         grid-area: 4 / 2 / 5 / 3;
     }
 
+    .chairperson {
+        min-height: 50vh;
+    }
+
     .matrix {
         grid-area: 5 / 1 / 7 / 3;
     }
 
-    #ccc, #commitee-x, #lok-sabha, #unhrc, #unsc {
+    #ccc,
+    #commitee-x,
+    #lok-sabha,
+    #unhrc,
+    #unsc {
         background-position-x: 50%;
     }
 

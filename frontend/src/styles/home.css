@@ -188,7 +188,6 @@ body {
 #principal-letter-section, #oc-letter-section {
     background-color: transparent;
     backdrop-filter: blur(10px);
-    padding: 2%;
     box-sizing: border-box;
     color: white;
     border-top: 1px solid white;
@@ -212,7 +211,6 @@ body {
         margin: 0;
         padding-bottom: 2vh;
         font-size: 7vh;
-        text-align: center;
     }
 }
 
@@ -281,8 +279,12 @@ body {
         animation: flag-rotate 3s linear infinite;
     }
 
-    #principal-letter-content, #oc-letter-content {
-        display: block;
+    #principal-letter-content {
+        flex-direction: column;
+    }
+
+    #oc-letter-content {
+        flex-direction: column-reverse;
     }
 
     #image-placeholder-3 {
@@ -302,6 +304,9 @@ body {
         }
     }
 
+    #letter { margin-left: 0; }
+    #actual-oc-letter { margin-right: 0; }
+
     .logo-container {
         height: 15vh;
 
@@ -309,8 +314,4 @@ body {
             height: 100% !important;
         }
     }
-
-    /* .dwmun-logo {
-        height: 10vh;
-    } */
 }

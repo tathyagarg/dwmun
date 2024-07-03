@@ -26,7 +26,6 @@ function updateDate() {
 
 
 export default function Home() {
-    window.scroll(0, 0)
     new Promise(resolve => setTimeout(resolve, 1000)).then(updateDate);
     setInterval(updateDate, (1000 * 60))
 
@@ -82,11 +81,14 @@ export default function Home() {
                     <div id='image-placeholder-3'></div>
                     <div id='letter'>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent pellentesque eget magna sed laoreet. Vivamus pellentesque luctus sem vitae maximus. Aenean vehicula mollis mi sit amet ultricies. Curabitur fermentum dolor lacus, id malesuada lacus pellentesque sed. Suspendisse iaculis felis ac nibh aliquet aliquet. Curabitur vitae tincidunt enim. Nunc ultrices mauris a lacus commodo, dictum interdum nibh convallis.
-                        </p><p>
-                            Aliquam vitae dictum dolor. Sed semper neque ac justo egestas consectetur. Aliquam eget mauris laoreet ante hendrerit fermentum. In ornare nunc ut vestibulum ullamcorper. Curabitur dictum mollis leo, sit amet luctus elit tempor ut. Vestibulum dapibus sem et erat finibus, non porta ex hendrerit. Maecenas congue blandit pellentesque. Sed augue tortor, efficitur eu leo sed, congue varius magna. Sed ac tortor eget libero sollicitudin aliquam. Integer feugiat nunc in neque accumsan, euismod rutrum dolor sollicitudin. Phasellus semper lorem ac placerat malesuada. Sed aliquet imperdiet tellus elementum dignissim. Curabitur faucibus lectus urna, sed gravida tellus efficitur in. Nullam hendrerit turpis ut interdum venenatis. Praesent velit orci, maximus non augue ac, dignissim lobortis est.
-                        </p><p>
-                            Nunc congue, justo vel pellentesque lacinia, neque urna imperdiet mi, ut dictum turpis ipsum ac velit. Aliquam elementum vel arcu efficitur tincidunt. Fusce in efficitur felis, nec dictum tellus. Vestibulum vestibulum velit at leo tempus volutpat. Nunc felis lorem, ornare nec fermentum vel, consectetur sed orci. Fusce bibendum arcu a ante pellentesque, quis pharetra nulla bibendum. Integer facilisis mi a purus fringilla, vitae gravida ipsum volutpat. Quisque tempor sit amet sem vel pellentesque. Fusce commodo sed sem at viverra. Proin eget libero in enim aliquet condimentum. Maecenas dapibus purus at sem auctor condimentum. Pellentesque consequat vestibulum arcu. Aenean ac malesuada ex. Vestibulum a lobortis massa. Duis non nibh non ex suscipit convallis. Proin porttitor mi sed ligula dictum, sed mollis nulla interdum.
+                        Year after year, the United Nations debate on vital global issues and share resolutions in an attempt to bring about positive changes in the world. However, the SDG report of 2024 has clearly acknowledged that the world is failing to make measurable progress in many areas, especially in bringing peace between nations, reversing climate change and ensuring global financial stability.
+This makes it even more vital that young people, as citizens of the world, must come together and look for genuine and feasible solutions to global issues that will have a huge impact on the future of this planet and on the survival of nations.</p><p>
+School MUNs provide the best platform for future leaders to deliberate on burning global matters and hone their leadership skills through engaging debates and meaningful dialogues.
+DPS Whitefield is happy to announce the sixth edition of DWMUN scheduled to be held from Thursday 1st August to Saturday 3rd August 2024.</p><p>
+I am certain that DW Model United Nations Conference- 2024 will be an extraordinary experience for all the delegates of schools that join us in this scintillating journey. I hereby extend a warm welcome to all the participants and wish them all the very best.
+</p><p>
+Mrs. Lovely Dutta Prusty<br/>
+Principal
                         </p>
                     </div>
                 </div>
