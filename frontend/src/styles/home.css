@@ -276,7 +276,7 @@ body {
 
     .flags {
         background-size: cover;
-        animation: flag-rotate 3s linear infinite;
+        /* animation: flag-rotate 3s linear infinite; */
     }
 
     #principal-letter-content {
