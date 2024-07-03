@@ -159,9 +159,18 @@
         display: block;
     }
 
-    .resources>div:hover {
+    .resources > div:hover, .resources > div:focus {
         transform: none;
-        box-shadow: none;
+        box-shadow: unset;
         background-color: transparent;
+    }
+
+    .conf-info > a {
+        font-size: 5vh;
+        text-align: center;
+    }
+
+    .conf-info > a::after {
+        font-size: 2.5vh;
     }
 }

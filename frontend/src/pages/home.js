@@ -3,6 +3,8 @@ import Contact from '../components/contact';
 import Countdown from '../components/countdown';
 import logo from '../assets/logo.webp';
 import rotary from '../assets/rotary.png'
+import SecGen from '../assets/secretariat/sec-gen.jpg'
+import Principal from '../assets/principal.jpeg'
 
 const start_date = new Date('August 01, 2024 08:00:00').getTime();
 
@@ -78,7 +80,7 @@ export default function Home() {
             <div id='principal-letter'>
                 <h1>Letter from the Principal</h1>
                 <div id='principal-letter-content'>
-                    <div id='image-placeholder-3'></div>
+                    <img src={Principal} id='image-placeholder-3'></img>
                     <div id='letter'>
                         <p>
                         Year after year, the United Nations debate on vital global issues and share resolutions in an attempt to bring about positive changes in the world. However, the SDG report of 2024 has clearly acknowledged that the world is failing to make measurable progress in many areas, especially in bringing peace between nations, reversing climate change and ensuring global financial stability.
@@ -121,7 +123,7 @@ Secretary General
 DWMUN’24
 </p>
                     </div>
-                    <div id='image-placeholder-3'></div>
+                    <img src={SecGen} id='image-placeholder-3'></img>
                 </div>
             </div>
         </section>

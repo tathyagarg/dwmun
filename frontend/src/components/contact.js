@@ -20,7 +20,7 @@ export default function Contact() {
                         <div className='details'>
                             <div id="p1">
                                 <p>+91 75502 87715</p>
-                                <p>Shri Sai Hari</p>
+                                <p>Shrisai Hari</p>
                                 <p>Secretary General</p>
                             </div>
                             <div id="p2">

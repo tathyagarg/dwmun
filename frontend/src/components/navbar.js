@@ -8,9 +8,13 @@ const NavLink = styled(Link)`
 
     transition-duration: 250ms;
 
-    &:hover, &:focus {
+    &:hover {
         color: #a0a0a0;
         transition-duration: 250ms;
+    }
+
+    &:focus {
+        color: #fff;
     }
 `
 
