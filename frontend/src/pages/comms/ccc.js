@@ -2,10 +2,8 @@ import logo from '../../assets/logo.webp';
 import CCCLogo from '../../assets/comm-logos/CCC.png'
 import { useState } from 'react'
 import CoChair1 from '../../assets/eb/ccc/co-chair-1.jpeg'
-// import CoChair2 from '../../assets/eb/CCC/co-chair-2.png'
-import Moderator from '../../assets/eb/ccc/moderator.jpg'
-
-const CoChair2 = logo;
+import CoChair2 from '../../assets/eb/ccc/co-chair-2.jpg'
+import Moderator from '../../assets/eb/ccc/moderator.jpeg'
 
 export default function CCC() {
     const [about, setAbout] = useState(0)
@@ -45,10 +43,6 @@ export default function CCC() {
         <div className="comm-header" onMouseMove={handleMouseMove}>
             <h1>CCC</h1>
         </div>
-        <div className="agenda-header" onMouseMove={handleMouseMove}>
-            <h1>Agenda</h1>
-            <p>Lorem ipsum dolor, sit amet</p>
-        </div>
         <div className="carousel" onMouseMove={handleMouseMove}>
             <a className='left-nav' onClick={() => {
                 setAbout((prev) => {
@@ -64,7 +58,7 @@ export default function CCC() {
             }}>→</a>
             <div className="slide active">
                 <h1>About the Committee</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada, orci non placerat vestibulum, quam orci pharetra dolor, sit amet consequat urna justo non leo. Cras suscipit, erat accumsan semper pellentesque, lorem tellus hendrerit lacus, quis blandit turpis neque sit amet justo. Aenean varius felis ipsum. Cras sagittis at nunc nec commodo. Suspendisse potenti. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Etiam viverra purus sed egestas pellentesque. Cras blandit eleifend arcu. In eu ex mattis, congue nulla id, mollis purus. Duis laoreet, ipsum vitae ultricies consequat, nisl mauris varius magna, sit amet pharetra ante dui quis lacus. Aenean ut enim consequat, sodales libero at, pretium est.</p>
+                <p>The Continuous Crisis Committee is a dynamic and fast-paced body within Model United Nations that deals with evolving and urgent international crises. Delegates must respond rapidly to new developments and unforeseen events, demonstrating their ability to think on their feet, negotiate effectively, and develop creative solutions. The CCC simulates real-time crisis situations, requiring delegates to adapt quickly, collaborate with others, and manage high-pressure scenarios. This committee emphasizes crisis management skills, diplomatic agility, and strategic decision-making.</p>
             </div>
             <div className="slide inactive" id="logo">
                 <img src={CCCLogo} height={"100%"}></img>
@@ -105,12 +99,12 @@ export default function CCC() {
                 <p>Co-Chairperson</p>
             </div>
             <div className='chairperson inactive'>
-                <h1>Aditi Srivastava</h1>
+                <h1>Diya Chaki</h1>
                 <img src={CoChair2}></img>
                 <p>Co-Chairperson</p>
             </div>
             <div className='chairperson inactive'>
-                <h1>Diya Chaki</h1>
+                <h1>Aditi Srivastava</h1>
                 <img src={Moderator}></img>
                 <p>Moderator</p>
             </div>

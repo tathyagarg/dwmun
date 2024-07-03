@@ -91,12 +91,11 @@ body {
 }
 
 .flags {
-    height: 150px;
+    width: 100%;
+    height: 500px;
     background-color: pink;
-    background-image: url('../assets/flags.webp');
-    background-size: contain;
-    animation: flag-rotate 5s linear infinite;
-    animation-direction: forwards;
+    background-image: url('../assets/flags.jpg');
+    background-size: cover;
 }
 
 .about-div {

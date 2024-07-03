@@ -2,11 +2,9 @@ import logo from '../../assets/logo.webp';
 import LokSabhaLogo from '../../assets/comm-logos/LokSabha.png'
 import { useState } from 'react'
 import CoChair1 from '../../assets/eb/lok-sabha/co-chair-1.jpg'
-// import CoChair2 from '../../assets/eb/LokSabha/co-chair-2.png'
-// import Moderator from '../../assets/eb/LokSabha/moderator.jpg'
+import CoChair2 from '../../assets/eb/lok-sabha/co-chair-2.jpeg'
+import Moderator from '../../assets/eb/lok-sabha/moderator.jpeg'
 
-const CoChair2 = logo;
-const Moderator = logo;
 
 export default function LokSabha() {
     const [about, setAbout] = useState(0)
@@ -44,11 +42,9 @@ export default function LokSabha() {
 
     return <div className="comm-content">
         <div className="comm-header" onMouseMove={handleMouseMove}>
-            <h1>LokSabha</h1>
-        </div>
-        <div className="agenda-header" onMouseMove={handleMouseMove}>
-            <h1>Agenda</h1>
-            <p>Lorem ipsum dolor, sit amet</p>
+            <h1>Lok Sabha</h1>
+            <h2 className='agenda-word'>Agenda:</h2>
+            <p>Operation Blue Star</p>
         </div>
         <div className="carousel" onMouseMove={handleMouseMove}>
             <a className='left-nav' onClick={() => {
@@ -65,7 +61,7 @@ export default function LokSabha() {
             }}>→</a>
             <div className="slide active">
                 <h1>About the Committee</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada, orci non placerat vestibulum, quam orci pharetra dolor, sit amet consequat urna justo non leo. Cras suscipit, erat accumsan semper pellentesque, lorem tellus hendrerit lacus, quis blandit turpis neque sit amet justo. Aenean varius felis ipsum. Cras sagittis at nunc nec commodo. Suspendisse potenti. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Etiam viverra purus sed egestas pellentesque. Cras blandit eleifend arcu. In eu ex mattis, congue nulla id, mollis purus. Duis laoreet, ipsum vitae ultricies consequat, nisl mauris varius magna, sit amet pharetra ante dui quis lacus. Aenean ut enim consequat, sodales libero at, pretium est.</p>
+                <p>The Lok Sabha is the lower house of India's bicameral Parliament and plays a crucial role in the country's legislative process. Members of the Lok Sabha are directly elected by the people of India, making it a vital representation of the democratic will of the populace. The primary functions of the Lok Sabha include debating and passing laws, discussing national issues, and holding the government accountable through questions and motions. The Lok Sabha has significant authority over financial matters, as money bills can only be introduced and passed in this house. The Prime Minister of India and most of the Union Council of Ministers are typically drawn from the Lok Sabha, underscoring its importance in the Indian political system.</p>
             </div>
             <div className="slide inactive" id="logo">
                 <img src={LokSabhaLogo} height={"100%"}></img>
@@ -101,7 +97,7 @@ export default function LokSabha() {
             }}>→</a>
             <h1>Chairpersons</h1>
             <div className='chairperson active'>
-                <h1>Tanmay ...</h1>
+                <h1>Tannmay Kumar Baid</h1>
                 <img src={CoChair1}></img>
                 <p>Co-Chairperson</p>
             </div>
@@ -113,7 +109,7 @@ export default function LokSabha() {
             <div className='chairperson inactive'>
                 <h1>Aarav Chandwaney</h1>
                 <img src={Moderator}></img>
-                <p>Moderator</p>
+                <p>Vice Chairperson</p>
             </div>
             <div className='nav-controller eb'>
                 <a data-active='true' onClick={() => {
@@ -128,7 +124,7 @@ export default function LokSabha() {
             </div>
         </div>
         <div className="matrix" onMouseMove={handleMouseMove}>
-            <h1>Country Matrix</h1>
+            <h1>Portfolio Matrix</h1>
             {/* <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSMBfKFMRBXz3MvB1DmcWKtSh7BgP-Vk6frtT0wpv9TNxTbqDAK18Sf19UxwCkH9NlSZFtrPeqXVaa2/pubhtml?gid=1495021896&amp;single=true&amp;widget=true&amp;headers=false"></iframe> */}
             <h2>Coming Soon!</h2>
         </div>

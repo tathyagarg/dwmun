@@ -1,13 +1,11 @@
 import logo from '../../assets/logo.webp';
 import DISECLogo from '../../assets/comm-logos/DISEC.png'
 import { useState } from 'react'
-// import CoChair1 from '../../assets/eb/disec/co-chair-1.jpeg'
+import CoChair1 from '../../assets/eb/disec/co-chair-1.jpeg'
 // import CoChair2 from '../../assets/eb/disec/co-chair-2.png'
-// import Moderator from '../../assets/eb/disec/moderator.jpg'
+import Moderator from '../../assets/eb/disec/moderator.jpeg'
 
-const CoChair1 = logo;
 const CoChair2 = logo;
-const Moderator = logo;
 
 export default function DISEC() {
     const [about, setAbout] = useState(0)
@@ -46,10 +44,8 @@ export default function DISEC() {
     return <div className="comm-content">
         <div className="comm-header" onMouseMove={handleMouseMove}>
             <h1>DISEC</h1>
-        </div>
-        <div className="agenda-header" onMouseMove={handleMouseMove}>
-            <h1>Agenda</h1>
-            <p>Lorem ipsum dolor, sit amet</p>
+            <h2 className='agenda-word'>Agenda:</h2>
+            <p>Discussing the need for a legal framework regarding PMCs (Private Military Companies)</p>
         </div>
         <div className="carousel" onMouseMove={handleMouseMove}>
             <a className='left-nav' onClick={() => {
@@ -66,7 +62,7 @@ export default function DISEC() {
             }}>→</a>
             <div className="slide active">
                 <h1>About the Committee</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada, orci non placerat vestibulum, quam orci pharetra dolor, sit amet consequat urna justo non leo. Cras suscipit, erat accumsan semper pellentesque, lorem tellus hendrerit lacus, quis blandit turpis neque sit amet justo. Aenean varius felis ipsum. Cras sagittis at nunc nec commodo. Suspendisse potenti. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Etiam viverra purus sed egestas pellentesque. Cras blandit eleifend arcu. In eu ex mattis, congue nulla id, mollis purus. Duis laoreet, ipsum vitae ultricies consequat, nisl mauris varius magna, sit amet pharetra ante dui quis lacus. Aenean ut enim consequat, sodales libero at, pretium est.</p>
+                <p>The Disarmament and International Security Committee, also known as the First Committee of the United Nations General Assembly, focuses on disarmament, global challenges, and threats to peace that affect the international community. DISEC addresses issues related to disarmament, arms control, and the regulation of weapons of mass destruction. It seeks to promote international peace and security through dialogue and negotiation, aiming to reduce the potential for conflict and enhance global stability. Topics discussed in DISEC range from nuclear disarmament and the proliferation of small arms to outer space security and cyber warfare.</p>
             </div>
             <div className="slide inactive" id="logo">
                 <img src={DISECLogo} height={"100%"}></img>
@@ -107,14 +103,14 @@ export default function DISEC() {
                 <p>Co-Chairperson</p>
             </div>
             <div className='chairperson inactive'>
-                <h1>Priyanshu Biswas</h1>
+                <h1>Ritobrata Sarkar</h1>
                 <img src={CoChair2}></img>
                 <p>Co-Chairperson</p>
             </div>
             <div className='chairperson inactive'>
-                <h1>Ritobrata Sarkar</h1>
+                <h1>Priyanshu Biswas</h1>
                 <img src={Moderator}></img>
-                <p>Moderator</p>
+                <p>Vice Chairperson</p>
             </div>
             <div className='nav-controller eb'>
                 <a data-active='true' onClick={() => {

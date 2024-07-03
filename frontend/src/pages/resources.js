@@ -11,8 +11,8 @@ export default function Resources() {
                 <div className='resources'>
                     <div>
                         <h1>Committee X</h1>
-                        <a>Matrix</a>
-                        <a>Background Guide</a>
+                        {/* <a>Matrix</a> */}
+                        {/* <a>Background Guide</a> */}
                     </div>
                     <div>
                         <h1>CCC</h1>

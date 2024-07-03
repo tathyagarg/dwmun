@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import DelegateRegistration from "../../components/delegate_registration";
+import CodeOfConduct from '../../assets/DWMUN\'24\ Code\ of\ Conduct.pdf'
+import QRCode from "../../assets/qr-code.jpeg"
 
 export default function DelegationRegistration() {
     const [proof, setproof] = useState(null);
@@ -191,10 +193,10 @@ export default function DelegationRegistration() {
             <h1>Delegation Registration</h1>
             <form id="registration-form" onSubmit={handleSubmit}>
                 <h2 id="status"></h2>
-                <ul className="instructions">
+                {/* <ul className="instructions">
                     <li>Do this</li>
                     <li>And Do this</li>
-                </ul>
+                </ul> */}
                 <h2>Head Delegate Information</h2>
                 <label>General</label>
                 <input name="name" type='text' id="name" placeholder='Name' className='textinput'></input>
@@ -294,21 +296,17 @@ export default function DelegationRegistration() {
                     setAmt(850 * (delegates.length + 2) * (delegates.length >= 8 ? 0.9 : 1))
                 }}>+</button>
 
-                <label>Proof of Payment</label>
+                <p className="payment-details" id="total-amount">Please pay a sum of rupees <b>{amt}</b> to:</p>
+                <img style={{width: "20vh"}} src={QRCode}></img>
                 <p className='payment-details'>
-                    Lot of Payment detail stuff here
-                </p>
-                <p className="payment-details" id="total-amount">Please pay a sum of rupees {amt} to:</p>
-                <div style={{height: '20vh', width: "20vh", backgroundColor: "red"}}>QR CODE</div>
-                <p className='payment-details'>
-                    More Payment details mhmhmhm
+                    Proof of Payment:
                 </p>
                 <input name="proof" type="file" id="proof" onChange={(event) => {
                     setproof(event.target.files[0])
                 }}></input>
                 <div>
                     <input name="confirmation" type="checkbox" id="confirmation"></input>
-                    <label for="confirmation" style={{fontSize: "1.25vh"}}>I confirm that I have read and understood the Code of Conduct (???) and filled this form correctly</label>
+                    <label for="confirmation" style={{fontSize: "1.25vh"}}>I confirm that I have read and understood the <a href={CodeOfConduct} style={{color: "#aaa", textDecoration: "none"}} target='_blank'>Code of Conduct</a> and filled this form correctly</label>
                 </div>
                 <input type="submit" id="submit"></input>
             </form>

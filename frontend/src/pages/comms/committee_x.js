@@ -4,6 +4,8 @@ import { useState } from 'react'
 import CoChair1 from '../../assets/eb/committee-x/co-chair-1.jpeg'
 import CoChair2 from '../../assets/eb/committee-x/co-chair-2.jpeg'
 
+const Moderator = logo;
+
 export default function CommitteeX() {
     const [about, setAbout] = useState(0)
     const [aboutEB, setAboutEB] = useState(0)
@@ -40,11 +42,7 @@ export default function CommitteeX() {
 
     return <div className="comm-content">
         <div className="comm-header" onMouseMove={handleMouseMove}>
-            <h1>CommitteeX</h1>
-        </div>
-        <div className="agenda-header" onMouseMove={handleMouseMove}>
-            <h1>Agenda</h1>
-            <p>Lorem ipsum dolor, sit amet</p>
+            <h1>Committee X</h1>
         </div>
         <div className="carousel" onMouseMove={handleMouseMove}>
             <a className='left-nav' onClick={() => {
@@ -61,7 +59,7 @@ export default function CommitteeX() {
             }}>→</a>
             <div className="slide active">
                 <h1>About the Committee</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada, orci non placerat vestibulum, quam orci pharetra dolor, sit amet consequat urna justo non leo. Cras suscipit, erat accumsan semper pellentesque, lorem tellus hendrerit lacus, quis blandit turpis neque sit amet justo. Aenean varius felis ipsum. Cras sagittis at nunc nec commodo. Suspendisse potenti. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Etiam viverra purus sed egestas pellentesque. Cras blandit eleifend arcu. In eu ex mattis, congue nulla id, mollis purus. Duis laoreet, ipsum vitae ultricies consequat, nisl mauris varius magna, sit amet pharetra ante dui quis lacus. Aenean ut enim consequat, sodales libero at, pretium est.</p>
+                <p style={{fontSize: "3vh"}}>Take the challenge.</p>
             </div>
             <div className="slide inactive" id="logo">
                 <img src={CommitteeXLogo} height={"100%"}></img>
@@ -79,20 +77,20 @@ export default function CommitteeX() {
             <a>
                 <h1>Background</h1>
                 <h1>Guide</h1>
-                <p>(Will be shared shortly)</p>
+                <p>(Will NOT be shared shortly)</p>
             </a>
         </div>
         <div className="chair" onMouseMove={handleMouseMove}>
             <a className='left-nav' onClick={() => {
                 setAboutEB((prev) => {
-                    updateSlides('chairperson', 'eb', 1 + (prev - 1) % 2)
-                    return (prev - 1) % 2
+                    updateSlides('chairperson', 'eb', (prev + 2) % 3)
+                    return (prev + 2) % 3
                 })
             }}>←</a>
             <a className='right-nav' onClick={() => {
                 setAboutEB((prev) => {
-                    updateSlides('chairperson', 'eb', (prev + 1) % 2)
-                    return (prev + 1) % 2
+                    updateSlides('chairperson', 'eb', (prev + 1) % 3)
+                    return (prev + 1) % 3
                 })
             }}>→</a>
             <h1>Chairpersons</h1>
@@ -106,6 +104,11 @@ export default function CommitteeX() {
                 <img src={CoChair2}></img>
                 <p>Co-Chairperson</p>
             </div>
+            <div className='chairperson inactive'>
+                <h1>Vansh Tandon</h1>
+                <img src={Moderator}></img>
+                <p>Moderator</p>
+            </div>
             <div className='nav-controller eb'>
                 <a data-active='true' onClick={() => {
                     updateSlides("chairperson", "eb", 0)
@@ -113,10 +116,13 @@ export default function CommitteeX() {
                 <a data-active='false' onClick={() => {
                     updateSlides("chairperson", "eb", 1)
                 }}></a>
+                <a data-active='false' onClick={() => {
+                    updateSlides("chairperson", "eb", 2)
+                }}></a>
             </div>
         </div>
         <div className="matrix" onMouseMove={handleMouseMove}>
-            <h1>Country Matrix</h1>
+            <h1>Matrix</h1>
             {/* <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSMBfKFMRBXz3MvB1DmcWKtSh7BgP-Vk6frtT0wpv9TNxTbqDAK18Sf19UxwCkH9NlSZFtrPeqXVaa2/pubhtml?gid=1495021896&amp;single=true&amp;widget=true&amp;headers=false"></iframe> */}
             <h2>Coming Soon!</h2>
         </div>

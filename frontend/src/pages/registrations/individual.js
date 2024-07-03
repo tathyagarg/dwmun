@@ -2,7 +2,7 @@ import { useState } from 'react'
 import '../../styles/registration_pages.css'
 import Contact from '../../components/contact'
 import CodeOfConduct from '../../assets/DWMUN\'24\ Code\ of\ Conduct.pdf'
-
+import QRCode from '../../assets/qr-code.jpeg'
 
 export default function IndividualRegistration() {
     const [proof, setproof] = useState(null);
@@ -235,13 +235,14 @@ export default function IndividualRegistration() {
                     <textarea name="double_prior_experience" id="double-prior-exp" placeholder={'Partner\'s Prior Experience (Leave Blank if None)'} rows={4}></textarea>
                 </div>
 
-                <label>Proof of Payment</label>
+                {/* <label>Proof of Payment</label> */}
                 <p className='payment-details'>
-                    Lot of Payment detail stuff here
+                    Please pay a sum of Rs. 850 to the following:
                 </p>
-                <div style={{height: '20vh', width: "20vh", backgroundColor: "red"}}>QR CODE</div>
+                <img style={{width: '20vh'}} src={QRCode}></img>
+                {/* <div style={{height: '20vh', width: "20vh", backgroundColor: "red"}}>QR CODE</div> */}
                 <p className='payment-details'>
-                    More Payment details mhmhmhm
+                    Proof of Payment:
                 </p>
                 <input name="proof" type="file" id="proof" onChange={(event) => {
                     setproof(event.target.files[0])
