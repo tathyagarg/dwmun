@@ -276,7 +276,9 @@ body {
 
     .flags {
         background-size: cover;
-        /* animation: flag-rotate 3s linear infinite; */
+        width: 100%;
+        height: 200px;
+        background-position-x: 40%;
     }
 
     #principal-letter-content {
