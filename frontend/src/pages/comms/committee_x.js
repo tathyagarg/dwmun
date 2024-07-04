@@ -49,16 +49,16 @@ export default function CommitteeX() {
                     updateSlides('slide', 'information', 1 + (prev - 1) % 2)
                     return (prev - 1) % 2
                 })
-            }}>←</a>
+            }}>〈</a>
             <a className='right-nav' onClick={() => {
                 setAbout((prev) => {
                     updateSlides('slide', 'information', (prev + 1) % 2)
                     return (prev + 1) % 2
                 })
-            }}>→</a>
+            }}>〉</a>
             <div className="slide active">
                 <h1>About the Committee</h1>
-                <p style={{fontSize: "3vh"}}>Take the challenge.</p>
+                <p className='comm-x-desc'>Take the challenge.</p>
             </div>
             <div className="slide inactive" id="logo">
                 <img src={CommitteeXLogo} height={"100%"}></img>
@@ -85,13 +85,13 @@ export default function CommitteeX() {
                     updateSlides('chairperson', 'eb', (prev + 2) % 3)
                     return (prev + 2) % 3
                 })
-            }}>←</a>
+            }}>〈</a>
             <a className='right-nav' onClick={() => {
                 setAboutEB((prev) => {
                     updateSlides('chairperson', 'eb', (prev + 1) % 3)
                     return (prev + 1) % 3
                 })
-            }}>→</a>
+            }}>〉</a>
             <h1>Chairpersons</h1>
             <div className='chairperson active'>
                 <h1>Alfred Thomas</h1>

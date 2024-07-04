@@ -1,7 +1,8 @@
 import Contact from '../components/contact'
 import '../styles/secretariat.css'
 import DirectorGeneral from '../assets/secretariat/director-general.jpeg'
-import DelegateAffiars from '../assets/secretariat/head-of-delegate-affairs.jpeg'
+import DelegateAffairs from '../assets/secretariat/head-of-delegate-affairs.jpeg'
+import Design from '../assets/secretariat/head-of-design.jpeg'
 import OC1 from '../assets/secretariat/head-of-oc-1.jpeg'
 import OC2 from '../assets/secretariat/head-of-oc-2.jpeg'
 import Logistics1 from '../assets/secretariat/head-of-logistics-1.jpeg'
@@ -45,8 +46,13 @@ export default function Secretariat() {
                 </div>
                 <div className='oc-card'>
                     <h1>Head of Delegate Affairs</h1>
-                    <img className='image-placeholder-2' src={DelegateAffiars}></img>
+                    <img className='image-placeholder-2' src={DelegateAffairs}></img>
                     <p>Jagath Singh Raja</p>
+                </div>
+                <div className='oc-card'>
+                    <h1>Head of Design</h1>
+                    <img className='image-placeholder-2' src={Design}></img>
+                    <p>Devina Jha</p>
                 </div>
             </div>
             {/* <div className='image-placeholder'></div> */}

@@ -46,13 +46,13 @@ export default function IPC() {
                     updateSlides('slide', 'information', 1 + (prev - 1) % 2)
                     return (prev - 1) % 2
                 })
-            }}>←</a>
+            }}>〈</a>
             <a className='right-nav' onClick={() => {
                 setAbout((prev) => {
                     updateSlides('slide', 'information', (prev + 1) % 2)
                     return (prev + 1) % 2
                 })
-            }}>→</a>
+            }}>〉</a>
             <div className="slide active">
                 <h1>About the Committee</h1>
                 <p>The International Press Corps in Model United Nations is a committee dedicated to simulating the role of journalists and media organizations in covering international events and crises. Delegates act as reporters, editors, and correspondents representing various global news outlets. The IPC’s primary responsibilities include observing debates, conducting interviews, and publishing articles that reflect the proceedings and developments within other MUN committees. By writing news reports, opinion pieces, and investigative articles, the IPC ensures transparency and provides a platform for diverse perspectives. This committee highlights the importance of media in shaping public opinion and influencing policy through accurate and unbiased reporting.</p>

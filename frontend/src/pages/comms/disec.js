@@ -51,13 +51,13 @@ export default function DISEC() {
                     updateSlides('slide', 'information', 1 + (prev - 1) % 2)
                     return (prev - 1) % 2
                 })
-            }}>←</a>
+            }}>〈</a>
             <a className='right-nav' onClick={() => {
                 setAbout((prev) => {
                     updateSlides('slide', 'information', (prev + 1) % 2)
                     return (prev + 1) % 2
                 })
-            }}>→</a>
+            }}>〉</a>
             <div className="slide active">
                 <h1>About the Committee</h1>
                 <p>The Disarmament and International Security Committee, also known as the First Committee of the United Nations General Assembly, focuses on disarmament, global challenges, and threats to peace that affect the international community. DISEC addresses issues related to disarmament, arms control, and the regulation of weapons of mass destruction. It seeks to promote international peace and security through dialogue and negotiation, aiming to reduce the potential for conflict and enhance global stability. Topics discussed in DISEC range from nuclear disarmament and the proliferation of small arms to outer space security and cyber warfare.</p>
@@ -87,13 +87,13 @@ export default function DISEC() {
                     updateSlides('chairperson', 'eb', (prev + 2) % 3)
                     return (prev + 2) % 3
                 })
-            }}>←</a>
+            }}>〈</a>
             <a className='right-nav' onClick={() => {
                 setAboutEB((prev) => {
                     updateSlides('chairperson', 'eb', (prev + 1) % 3)
                     return (prev + 1) % 3
                 })
-            }}>→</a>
+            }}>〉</a>
             <h1>Chairpersons</h1>
             <div className='chairperson active'>
                 <h1>Shloak Gupta</h1>

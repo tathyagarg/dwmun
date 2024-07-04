@@ -210,7 +210,6 @@ p {
     &>a {
         position: absolute;
         font-size: 2vh;
-        padding: 5% 1%;
         box-sizing: border-box;
         cursor: pointer;
         z-index: 3;
@@ -333,7 +332,6 @@ p {
     &>a {
         position: absolute;
         font-size: 2vh;
-        padding: 5% 1%;
         box-sizing: border-box;
         cursor: pointer;
         z-index: 3;
@@ -347,12 +345,16 @@ p {
     left: 0;
     top: 50%;
     transform: translateY(-50%);
+
+    padding: 5% 10% 5% 1%;
 }
 
 .right-nav {
     right: 0;
     top: 50%;
     transform: translateY(-50%);
+
+    padding: 5% 1% 5% 10%;
 }
 
 .chairperson {
@@ -464,6 +466,8 @@ p {
 
     .comm-content {
         display: block;
+        height: 100%;
+        margin-bottom: 5vh;
 
         &>div {
             margin-bottom: 1vh;
@@ -489,6 +493,16 @@ p {
             line-height: 2vh;
             margin-top: 2vh;
         }
+
+        & > h2 {
+            font-size: 2vh;
+        }
+
+        & > p {
+            font-size: 1.5vh;
+            text-align: center;
+            padding: 2%;
+        }
     }
 
     .agenda-header {
@@ -512,11 +526,6 @@ p {
             aspect-ratio: 1/1;
             width: 100%;
         }
-    }
-
-    .nav-controller {
-        margin-top: 1vh;
-        margin-bottom: 1vh;
     }
 
     #logo {
@@ -556,5 +565,10 @@ p {
     .jumpto-header {
         font-size: 2vh;
         line-height: 2vh;
+    }
+
+    .nav-controller > a {
+        /* height: 100%; */
+        margin-top: 1%;
     }
 }

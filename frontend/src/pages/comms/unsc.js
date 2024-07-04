@@ -51,13 +51,13 @@ export default function UNSC() {
                     updateSlides('slide', 'information', 1 + (prev - 1) % 2)
                     return (prev - 1) % 2
                 })
-            }}>←</a>
+            }}>〈</a>
             <a className='right-nav' onClick={() => {
                 setAbout((prev) => {
                     updateSlides('slide', 'information', (prev + 1) % 2)
                     return (prev + 1) % 2
                 })
-            }}>→</a>
+            }}>〉</a>
             <div className="slide active">
                 <h1>About the Committee</h1>
                 <p>The United Nations Security Council is one of the six principal organs of the United Nations, charged with ensuring international peace and security, recommending the admission of new UN members to the General Assembly, and approving any changes to the UN Charter. The UNSC has the authority to establish peacekeeping operations, enact international sanctions, and authorize military action through resolutions. It comprises 15 members, including five permanent members with veto power: China, France, Russia, the United Kingdom, and the United States. The remaining ten members are elected for two-year terms by the General Assembly.</p>
@@ -87,13 +87,13 @@ export default function UNSC() {
                     updateSlides('chairperson', 'eb', (prev + 2) % 3)
                     return (prev + 2) % 3
                 })
-            }}>←</a>
+            }}>〈</a>
             <a className='right-nav' onClick={() => {
                 setAboutEB((prev) => {
                     updateSlides('chairperson', 'eb', (prev + 1) % 3)
                     return (prev + 1) % 3
                 })
-            }}>→</a>
+            }}>〉</a>
             <h1>Chairpersons</h1>
             <div className='chairperson active'>
                 <h1 style={{fontSize: "2.5vh"}}>BS Chetan Swaroop Reddy</h1>

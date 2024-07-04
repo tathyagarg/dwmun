@@ -52,13 +52,13 @@ export default function LokSabha() {
                     updateSlides('slide', 'information', 1 + (prev - 1) % 2)
                     return (prev - 1) % 2
                 })
-            }}>←</a>
+            }}>〈</a>
             <a className='right-nav' onClick={() => {
                 setAbout((prev) => {
                     updateSlides('slide', 'information', (prev + 1) % 2)
                     return (prev + 1) % 2
                 })
-            }}>→</a>
+            }}>〉</a>
             <div className="slide active">
                 <h1>About the Committee</h1>
                 <p>The Lok Sabha is the lower house of India's bicameral Parliament and plays a crucial role in the country's legislative process. Members of the Lok Sabha are directly elected by the people of India, making it a vital representation of the democratic will of the populace. The primary functions of the Lok Sabha include debating and passing laws, discussing national issues, and holding the government accountable through questions and motions. The Lok Sabha has significant authority over financial matters, as money bills can only be introduced and passed in this house. The Prime Minister of India and most of the Union Council of Ministers are typically drawn from the Lok Sabha, underscoring its importance in the Indian political system.</p>
@@ -88,13 +88,13 @@ export default function LokSabha() {
                     updateSlides('chairperson', 'eb', (prev + 2) % 3)
                     return (prev + 2) % 3
                 })
-            }}>←</a>
+            }}>〈</a>
             <a className='right-nav' onClick={() => {
                 setAboutEB((prev) => {
                     updateSlides('chairperson', 'eb', (prev + 1) % 3)
                     return (prev + 1) % 3
                 })
-            }}>→</a>
+            }}>〉</a>
             <h1>Chairpersons</h1>
             <div className='chairperson active'>
                 <h1>Tannmay Kumar Baid</h1>
@@ -104,7 +104,7 @@ export default function LokSabha() {
             <div className='chairperson inactive'>
                 <h1>Chirantana Hegde</h1>
                 <img src={CoChair2}></img>
-                <p>Co-Chairperson</p>
+                <p>Vice Chairperson</p>
             </div>
             <div className='chairperson inactive'>
                 <h1>Aarav Chandwaney</h1>

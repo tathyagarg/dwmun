@@ -51,13 +51,13 @@ export default function CCC() {
                     updateSlides('slide', 'information', 1 + (prev - 1) % 2)
                     return (prev - 1) % 2
                 })
-            }}>←</a>
+            }}>〈</a>
             <a className='right-nav' onClick={() => {
                 setAbout((prev) => {
                     updateSlides('slide', 'information', (prev + 1) % 2)
                     return (prev + 1) % 2
                 })
-            }}>→</a>
+            }}>〉</a>
             <div className="slide active">
                 <h1>About the Committee</h1>
                 <p>The Continuous Crisis Committee is a dynamic and fast-paced body within Model United Nations that deals with evolving and urgent international crises. Delegates must respond rapidly to new developments and unforeseen events, demonstrating their ability to think on their feet, negotiate effectively, and develop creative solutions. The CCC simulates real-time crisis situations, requiring delegates to adapt quickly, collaborate with others, and manage high-pressure scenarios. This committee emphasizes crisis management skills, diplomatic agility, and strategic decision-making.</p>
@@ -87,13 +87,13 @@ export default function CCC() {
                     updateSlides('chairperson', 'eb', (prev + 2) % 3)
                     return (prev + 2) % 3
                 })
-            }}>←</a>
+            }}>〈</a>
             <a className='right-nav' onClick={() => {
                 setAboutEB((prev) => {
                     updateSlides('chairperson', 'eb', (prev + 1) % 3)
                     return (prev + 1) % 3
                 })
-            }}>→</a>
+            }}>〉</a>
             <h1>Chairpersons</h1>
             <div className='chairperson active'>
                 <h1>Adithi Avdhani</h1>

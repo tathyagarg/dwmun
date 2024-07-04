@@ -55,13 +55,13 @@ export default function UNHRC() {
                     updateSlides('slide', 'information', 1 + (prev - 1) % 2)
                     return (prev - 1) % 2
                 })
-            }}>←</a>
+            }}>〈</a>
             <a className='right-nav' onClick={() => {
                 setAbout((prev) => {
                     updateSlides('slide', 'information', (prev + 1) % 2)
                     return (prev + 1) % 2
                 })
-            }}>→</a>
+            }}>〉</a>
             <div className="slide active">
                 <h1>About the Committee</h1>
                 <p>The United Nations Human Rights Council is an intergovernmental body within the UN system responsible for strengthening the promotion and protection of human rights around the globe. It addresses situations of human rights violations and makes recommendations on them. The UNHRC is made up of 47 member states, elected by the General Assembly, and works closely with the Office of the High Commissioner for Human Rights (OHCHR). The Council conducts Universal Periodic Reviews of all UN member states, ensuring that every country’s human rights record is examined and discussed. Through resolutions and reports, the UNHRC aims to address human rights challenges and support the advancement of international human rights standards.</p>
@@ -91,13 +91,13 @@ export default function UNHRC() {
                     updateSlides('chairperson', 'eb', (prev + 2) % 3)
                     return (prev + 2) % 3
                 })
-            }}>←</a>
+            }}>〈</a>
             <a className='right-nav' onClick={() => {
                 setAboutEB((prev) => {
                     updateSlides('chairperson', 'eb', (prev + 1) % 3)
                     return (prev + 1) % 3
                 })
-            }}>→</a>
+            }}>〉</a>
             <h1>Chairpersons</h1>
             <div className='chairperson active'>
                 <h1>Algin Thomas</h1>

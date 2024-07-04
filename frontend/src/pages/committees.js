@@ -25,6 +25,10 @@ const CommLink = styled(Link)`
     }
 `
 
+const scrollToTop = () => {
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
+}
+
 export default function Committees() {
     return <div>
         <div className="all">
@@ -40,25 +44,25 @@ export default function Committees() {
             </div>
             <div className='committees' id="committees">
                 <section className='comm' id="unsc">
-                    <CommLink to="/committees/unsc" draggable="false">UNSC</CommLink>
+                    <CommLink to="/committees/unsc" draggable="false" onClick={scrollToTop}>UNSC</CommLink>
                 </section>
                 <section className='comm' id="unhrc">
-                    <CommLink to="/committees/unhrc" draggable="false">UNHRC</CommLink>
+                    <CommLink to="/committees/unhrc" draggable="false" onClick={scrollToTop}>UNHRC</CommLink>
                 </section>
                 <section className='comm' id="disec">
-                    <CommLink to="/committees/disec" draggable="false">DISEC</CommLink>
+                    <CommLink to="/committees/disec" draggable="false" onClick={scrollToTop}>DISEC</CommLink>
                 </section>
                 <section className='comm' id="lok-sabha">
-                    <CommLink to="/committees/lok-sabha" draggable="false">Lok Sabha</CommLink>
+                    <CommLink to="/committees/lok-sabha" draggable="false" onClick={scrollToTop}>Lok Sabha</CommLink>
                 </section>
                 <section className='comm' id="ipc">
-                    <CommLink to="/committees/ipc" draggable="false">IPC</CommLink>
+                    <CommLink to="/committees/ipc" draggable="false" onClick={scrollToTop}>IPC</CommLink>
                 </section>
                 <section className='comm' id="committee-x">
-                    <CommLink to="/committees/committee-x" draggable="false">Committee X</CommLink>
+                    <CommLink to="/committees/committee-x" draggable="false" onClick={scrollToTop}>Committee X</CommLink>
                 </section>
                 <section className='comm' id="ccc">
-                    <CommLink to="/committees/ccc" draggable="false">CCC</CommLink>
+                    <CommLink to="/committees/ccc" draggable="false" onClick={scrollToTop}>CCC</CommLink>
                 </section>
             </div>
         </div>
