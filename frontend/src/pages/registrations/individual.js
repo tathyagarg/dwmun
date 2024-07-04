@@ -107,6 +107,10 @@ export default function IndividualRegistration() {
 
             if ((key === 'phone_number' && value.length !== 10) || (key === 'double_phone_number' && value.length !== 10 && (comm1 === "UNSC" || comm2 === "UNSC"))) {
                 elem.innerHTML = `Please enter a 10-digit long phone number in the field: ${purify(key)}`
+                elem.classList.add('error')
+                elem.classList.remove('success')
+                window.scroll(0, 0)
+                return
             }
 
             if (key !== "proof") { result[key] = value }

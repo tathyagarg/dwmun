@@ -76,7 +76,7 @@ export default function CommitteeX() {
             <a>
                 <h1>Background</h1>
                 <h1>Guide</h1>
-                <p>(Will NOT be shared shortly)</p>
+                <p>No Background Guide will be provided.</p>
             </a>
         </div>
         <div className="chair" onMouseMove={handleMouseMove}>
