@@ -3,8 +3,7 @@ import UNSCLogo from '../../assets/comm-logos/UNSC.png'
 import { useState } from 'react'
 import CoChair1 from '../../assets/eb/unsc/co-chair-1.jpg'
 import CoChair2 from '../../assets/eb/unsc/co-chair-2.jpg'
-
-const Moderator = logo;
+import Moderator from '../../assets/eb/unsc/moderator.jpeg'
 
 export default function UNSC() {
     const [about, setAbout] = useState(0)

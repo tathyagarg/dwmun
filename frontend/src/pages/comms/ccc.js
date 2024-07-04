@@ -42,6 +42,8 @@ export default function CCC() {
     return <div className="comm-content">
         <div className="comm-header" onMouseMove={handleMouseMove}>
             <h1>CCC</h1>
+            <h2 className='agenda-word'>Agenda:</h2>
+            <p>Futuristic Israel-Palestine</p><p>Freeze Date: 1 August, 2024</p>
         </div>
         <div className="carousel" onMouseMove={handleMouseMove}>
             <a className='left-nav' onClick={() => {

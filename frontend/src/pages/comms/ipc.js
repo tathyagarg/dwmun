@@ -1,13 +1,7 @@
 import logo from '../../assets/logo.webp';
 import IPCLogo from '../../assets/comm-logos/IPC.png'
 import { useState } from 'react'
-// import CoChair1 from '../../assets/eb/IPC/co-chair-1.jpeg'
-// import CoChair2 from '../../assets/eb/IPC/co-chair-2.png'
-// import Moderator from '../../assets/eb/IPC/moderator.jpg'
-
-const CoChair1 = logo;
-const CoChair2 = logo;
-const Moderator = logo;
+import CoChair1 from '../../assets/eb/ipc.jpeg'
 
 export default function IPC() {
     const [about, setAbout] = useState(0)

@@ -3,8 +3,7 @@ import CommitteeXLogo from '../../assets/comm-logos/CommitteeX.png'
 import { useState } from 'react'
 import CoChair1 from '../../assets/eb/committee-x/co-chair-1.jpeg'
 import CoChair2 from '../../assets/eb/committee-x/co-chair-2.jpeg'
-
-const Moderator = logo;
+import Moderator from '../../assets/eb/committee-x/moderator.jpeg'
 
 export default function CommitteeX() {
     const [about, setAbout] = useState(0)

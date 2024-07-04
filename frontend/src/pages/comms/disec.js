@@ -2,10 +2,8 @@ import logo from '../../assets/logo.webp';
 import DISECLogo from '../../assets/comm-logos/DISEC.png'
 import { useState } from 'react'
 import CoChair1 from '../../assets/eb/disec/co-chair-1.jpeg'
-// import CoChair2 from '../../assets/eb/disec/co-chair-2.png'
+import CoChair2 from '../../assets/eb/disec/co-chair-2.jpeg'
 import Moderator from '../../assets/eb/disec/moderator.jpeg'
-
-const CoChair2 = logo;
 
 export default function DISEC() {
     const [about, setAbout] = useState(0)
