@@ -182,7 +182,7 @@ export default function DelegationRegistration() {
 
         requestData.body.forEach((value, key) => console.log(`${key}: ${value}`))
 
-        fetch("delegation", requestData)
+        fetch("dele", requestData)
             .then(response => response.json())
             .then(data => {
                 const [status, response] = data

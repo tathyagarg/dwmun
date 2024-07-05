@@ -125,7 +125,7 @@ export default function IndividualRegistration() {
         postData.append("registration_data", json)
         postData.append("payment", proof)
 
-        fetch("individual", {
+        fetch("indi", {
             method: 'POST',
             body: postData
         })
