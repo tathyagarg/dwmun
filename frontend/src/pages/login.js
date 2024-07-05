@@ -71,7 +71,7 @@ export default function LoginPage() {
             <input type='file' onChange={(event) => {
                 setData(event.target.files[0])
             }}></input>
-            <button type='button' onClick={handleSubmit}>Submit</button>
+            <button type='button' onClick={handleSubmit} className='login-submit'>Submit</button>
         </form>
     </div>)
 }
