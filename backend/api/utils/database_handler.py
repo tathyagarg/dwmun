@@ -38,14 +38,13 @@ def run_sql(sql: str, params: tuple[str, ...] = None) -> None:
         cursor.execute(sql, params)
         try:
             res = cursor.fetchall()
-        except mysql.connector.errors.InterfaceError:
+        except TypeError:
             log(LogLevel.INFO, f'SQL Query (Non-fetch) ran:\n\tQuery: {sql!r}\n\tParams: {params}', 'utils.database_handler.run_sql')
 
             return
         else:
             log(LogLevel.INFO, f'SQL Query (Fetch) ran:\n\tQuery: {sql!r}\n\tParams: {params}\n\tData: {res!r}', 'utils.database_handler.run_sql')
-
-    return res
+            return res
 
 
 @post_commit

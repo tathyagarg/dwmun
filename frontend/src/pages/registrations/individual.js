@@ -10,6 +10,7 @@ export default function IndividualRegistration() {
     const [comm2, setComm2] = useState("")
     const [comm3, setComm3] = useState("")
     const [doubleGrade, setDoubleGrade] = useState(0)
+    const [amt, setAmt] = useState(950)
 
     const purify = (word) => {
         return word
@@ -25,7 +26,9 @@ export default function IndividualRegistration() {
     const handlePrimaryCommChange = e => {
         if (e.target.value === "UNSC") {
             document.getElementById("double-info").classList.add("shown")
+            setAmt(950 * 2)
         } else if (comm2 !== "UNSC") {
+            setAmt(950)
             document.getElementById("double-info").classList.remove("shown")
         }
 
@@ -34,8 +37,10 @@ export default function IndividualRegistration() {
 
     const handleSecondaryCommChange = e => {
         if (e.target.value === "UNSC") {
+            setAmt(950 * 2)
             document.getElementById("double-info").classList.add("shown")
         } else if (comm1 !== "UNSC") {
+            setAmt(950)
             document.getElementById("double-info").classList.remove("shown")
         }
 
@@ -241,7 +246,7 @@ export default function IndividualRegistration() {
 
                 {/* <label>Proof of Payment</label> */}
                 <p className='payment-details'>
-                    Please pay a sum of Rs. 950 to the following:
+                    Please pay a sum of Rs. {amt} to the following:
                 </p>
                 <a href={QRCode} target='_blank'><img style={{width: '20vh'}} src={QRCode}></img></a>
                 {/* <div style={{height: '20vh', width: "20vh", backgroundColor: "red"}}>QR CODE</div> */}
