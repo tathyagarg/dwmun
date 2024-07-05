@@ -13,7 +13,7 @@ export default function DelegationRegistration() {
     const [doubleGrade, setDoubleGrade] = useState(0)
     const [amt, setAmt] = useState(950)
 
-    let doubleCount = 0;
+    const [doubleCount, setDoubleCount] = useState(0)
 
     const purify = (word) => {
         return word
@@ -29,9 +29,9 @@ export default function DelegationRegistration() {
     const handlePrimaryCommChange = e => {
         if (e.target.value === "UNSC") {
             document.getElementById("double-info").classList.add("shown")
-            doubleCount += 1;
+            setDoubleCount((prev) => prev + 1)
         } else if (comm1 !== "UNSC") {
-            if (document.getElementById("double-info").classList.contains("shown")) {doubleCount -= 1;}
+            if (document.getElementById("double-info").classList.contains("shown")) {setDoubleCount((prev) => prev - 1)}
             document.getElementById("double-info").classList.remove("shown")
         }
 
@@ -41,9 +41,9 @@ export default function DelegationRegistration() {
     const handleSecondaryCommChange = e => {
         if (e.target.value === "UNSC") {
             document.getElementById("double-info").classList.add("shown")
-            doubleCount += 1;
+            setDoubleCount((prev) => prev + 1)
         } else if (comm1 !== "UNSC") {
-            if (document.getElementById("double-info").classList.contains("shown")) {doubleCount -= 1;}
+            if (document.getElementById("double-info").classList.contains("shown")) {setDoubleCount((prev) => prev - 1)}
             document.getElementById("double-info").classList.remove("shown")
         }
 
@@ -59,6 +59,16 @@ export default function DelegationRegistration() {
         element.classList.remove('success')
 
         return window.scroll(0, 0)
+    }
+
+    const getTotalDelegateCount = () => {
+        let count = delegates.length + doubleCount + 1;
+
+        for (let delegate of delegates.map(ref => ref.current.getFormData())) {
+            if (delegate.double_name !== "" || delegate.double_email !== "" || delegate.double_phone_number !== "") { count += 1 }
+        }
+
+        setAmt(950 * count * (count >= 10 ? 0.9 : 1))
     }
 
     const getDelegateData = (data, isHeadDel, index) => {
@@ -311,8 +321,10 @@ export default function DelegationRegistration() {
 
                 <button className="add-sub-delegate" type="button" onClick={() => {
                     setDelegates(prev => [...prev, React.createRef()])
-                    setAmt(950 * (delegates.length + 2 + doubleCount) * ((delegates.length + doubleCount) >= 8 ? 0.9 : 1))
                 }}>+</button>
+
+                <p>Please click this button before making your payment to see your final price!</p>
+                <button className="update" type="button" onClick={getTotalDelegateCount}>Update Amount to Pay</button>
 
                 <p className="payment-details" id="total-amount">Please pay a sum of rupees <b>{amt}</b> to:</p>
                 <a href={QRCode} target='_blank'><img style={{width: '20vh'}} src={QRCode}></img></a>

@@ -97,6 +97,14 @@ textarea {
     }
 }
 
+.update {
+    background-color: var(--secondary-light);
+    border: none;
+    color: white;
+    border-radius: 0.5em;
+    padding: 2%;
+}
+
 #submit {
     background-color: #0A5C36;
     width: fit-content;
