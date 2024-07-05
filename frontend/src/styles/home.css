@@ -75,11 +75,11 @@ body {
 }
 
 .rotary-logo {
-    height: 40vh;
-    padding: 2.5% 0;
+    top: 10vh;
+    left: 2.5vh;
+    position: absolute;
     box-sizing: border-box;
 
-    margin: 2.5vh;
 }
 
 @keyframes flag-rotate {

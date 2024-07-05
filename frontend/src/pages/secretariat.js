@@ -45,12 +45,12 @@ export default function Secretariat() {
                     </div>
                 </div>
                 <div className='oc-card'>
-                    <h1>Head of Delegate Affairs</h1>
+                    <h1>Head of<br/>Delegate Affairs</h1>
                     <img className='image-placeholder-2' src={DelegateAffairs}></img>
                     <p>Jagath Singh Raja</p>
                 </div>
                 <div className='oc-card'>
-                    <h1>Head of Design</h1>
+                    <h1>Head of<br/>Design</h1>
                     <img className='image-placeholder-2' src={Design}></img>
                     <p>Devina Jha</p>
                 </div>

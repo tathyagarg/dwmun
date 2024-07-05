@@ -11,7 +11,7 @@ export default function DelegationRegistration() {
     const [delegates, setDelegates] = useState([])
     const [grade, setGrade] = useState(0)
     const [doubleGrade, setDoubleGrade] = useState(0)
-    const [amt, setAmt] = useState(850)
+    const [amt, setAmt] = useState(950)
 
     const purify = (word) => {
         return word
@@ -293,7 +293,7 @@ export default function DelegationRegistration() {
 
                 <button className="add-sub-delegate" type="button" onClick={() => {
                     setDelegates(prev => [...prev, React.createRef()])
-                    setAmt(850 * (delegates.length + 2) * (delegates.length >= 8 ? 0.9 : 1))
+                    setAmt(950 * (delegates.length + 2) * (delegates.length >= 8 ? 0.9 : 1))
                 }}>+</button>
 
                 <p className="payment-details" id="total-amount">Please pay a sum of rupees <b>{amt}</b> to:</p>
