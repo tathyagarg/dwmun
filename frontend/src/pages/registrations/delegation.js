@@ -13,6 +13,8 @@ export default function DelegationRegistration() {
     const [doubleGrade, setDoubleGrade] = useState(0)
     const [amt, setAmt] = useState(950)
 
+    let doubleCount = 0;
+
     const purify = (word) => {
         return word
             .toLowerCase()
@@ -27,7 +29,9 @@ export default function DelegationRegistration() {
     const handlePrimaryCommChange = e => {
         if (e.target.value === "UNSC") {
             document.getElementById("double-info").classList.add("shown")
-        } else if (comm2 !== "UNSC") {
+            doubleCount += 1;
+        } else if (comm1 !== "UNSC") {
+            if (document.getElementById("double-info").classList.contains("shown")) {doubleCount -= 1;}
             document.getElementById("double-info").classList.remove("shown")
         }
 
@@ -37,7 +41,9 @@ export default function DelegationRegistration() {
     const handleSecondaryCommChange = e => {
         if (e.target.value === "UNSC") {
             document.getElementById("double-info").classList.add("shown")
+            doubleCount += 1;
         } else if (comm1 !== "UNSC") {
+            if (document.getElementById("double-info").classList.contains("shown")) {doubleCount -= 1;}
             document.getElementById("double-info").classList.remove("shown")
         }
 
@@ -305,7 +311,7 @@ export default function DelegationRegistration() {
 
                 <button className="add-sub-delegate" type="button" onClick={() => {
                     setDelegates(prev => [...prev, React.createRef()])
-                    setAmt(950 * (delegates.length + 2) * (delegates.length >= 8 ? 0.9 : 1))
+                    setAmt(950 * (delegates.length + 2 + doubleCount) * ((delegates.length + doubleCount) >= 8 ? 0.9 : 1))
                 }}>+</button>
 
                 <p className="payment-details" id="total-amount">Please pay a sum of rupees <b>{amt}</b> to:</p>
