@@ -93,12 +93,12 @@ export default function IPC() {
             }}>〉</a>
             <h1>Chairpersons</h1>
             <div className='chairperson active'>
-                <h1>Shloak Gupta</h1>
+                <h1>Saniya Philip</h1>
                 <img src={CoChair1}></img>
                 <p>Co-Chairperson</p>
             </div>
             <div className='chairperson inactive'>
-                <h1>Priyanshu Biswas</h1>
+                <h1>Darshan CP</h1>
                 <img src={Moderator}></img>
                 <p>Vice Chairperson</p>
             </div>
