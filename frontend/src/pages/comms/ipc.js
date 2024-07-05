@@ -1,10 +1,12 @@
 import logo from '../../assets/logo.webp';
 import IPCLogo from '../../assets/comm-logos/IPC.png'
 import { useState } from 'react'
-import CoChair1 from '../../assets/eb/ipc.jpeg'
+import CoChair1 from '../../assets/eb/ipc/co-chair-1.jpeg'
+import Moderator from '../../assets/eb/ipc/moderator.jpeg'
 
 export default function IPC() {
     const [about, setAbout] = useState(0)
+    const [aboutEB, setAboutEB] = useState(0)
 
     const updateSlides = (classname, navigator, index) => {
         const slides = document.getElementsByClassName(classname)
@@ -77,13 +79,37 @@ export default function IPC() {
             </a>
         </div>
         <div className="chair" onMouseMove={handleMouseMove}>
-            <h1>Chairperson</h1>
+            <a className='left-nav' onClick={() => {
+                setAboutEB((prev) => {
+                    updateSlides('chairperson', 'eb', (prev + 1) % 2)
+                    return (prev + 1) % 2
+                })
+            }}>〈</a>
+            <a className='right-nav' onClick={() => {
+                setAboutEB((prev) => {
+                    updateSlides('chairperson', 'eb', (prev + 1) % 2)
+                    return (prev + 1) % 2
+                })
+            }}>〉</a>
+            <h1>Chairpersons</h1>
             <div className='chairperson active'>
-                <h1>Saniya Philip</h1>
+                <h1>Shloak Gupta</h1>
                 <img src={CoChair1}></img>
-                <p>Chairperson</p>
+                <p>Co-Chairperson</p>
             </div>
-
+            <div className='chairperson inactive'>
+                <h1>Priyanshu Biswas</h1>
+                <img src={Moderator}></img>
+                <p>Vice Chairperson</p>
+            </div>
+            <div className='nav-controller eb'>
+                <a data-active='true' onClick={() => {
+                    updateSlides("chairperson", "eb", 0)
+                }}></a>
+                <a data-active='false' onClick={() => {
+                    updateSlides("chairperson", "eb", 1)
+                }}></a>
+            </div>
         </div>
         <div className="matrix" onMouseMove={handleMouseMove}>
             <h1>Portfolio Matrix</h1>

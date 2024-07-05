@@ -33,10 +33,13 @@ export default function Contact() {
                     <div className='mail'>
                         <h2>Mail</h2>
                         <p>mundpsw@gmail.com</p>
+                        <hr></hr>
+                        <p>renu.uppal83@gmail.com</p>
+                        <p>Renu Uppal, Coordinator</p>
                     </div>
                     <div className='social'>
                         <h2>Socials</h2>
-                        <a href="https://instagram.com/dwmun"><img src={instagram} height={"20%"} width={"20%"} style={{filter: "invert(1)"}}></img></a>
+                        <a href="https://instagram.com/dwmun"><img src={instagram} width={"40%"} style={{filter: "invert(1)"}}></img></a>
                     </div>
                 </div>
             </div>

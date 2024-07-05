@@ -297,7 +297,7 @@ export default function DelegationRegistration() {
                 }}>+</button>
 
                 <p className="payment-details" id="total-amount">Please pay a sum of rupees <b>{amt}</b> to:</p>
-                <img style={{width: "20vh"}} src={QRCode}></img>
+                <a href={QRCode} target='_blank'><img style={{width: '20vh'}} src={QRCode}></img></a>
                 <p className='payment-details'>
                     Proof of Payment:
                 </p>

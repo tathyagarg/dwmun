@@ -243,7 +243,7 @@ export default function IndividualRegistration() {
                 <p className='payment-details'>
                     Please pay a sum of Rs. 950 to the following:
                 </p>
-                <img style={{width: '20vh'}} src={QRCode}></img>
+                <a href={QRCode} target='_blank'><img style={{width: '20vh'}} src={QRCode}></img></a>
                 {/* <div style={{height: '20vh', width: "20vh", backgroundColor: "red"}}>QR CODE</div> */}
                 <p className='payment-details'>
                     Proof of Payment:
