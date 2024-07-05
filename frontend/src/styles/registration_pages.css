@@ -8,7 +8,7 @@
     margin-bottom: 10vh;
 
     & > h1 {
-        font-family: "Glockenspiel";
+        font-family: "Glockenspiel", serif;
         text-align: center;
         font-size: 10vh;
         line-height: 10vh;
