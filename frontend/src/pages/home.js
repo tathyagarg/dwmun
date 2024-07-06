@@ -123,7 +123,7 @@ Secretary General
 DWMUN’24
 </p>
                     </div>
-                    <img src={SecGen} id='image-placeholder-3'></img>
+                    <img src={SecGen} id='image-placeholder-3' style={{objectPosition: "30% center"}}></img>
                 </div>
             </div>
         </section>
