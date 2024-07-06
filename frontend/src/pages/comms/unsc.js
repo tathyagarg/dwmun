@@ -43,7 +43,7 @@ export default function UNSC() {
         <div className="comm-header" onMouseMove={handleMouseMove}>
             <h1>UNSC</h1>
             <h2 className='agenda-word'>Agenda:</h2>
-            <p>Discussing the legal framework around custodial violence</p>
+            <p>Discussing the ongoing insurgency in Burkina Faso with special emphasis on the legal repercussions</p>
         </div>
         <div className="carousel" onMouseMove={handleMouseMove}>
             <a className='left-nav' onClick={() => {
