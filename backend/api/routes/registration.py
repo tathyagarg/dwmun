@@ -118,6 +118,11 @@ async def delegation_registration_ep(registration_data: str = Body(...), payment
     payment_content: bytes = await payment.read()
     filetype: str = get_filetype(payment.filename)
 
+    log(
+        LogLevel.INFO,
+        f'Recieved registration information: {registration_data}'
+    )
+
     registration_data: list[str] = ast.literal_eval(registration_data)
     registration_data: list[dict] = [ast.literal_eval(elem) for elem in registration_data]
 
