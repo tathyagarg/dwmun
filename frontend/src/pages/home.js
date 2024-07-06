@@ -3,7 +3,7 @@ import Contact from '../components/contact';
 import Countdown from '../components/countdown';
 import logo from '../assets/logo.webp';
 import rotary from '../assets/rotary.png'
-import SecGen from '../assets/secretariat/sec-gen.jpg'
+import SecGen from '../assets/secretariat/secretary-general.jpeg'
 import Principal from '../assets/principal.jpeg'
 
 const start_date = new Date('August 01, 2024 08:00:00').getTime();
