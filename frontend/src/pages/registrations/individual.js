@@ -253,6 +253,9 @@ export default function IndividualRegistration() {
                 <p className='payment-details'>
                     Proof of Payment:
                 </p>
+                <p className='payment-details'>
+                    Note: Please mention the school and your name when paying to the QR Code and as a note on the payment site.
+                </p>
                 <input name="proof" type="file" id="proof" onChange={(event) => {
                     setproof(event.target.files[0])
                 }}></input>
