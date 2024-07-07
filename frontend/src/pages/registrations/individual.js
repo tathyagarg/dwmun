@@ -157,8 +157,8 @@ export default function IndividualRegistration() {
     return (<div>
         <div className='form-page'>
             <h1>Individual Registration</h1>
-            <h2>Reopening by tonight!</h2>
-            {/* <form id="registration-form" onSubmit={handleSubmit}>
+            {/* <h2>Reopening by tonight!</h2> */}
+            <form id="registration-form" onSubmit={handleSubmit}>
                 <h2 id='status'></h2>
                 <label>General</label>
                 <input name="name" type='text' id="name" placeholder='Name' className='textinput'></input>
@@ -263,7 +263,7 @@ export default function IndividualRegistration() {
                     <label for="confirmation" style={{fontSize: "1.25vh"}}>I confirm that I have read and understood the <a href={CodeOfConduct} style={{color: "#aaa", textDecoration: "none"}} target='_blank'>Code of Conduct</a> and filled this form correctly</label>
                 </div>
                 <input type="submit" id="submit"></input>
-            </form> */}
+            </form>
         </div>
         <Contact></Contact>
     </div>)

@@ -219,8 +219,8 @@ export default function DelegationRegistration() {
     return (<div>
         <div className='form-page'>
             <h1>Delegation Registration</h1>
-            <h2>Reopening by tonight!</h2>
-            {/* <form id="registration-form" onSubmit={handleSubmit}>
+            {/* <h2>Reopening by tonight!</h2> */}
+            <form id="registration-form" onSubmit={handleSubmit}>
                 <h2 id="status"></h2>
                 <h2>Head Delegate Information</h2>
                 <label>General</label>
@@ -336,7 +336,7 @@ export default function DelegationRegistration() {
                     <label for="confirmation" style={{fontSize: "1.25vh"}}>I confirm that I have read and understood the <a href={CodeOfConduct} style={{color: "#aaa", textDecoration: "none"}} target='_blank'>Code of Conduct</a> and filled this form correctly</label>
                 </div>
                 <input type="submit" id="submit"></input>
-            </form> */}
+            </form>
         </div>
     </div>)
 }
