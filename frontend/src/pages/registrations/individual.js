@@ -157,7 +157,8 @@ export default function IndividualRegistration() {
     return (<div>
         <div className='form-page'>
             <h1>Individual Registration</h1>
-            <form id="registration-form" onSubmit={handleSubmit}>
+            <h2>Reopening Soon!</h2>
+            {/* <form id="registration-form" onSubmit={handleSubmit}>
                 <h2 id='status'></h2>
                 <label>General</label>
                 <input name="name" type='text' id="name" placeholder='Name' className='textinput'></input>
@@ -244,12 +245,10 @@ export default function IndividualRegistration() {
                     <textarea name="double_prior_experience" id="double-prior-exp" placeholder={'Partner\'s Prior Experience (Leave Blank if None)'} rows={4}></textarea>
                 </div>
 
-                {/* <label>Proof of Payment</label> */}
                 <p className='payment-details'>
                     Please pay a sum of Rs. {amt} to the following:
                 </p>
                 <a href={QRCode} target='_blank'><img style={{width: '20vh'}} src={QRCode}></img></a>
-                {/* <div style={{height: '20vh', width: "20vh", backgroundColor: "red"}}>QR CODE</div> */}
                 <p className='payment-details'>
                     Proof of Payment:
                 </p>
@@ -264,7 +263,7 @@ export default function IndividualRegistration() {
                     <label for="confirmation" style={{fontSize: "1.25vh"}}>I confirm that I have read and understood the <a href={CodeOfConduct} style={{color: "#aaa", textDecoration: "none"}} target='_blank'>Code of Conduct</a> and filled this form correctly</label>
                 </div>
                 <input type="submit" id="submit"></input>
-            </form>
+            </form> */}
         </div>
         <Contact></Contact>
     </div>)
