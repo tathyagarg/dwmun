@@ -43,6 +43,11 @@ async def individual_registration_ep(registration_data: str = Body(...), payment
     payment_content: bytes = await payment.read()
     filetype: str = get_filetype(payment.filename)
 
+    log(
+        LogLevel.INFO,
+        f'Recieved registration information: {registration_data}'
+    )
+
     parsed: dict = parse_str_to_dict(registration_data)
 
     registration_data: DelegateRegistrationData = DelegateRegistrationData.model_validate_json(json.dumps(parsed))
