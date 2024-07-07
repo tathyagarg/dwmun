@@ -50,3 +50,6 @@ class SingleDelegateRegistrationData(pydantic.BaseModel):
     secondary_country_2: str
 
     prior_experience: str = ''
+
+    def __repr__(self) -> str:
+        return str(vars(self))

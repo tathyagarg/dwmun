@@ -1,0 +1,129 @@
+[2024-07-07 21:49:33.759968] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Creating table: 'delegations'
+[2024-07-07 21:49:33.769790] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Table 'delegations' successfully created
+[2024-07-07 21:49:33.770002] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Creating table: 'delegates'
+[2024-07-07 21:49:33.896459] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Table 'delegates' successfully created
+[2024-07-07 21:49:33.896647] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Creating table: 'admin'
+[2024-07-07 21:49:33.902680] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Table 'admin' successfully created
+[2024-07-07 21:49:33.913642] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: All tables successfully created
+[2024-07-07 21:49:38.485914] CRITICAL
+	Caller: None
+	Message: Recieved registration information
+	{"name":"Tathya Garg","email":"tathya.garg@gmail.com","phone_number":"6363037565","school":"abc","grade":"10","primary_comm":"DISEC","secondary_comm":"CCC","primary_country":"India","secondary_country":"India","primary_country_2":"India","secondary_country_2":"India","prior_experience":"","double_name":"","double_email":"","double_phone_number":"","double_primary_country":"","double_secondary_country":"","double_prior_experience":"","confirmation":"on","double_grade":0,"double_primary_comm":""}
+[2024-07-07 21:49:38.589128] ERROR
+	Caller: 'error_catch/<function register_individual at 0x7d6fa0fc72e0>'
+	Message: Encountered error during execution of <function register_individual at 0x7d6fa0fc72e0>
+	Exception
+		Traceback (most recent call last):
+  File "/home/tathya/programming/dwmun/backend/api/utils/database_handler.py", line 28, in inner
+    res = func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tathya/programming/dwmun/backend/api/utils/database_handler.py", line 194, in register_individual
+    f.write(urllib.request.urlopen(file_data).file.read())
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tathya/.pyenv/versions/3.12.3/lib/python3.12/urllib/request.py", line 215, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tathya/.pyenv/versions/3.12.3/lib/python3.12/urllib/request.py", line 505, in open
+    req.timeout = timeout
+    ^^^^^^^^^^^
+AttributeError: 'bytes' object has no attribute 'timeout'
+
+[2024-07-07 21:54:47.444710] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Creating table: 'delegations'
+[2024-07-07 21:54:47.450677] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Table 'delegations' successfully created
+[2024-07-07 21:54:47.450783] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Creating table: 'delegates'
+[2024-07-07 21:54:47.456720] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Table 'delegates' successfully created
+[2024-07-07 21:54:47.456796] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Creating table: 'admin'
+[2024-07-07 21:54:47.464846] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Table 'admin' successfully created
+[2024-07-07 21:54:47.475240] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: All tables successfully created
+[2024-07-07 21:54:52.414601] CRITICAL
+	Caller: None
+	Message: Recieved registration information
+	{"name":"Tathya Garg","email":"tathya.garg@gmail.com","phone_number":"6363037565","school":"abc","grade":"10","primary_comm":"DISEC","secondary_comm":"CCC","primary_country":"India","secondary_country":"India","primary_country_2":"India","secondary_country_2":"India","prior_experience":"","double_name":"","double_email":"","double_phone_number":"","double_primary_country":"","double_secondary_country":"","double_prior_experience":"","confirmation":"on","double_grade":0,"double_primary_comm":""}
+[2024-07-07 21:54:52.511062] INFO
+	Caller: None
+	Message: Precaution re-logging registration data
+	Registration Data: {'name': 'Tathya Garg', 'email': 'tathya.garg@gmail.com', 'phone_number': '6363037565', 'school': 'abc', 'grade': 10, 'primary_comm': 'DISEC', 'primary_country': 'India', 'primary_country_2': 'India', 'secondary_comm': 'CCC', 'secondary_country': 'India', 'secondary_country_2': 'India', 'prior_experience': ''}
+	File Data: Tathya Garg.jpeg
+[2024-07-07 21:54:52.590560] INFO
+	Caller: 'utils.database_handler.register_individual'
+	Message: Registering delegate with data:
+	Name: Tathya Garg
+	E-Mail: tathya.garg@gmail.com
+	Phone Number: 6363037565
+[2024-07-07 21:54:52.674297] INFO
+	Caller: 'utils.database_handler.register_individual'
+	Message: Registration successful
+[2024-07-07 21:55:01.447474] INFO
+	Caller: 'utils.database_handler.fetch_admin_data'
+	Message: Fetching admin information
+[2024-07-07 21:55:01.537407] INFO
+	Caller: 'utils.database_handler.fetch_all_delegates'
+	Message: Fetching delegate information
+	Condition: 
+[2024-07-07 21:55:02.046204] INFO
+	Caller: 'utils.database_handler.fetch_all_delegates'
+	Message: Fetching delegate information successful
+[2024-07-07 21:56:22.304987] INFO
+	Caller: None
+	Message: Recieved registration information: ["{\"name\":\"Tathya Garg\",\"email\":\"tath11ya.garg@gmail.com\",\"phone_number\":\"6363037565\",\"school\":\"sigma school of sigmas\",\"grade\":\"10\",\"primary_comm\":\"Committee X\",\"secondary_comm\":\"IPC\",\"primary_country\":\"India\",\"secondary_country\":\"India\",\"primary_country_2\":\"India\",\"secondary_country_2\":\"India\",\"prior_experience\":\"\",\"double_name\":\"\",\"double_email\":\"\",\"double_phone_number\":\"\",\"double_primary_country\":\"\",\"double_secondary_country\":\"\",\"double_prior_experience\":\"\",\"confirmation\":\"on\",\"double_grade\":0,\"double_primary_comm\":\"\"}","{\"name\":\"Tathya Garg\",\"email\":\"tathy12121a.garg@gmail.com\",\"phone_number\":\"6363037565\",\"grade\":\"10\",\"primary_comm\":\"DISEC\",\"secondary_comm\":\"DISEC\",\"primary_country\":\"India\",\"secondary_country\":\"India\",\"primary_country_2\":\"India\",\"secondary_country_2\":\"India\",\"prior_experience\":\"\",\"double_name\":\"\",\"double_email\":\"\",\"double_phone_number\":\"\",\"double_grade\":0,\"double_primary_comm\":\"\",\"double_primary_country\":\"\",\"double_secondary_country\":\"\",\"double_prior_experience\":\"\"}"]
+[2024-07-07 21:56:22.474516] INFO
+	Caller: None
+	Message: Precaution re-logging delegation registration data
+	Registration Data: [{'name': 'Tathya Garg', 'email': 'tath11ya.garg@gmail.com', 'phone_number': '6363037565', 'school': 'sigma school of sigmas', 'grade': 10, 'primary_comm': 'Committee X', 'primary_country': 'India', 'primary_country_2': 'India', 'secondary_comm': 'IPC', 'secondary_country': 'India', 'secondary_country_2': 'India', 'prior_experience': ''}, {'name': 'Tathya Garg', 'email': 'tathy12121a.garg@gmail.com', 'phone_number': '6363037565', 'school': 'sigma school of sigmas', 'grade': 10, 'primary_comm': 'DISEC', 'primary_country': 'India', 'primary_country_2': 'India', 'secondary_comm': 'DISEC', 'secondary_country': 'India', 'secondary_country_2': 'India', 'prior_experience': ''}]
+	File Data: Tathya Garg.jpeg
+[2024-07-07 21:56:22.566114] INFO
+	Caller: 'utils.database_handler.register_delegation'
+	Message: Creating delegation
+[2024-07-07 21:56:22.577827] INFO
+	Caller: 'utils.database_handler.register_delegation'
+	Message: Registering head delegate:
+	Name: Tathya Garg
+	E-Mail: tath11ya.garg@gmail.com
+	Phone Number: 6363037565
+[2024-07-07 21:56:22.651578] INFO
+	Caller: 'utils.database_handler.register_delegation'
+	Message: Registering delegate as part of delegation:
+	Name: Tathya Garg
+	E-Mail: tathy12121a.garg@gmail.com
+	Phone Number: 6363037565
+[2024-07-07 21:56:22.670754] INFO
+	Caller: 'utils.database_handler.register_delegation'
+	Message: Delegation registered successfully
+[2024-07-07 21:56:27.946816] INFO
+	Caller: 'utils.database_handler.fetch_admin_data'
+	Message: Fetching admin information
+[2024-07-07 21:56:28.069241] INFO
+	Caller: 'utils.database_handler.fetch_all_delegates'
+	Message: Fetching delegate information
+	Condition: 
+[2024-07-07 21:56:28.837162] INFO
+	Caller: 'utils.database_handler.fetch_all_delegates'
+	Message: Fetching delegate information successful

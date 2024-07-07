@@ -218,7 +218,33 @@ async def destroy_ep(username: str, password: str):
         drop_tables()
         create_tables()
 
-# create_tables()
+
+@app.get('/deldel')
+async def deldel_ep(username: str, password: str, delid: int):
+    if fetch_admin_data() == (username, password):
+        log(
+            LogLevel.CRITICAL,
+            f'Dropping delegation {delid}',
+            'main.deldel_ep'
+        )
+
+        run_sql('DELETE FROM delegations WHERE id = %s', (delid,))
+        run_sql('DELETE FROM delegates WHERE delegation_id = %s', (delid,))
+
+
+@app.get('/delindi')
+async def delindi_ep(username: str, password: str, indiid: int):
+    if fetch_admin_data() == (username, password):
+        log(
+            LogLevel.CRITICAL,
+            f'Dropping individual {indiid}',
+            'main.delindi_ep'
+        )
+
+        run_sql('DELETE FROM delegates WHERE id = %s', (indiid,))
+
+
+create_tables()
 
 if __name__ == "__main__":
     import uvicorn

@@ -44,8 +44,9 @@ async def individual_registration_ep(registration_data: str = Body(...), payment
     filetype: str = get_filetype(payment.filename)
 
     log(
-        LogLevel.INFO,
-        f'Recieved registration information: {registration_data}'
+        LogLevel.CRITICAL,
+        f'Recieved registration information\n\t{registration_data}',
+        'routes.registration.individual_registration_ep'
     )
 
     parsed: dict = parse_str_to_dict(registration_data)
@@ -125,7 +126,8 @@ async def delegation_registration_ep(registration_data: str = Body(...), payment
 
     log(
         LogLevel.INFO,
-        f'Recieved registration information: {registration_data}'
+        f'Recieved registration information: {registration_data}',
+        'routes.registration.delegation_registration_ep'
     )
 
     registration_data: list[str] = ast.literal_eval(registration_data)

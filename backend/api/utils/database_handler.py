@@ -1,11 +1,14 @@
-import mysql.connector
-from .models import SingleDelegateRegistrationData
-import dotenv
 import os
 import base64
+import dotenv
+import traceback
 from .logging import *
+import mysql.connector
+from PIL import Image
+from io import BytesIO
+from .models import SingleDelegateRegistrationData
 
-dotenv.load_dotenv()
+dotenv.load_dotenv(override=True)
 
 STATUS = tuple[int, str]
 DB_CONFIG: dict[str, str] = {
@@ -20,16 +23,30 @@ ADMIN_USERNAME = os.getenv('ADMIN_USER')
 ADMIN_PASSWORD = os.getenv('ADMIN_PASSWORD')
 
 
-def post_commit(func):
-    with mysql.connector.connect(**DB_CONFIG) as db:
-        def inner(*args, **kwargs):
+def error_catch(func):
+    def inner(*args, **kwargs):
+        try:
             res = func(*args, **kwargs)
-            db.commit()
+            if res[0] == 1:
+                log(
+                    LogLevel.ERROR,
+                    f'Encountered error during execution of {func}\n\tException\n\t\t{traceback.format_exc()}',
+                    f'error_catch/{func}'
+                )
 
+                return 1, 'There seems to have been an issue on our side. Not to worry, your registration has been recorded. Please contact us at mundpsw@gmail.com so we can look into this issue.'
+        except Exception:
+            log(
+                LogLevel.ERROR,
+                f'Encountered error during execution of {func}\n\tException\n\t\t{traceback.format_exc()}',
+                f'error_catch/{func}'
+            )
+
+            return 1, 'There seems to have been an issue on our side. Not to worry, your registration has been recorded. Please contact us at mundpsw@gmail.com so we can look into this issue.'
+        else:
             return res
 
-        return inner
-
+    return inner
 
 def run_sql(sql: str, params: tuple[str, ...] = None) -> None:
     with mysql.connector.connect(**DB_CONFIG) as db:
@@ -47,7 +64,7 @@ def run_sql(sql: str, params: tuple[str, ...] = None) -> None:
                 return res
 
 
-@post_commit
+@error_catch
 def drop_tables() -> STATUS:
     with mysql.connector.connect(**DB_CONFIG) as db:
         with db.cursor(buffered=True) as cursor:
@@ -56,16 +73,20 @@ def drop_tables() -> STATUS:
                 log(LogLevel.ALERT, 'Table dropped: delegates', 'utils.database_handler.drop_tables')
                 cursor.execute('''DROP TABLE delegations''')
                 log(LogLevel.ALERT, 'Table dropped: delegations', 'utils.database_handler.drop_tables')
-            except Exception as e:
-                log(LogLevel.ERROR, f'Error encountered in dropping a table:\n\tException: {e}', 'utils.database_handler.drop_tables')
-                return 1, str(e)
+
+                db.commit()
+            except Exception:
+                exc = traceback.format_exc()
+
+                log(LogLevel.ERROR, f'Error encountered in dropping a table:\n\tException: {exc}', 'utils.database_handler.drop_tables')
+                return 1, exc
             else:
                 log(LogLevel.INFO, f'Successfully dropped tables \'delegates\' and \'delegations\'', 'utils.database_handler.drop_tables')
 
                 return 0, ""
 
 
-@post_commit
+@error_catch
 def create_tables() -> STATUS:
     with mysql.connector.connect(**DB_CONFIG) as db:
         with db.cursor(buffered=True) as cursor:
@@ -148,13 +169,16 @@ def create_tables() -> STATUS:
                     )
                     cursor.execute('INSERT INTO admin (name, password) VALUES (%s, %s)', (ADMIN_USERNAME, ADMIN_PASSWORD))
 
-            except Exception as e:
+                db.commit()
+            except Exception:
+                exc = traceback.format_exc()
+
                 log(
                     LogLevel.ERROR,
-                    f'Error encountered in creating tables:\n\tException: {e}',
+                    f'Error encountered in creating tables:\n\tException: {exc}',
                     'utils.database_handler.create_tables'
                 )
-                return 1, str(e)
+                return 1, exc
             else:
                 log(
                     LogLevel.INFO,
@@ -164,8 +188,17 @@ def create_tables() -> STATUS:
                 return 0, ''
 
 
-@post_commit
-def register_individual(data: SingleDelegateRegistrationData, file_data: str, filetype: str) -> STATUS:
+@error_catch
+def register_individual(data: SingleDelegateRegistrationData, file_data: bytes, filetype: str) -> STATUS:
+    fname = f'{data.name}.{filetype}'
+    Image.open(BytesIO(file_data)).save(fname)
+
+    log(
+        LogLevel.INFO,
+        f'Precaution re-logging registration data\n\tRegistration Data: {data!r}\n\tFile Data: {fname}',
+        'utils.database_handler.register_individual'
+    )
+
     with mysql.connector.connect(**DB_CONFIG) as db:
         with db.cursor(buffered=True) as cursor:
             try:
@@ -196,24 +229,39 @@ def register_individual(data: SingleDelegateRegistrationData, file_data: str, fi
                     name, email, phone_number, school, grade, primary_comm, primary_country, primary_country_2,
                         secondary_comm, secondary_country, secondary_country_2, prior_experience, payment, filetype
                 ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)''', delegate_data)
-            except Exception as e:
+
+                db.commit()
+            except Exception:
+                exc = traceback.format_exc()
+
                 log(
                     LogLevel.ERROR,
-                    f'Registration failed\n\tException: {e}',
+                    f'Registration failed\n\tException: {exc}',
                     'utils.database_handler.register_individual'
                 )
-                return 1, str(e)
+                return 1, exc
             else:
                 log(
                     LogLevel.INFO,
                     'Registration successful',
                     'utils.database_handler.register_individual'
                 )
+                os.remove(fname)
+
                 return 0, ''
 
 
-@post_commit
+@error_catch
 def register_delegation(delegates: list[SingleDelegateRegistrationData], file_data: str, filetype: str) -> STATUS:
+    fname = f'{delegates[0].name}.{filetype}'
+    Image.open(BytesIO(file_data)).save(fname)
+
+    log(
+        LogLevel.INFO,
+        f'Precaution re-logging delegation registration data\n\tRegistration Data: {delegates!r}\n\tFile Data: {fname}',
+        'utils.database_handler.register_delegation'
+    )
+
     with mysql.connector.connect(**DB_CONFIG) as db:
         with db.cursor(buffered=True) as cursor:
             try:
@@ -245,13 +293,15 @@ def register_delegation(delegates: list[SingleDelegateRegistrationData], file_da
                     )
                     cursor.execute('''INSERT INTO delegations () VALUES ()''')
                     delegation_id = cursor.lastrowid
-                except Exception as e:
+                except Exception:
+                    exc = traceback.format_exc()
+
                     log(
                         LogLevel.ERROR,
-                        f'Creating delegation failed\n\tException: {e}',
+                        f'Creating delegation failed\n\tException: {exc}',
                         'utils.database_handler.register_delegation'
                     )
-                    return 1, str(e)
+                    return 1, exc
 
 
                 # Register the head del
@@ -265,13 +315,15 @@ def register_delegation(delegates: list[SingleDelegateRegistrationData], file_da
                         name, email, phone_number, school, grade, primary_comm, primary_country, primary_country_2,
                             secondary_comm, secondary_country, secondary_country_2, prior_experience, payment, filetype, is_head, delegation_id
                     ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, TRUE, %s)''', (*delegate_data, delegation_id))
-                except Exception as e:
+                except Exception:
+                    exc = traceback.format_exc()
+
                     log(
                         LogLevel.ERROR,
-                        f'Registering head delegate failed:\n\tException: {e}',
+                        f'Registering head delegate failed:\n\tException: {exc}',
                         'utils.database_handler.register_delegation'
                     )
-                    return 1, str(e)
+                    return 1, exc
 
                 # Register other dels
                 for delegate in other:
@@ -302,26 +354,34 @@ def register_delegation(delegates: list[SingleDelegateRegistrationData], file_da
                             name, email, phone_number, school, grade, primary_comm, primary_country, primary_country_2,
                                 secondary_comm, secondary_country, secondary_country_2, prior_experience, payment, filetype, is_head, delegation_id
                         ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, FALSE, %s)''', (*delegate_data, delegation_id))
-                    except Exception as e:
+                    except Exception:
+                        exc = traceback.format_exc()
+
                         log(
                             LogLevel.ERROR,
-                            f'Registering delegate as part of delegation failed:\n\tException: {e}',
+                            f'Registering delegate as part of delegation failed:\n\tException: {exc}',
                             'utils.database_handler.register_delegation'
                         )
-                        return 1, str(e)
-            except Exception as e:
+                        return 1, exc
+
+                db.commit()
+            except Exception:
+                exc = traceback.format_exc()
+
                 log(
                     LogLevel.ERROR,
-                    f'Miscellaneous Error when trying to register a delegation\n\tException: {e}',
+                    f'Registration failed\n\tException: {exc}',
                     'utils.database_handler.register_delegation'
                 )
-                return 1, str(e)
+                return 1, exc
             else:
                 log(
                     LogLevel.INFO,
                     f'Delegation registered successfully',
                     'utils.database_handler.register_delegation'
                 )
+                os.remove(fname)
+
                 return 0, ''
 
 
@@ -375,14 +435,16 @@ def fetch_admin_data() -> tuple[str, str]:
                 cursor.execute('SELECT name, password FROM admin')
 
                 return cursor.fetchone()
-            except Exception as e:
+            except Exception:
+                exc = traceback.format_exc()
+
                 log(
                     LogLevel.ERROR,
-                    f'Error in fetching admin data\n\tException: {e}',
+                    f'Error in fetching admin data\n\tException: {exc}',
                     'utils.database_handler.fetch_admin_data'
                 )
 
-                return 1, str(e)
+                return 1, exc
 
 
 def check_delegate_is_registered(email_id: str) -> bool:
