@@ -219,7 +219,7 @@ export default function DelegationRegistration() {
     return (<div>
         <div className='form-page'>
             <h1>Delegation Registration</h1>
-            <h2>Reopening Soon!</h2>
+            <h2>Reopening by tonight!</h2>
             {/* <form id="registration-form" onSubmit={handleSubmit}>
                 <h2 id="status"></h2>
                 <h2>Head Delegate Information</h2>

@@ -157,7 +157,7 @@ export default function IndividualRegistration() {
     return (<div>
         <div className='form-page'>
             <h1>Individual Registration</h1>
-            <h2>Reopening Soon!</h2>
+            <h2>Reopening by tonight!</h2>
             {/* <form id="registration-form" onSubmit={handleSubmit}>
                 <h2 id='status'></h2>
                 <label>General</label>
