@@ -229,7 +229,6 @@ async def deldel_ep(username: str, password: str, delid: int):
         )
 
         run_sql('DELETE FROM delegates WHERE delegation_id = %s', (delid,))
-        run_sql('DELETE FROM delegations WHERE id = %s', (delid,))
 
 
 @app.get('/delindi')
