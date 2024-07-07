@@ -135,6 +135,8 @@ def create_tables() -> STATUS:
                     PRIMARY KEY (id),
                     FOREIGN KEY (delegation_id)
                         REFERENCES delegations(id)
+                        ON DELETE CASCADE
+                        ON UPDATE CASCADE
                 );''')
                 log(
                     LogLevel.INFO,
