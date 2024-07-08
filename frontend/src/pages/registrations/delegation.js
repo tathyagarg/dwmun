@@ -65,7 +65,9 @@ export default function DelegationRegistration() {
         let count = delegates.length + doubleCount + 1;
 
         for (let delegate of delegates.map(ref => ref.current.getFormData())) {
-            if (delegate.double_name !== "" || delegate.double_email !== "" || delegate.double_phone_number !== "") { count += 1 }
+            if (delegate.primary_comm === "UNSC" || delegate.secondary_comm === "UNSC") {
+                if (delegate.double_name !== "" || delegate.double_email !== "" || delegate.double_phone_number !== "") { count += 1 }
+            }
         }
 
         setAmt(950 * count * (count >= 10 ? 0.9 : 1))
@@ -219,9 +221,42 @@ export default function DelegationRegistration() {
     return (<div>
         <div className='form-page'>
             <h1>Delegation Registration</h1>
-            {/* <h2>Reopening by tonight!</h2> */}
             <form id="registration-form" onSubmit={handleSubmit}>
                 <h2 id="status"></h2>
+                <div className="instructions">
+                    <h2>Instructions</h2>
+                    <hr style={{width: "100%"}}></hr>
+                    <ul>
+                        <li>To add a delegate's information, click the green plus button <a style={{
+                            color: '#00fff0',
+                            textDecoration: 'none',
+                            cursor: "pointer"
+                        }} onClick={() => {
+                            const butt = document.getElementById('add-button')
+                            window.scroll(butt.offsetHeight, butt.offsetTop - 0.1 * window.innerHeight)
+
+                            butt.classList.remove('pulse')
+                            butt.classList.add('pulse')
+                            const prom = new Promise((res, rej) => {
+                                setTimeout(() => butt.classList.remove('pulse'), 5000)
+                            })
+                        }}>here</a></li>
+                        <li>Before making your payment, click the update button <a style={{
+                            color: '#00fff0',
+                            textDecoration: 'none',
+                            cursor: "pointer"
+                        }} onClick={() => {
+                            const butt = document.getElementById('update-button')
+                            window.scroll(butt.offsetHeight, butt.offsetTop - 0.1 * window.innerHeight)
+
+                            butt.classList.remove('pulse')
+                            butt.classList.add('pulse')
+                            const prom = new Promise((res, rej) => {
+                                setTimeout(() => butt.classList.remove('pulse'), 5000)
+                            })
+                        }}>here</a> to see the final price.</li>
+                    </ul>
+                </div>
                 <h2>Head Delegate Information</h2>
                 <label>General</label>
                 <input name="name" type='text' id="name" placeholder='Name' className='textinput'></input>
@@ -316,12 +351,12 @@ export default function DelegationRegistration() {
                     {delegates.map((ref, index) => <DelegateRegistration elemNo={index+1} ref={ref}/>)}
                 </div>
 
-                <button className="add-sub-delegate" type="button" onClick={() => {
+                <button className="add-sub-delegate" id="add-button" type="button" onClick={() => {
                     setDelegates(prev => [...prev, React.createRef()])
                 }}>+</button>
 
                 <p>Please click this button before making your payment to see your final price!</p>
-                <button className="update" type="button" onClick={getTotalDelegateCount}>Update Amount to Pay</button>
+                <button className="update" id="update-button" type="button" onClick={getTotalDelegateCount}>Update Amount to Pay</button>
 
                 <p className="payment-details" id="total-amount">Please pay a sum of rupees <b>{amt}</b> to:</p>
                 <a href={QRCode} target='_blank'><img style={{width: '20vh'}} src={QRCode}></img></a>
