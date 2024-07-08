@@ -3,9 +3,10 @@ import re
 import ssl
 import dotenv
 import smtplib
-import urllib.request
+from io import BytesIO
 
 import xlsxwriter
+from PIL import Image
 import pylightxl as xl
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi import FastAPI, File, UploadFile
@@ -98,13 +99,9 @@ async def get_registration_data(username: str, password: str):
                 payment, filetype = delegate[15], delegate[16]
 
                 if not re.match(r'data:image/(png|jpg|jpeg);base64,LS0tUkVGRVIgVE8gSEVBRCBERUxFR0FURS0tLQ==', payment):
-                    resp = urllib.request.urlopen(payment)
-
                     file_path = f'delegate_{delegate_index}.{filetype}'
+                    Image.open(BytesIO(bytes(payment))).save(file_path)
                     created.append(file_path)
-
-                    with open(file_path, 'wb') as f:
-                        f.write(resp.file.read())
                 else:
                     file_path = -1
 
