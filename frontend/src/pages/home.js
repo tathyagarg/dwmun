@@ -101,25 +101,17 @@ Principal
                 <h1>Letter from the Secretary General</h1>
                 <div id='oc-letter-content'>
                     <div id='actual-oc-letter'>
-                        <p>
-                    Dear Delegates, Distinguished Guests, and Esteemed Participants,
-It is with great pleasure and excitement that I welcome you to the sixth edition of Delhi Public School Whitefield Model United Nations, DWMUN’24. As the Secretary General, I am honoured to share my journey with you and express my utmost enthusiasm for the remarkable experiences that await each and every one of you.
-</p><p>
-Reflecting upon my own MUN journey, I vividly recall the momentous beginning that shaped my passion for diplomacy and global affairs. It was in the 8th grade when I first stepped into the realm of MUNs, embarking on an adventure that would forever change my life. The committee I was assigned to was the Social, Humanitarian, and Cultural Committee (SOCHUM), an assembly of nearly 80 individuals united by their shared commitment to address pressing global issues.
-</p><p>
-As I entered the committee room, a wave of excitement and apprehension washed over me. Thoughts flooded my mind, wondering if I would ever get the chance to voice my opinions amidst such a vast gathering of talented delegates. However, much to my surprise, the dynamics of the committee quickly transformed. Within the first hour of the session, I found myself speaking on three separate occasions, capturing the attention of my fellow delegates and making a meaningful contribution to the discussions at hand. Throughout the three days, I not only spoke multiple times but learned from other delegates too. I learned that MUNs were not only about public speaking and research, but were a complex mix of research, diplomacy, and confidence among others. This motivated me to attend more conferences and hone my skills to perfection.
-</p><p>
-Today, I have attended over 35 plus conferences and while I still don’t believe I’ve reached “perfection,” I am able to quote laws and articles that I once did know existed off the top of my head and teach upcoming MUN delegates in the circuit too. I am proud to be part of some of the best delegations across the MUN circuit and win awards at prestigious institutions.
-</p><p>
-So, I hope MUNs are able to play an impact on your lives, similar to mine. With that, I wish you all a memorable and rewarding Model United Nations experience. May you leave this conference empowered with the belief that each one of you possesses the capacity to shape a better world.
-</p><p>
+                        <p>Distinguished Guests, Teachers, and Delegates,</p><p>
 
-Regards,
-</p><p>
-Shrisai Hari
-<br/>
-Secretary General
-<br/>
+It is my pleasure to welcome you to the 6th edition of Delhi Public School, Whitefield’s Model United Nations, DWMUN’24.</p><p>
+
+Starting out as a young delegate at this very conference, I have been a part of both ends of the spectrum, as a delegate and as an EB members. But today, I am addressing you all as the secretary general for this conference, a post I hold very close to my part. DWMUN has played an important role in my life, helping me understand international politics, laws, and much more. DWMUN acts as the perfect platform for young delegates to make a mark on the world and receive knowledge outside of the classroom.</p><p>
+In my experience, MUNs are no longer competitions but hubs of knowledge for delegates to learn and grow. So thus, with a warm heart, I welcome you to DWMUN’24.</p><p>
+
+See you all on the 1st, 2nd and 3rd of August!</p><p>
+Regards,</p><p>
+Shrisai Hari<br/>
+Secretary General<br/>
 DWMUN’24
 </p>
                     </div>
