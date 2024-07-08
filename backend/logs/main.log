@@ -1,0 +1,175 @@
+[2024-07-08 20:58:54.389909] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Creating table: 'delegations'
+[2024-07-08 20:58:54.395672] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Table 'delegations' successfully created
+[2024-07-08 20:58:54.395784] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Creating table: 'delegates'
+[2024-07-08 20:58:54.401102] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Table 'delegates' successfully created
+[2024-07-08 20:58:54.401309] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Creating table: 'admin'
+[2024-07-08 20:58:54.406711] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Table 'admin' successfully created
+[2024-07-08 20:58:54.417306] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: All tables successfully created
+[2024-07-08 20:59:30.295676] INFO
+	Caller: 'utils.database_handler.fetch_admin_data'
+	Message: Fetching admin information
+[2024-07-08 20:59:30.860541] INFO
+	Caller: 'utils.database_handler.fetch_all_delegates'
+	Message: Fetching delegate information
+	Condition: 
+[2024-07-08 20:59:32.685578] INFO
+	Caller: 'utils.database_handler.fetch_all_delegates'
+	Message: Fetching delegate information successful
+[2024-07-08 20:59:48.231642] INFO
+	Caller: 'utils.database_handler.fetch_admin_data'
+	Message: Fetching admin information
+[2024-07-08 20:59:48.298868] INFO
+	Caller: 'utils.database_handler.fetch_all_delegates'
+	Message: Fetching delegate information
+	Condition: 
+[2024-07-08 20:59:57.941169] INFO
+	Caller: 'utils.database_handler.fetch_all_delegates'
+	Message: Fetching delegate information successful
+[2024-07-08 21:00:13.314686] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Creating table: 'delegations'
+[2024-07-08 21:00:13.320724] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Table 'delegations' successfully created
+[2024-07-08 21:00:13.320833] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Creating table: 'delegates'
+[2024-07-08 21:00:13.327252] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Table 'delegates' successfully created
+[2024-07-08 21:00:13.327346] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Creating table: 'admin'
+[2024-07-08 21:00:13.333874] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Table 'admin' successfully created
+[2024-07-08 21:00:13.349246] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: All tables successfully created
+[2024-07-08 21:00:15.235154] INFO
+	Caller: 'utils.database_handler.fetch_admin_data'
+	Message: Fetching admin information
+[2024-07-08 21:00:15.311059] INFO
+	Caller: 'utils.database_handler.fetch_all_delegates'
+	Message: Fetching delegate information
+	Condition: 
+[2024-07-08 21:00:16.194543] INFO
+	Caller: 'utils.database_handler.fetch_all_delegates'
+	Message: Fetching delegate information successful
+[2024-07-08 21:04:14.211894] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Creating table: 'delegations'
+[2024-07-08 21:04:14.218326] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Table 'delegations' successfully created
+[2024-07-08 21:04:14.218612] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Creating table: 'delegates'
+[2024-07-08 21:04:14.225675] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Table 'delegates' successfully created
+[2024-07-08 21:04:14.225792] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Creating table: 'admin'
+[2024-07-08 21:04:14.230905] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Table 'admin' successfully created
+[2024-07-08 21:04:14.242035] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: All tables successfully created
+[2024-07-08 21:04:24.921130] INFO
+	Caller: 'utils.database_handler.fetch_admin_data'
+	Message: Fetching admin information
+[2024-07-08 21:04:25.029291] INFO
+	Caller: 'utils.database_handler.fetch_all_delegates'
+	Message: Fetching delegate information
+	Condition: 
+[2024-07-08 21:04:26.017160] INFO
+	Caller: 'utils.database_handler.fetch_all_delegates'
+	Message: Fetching delegate information successful
+[2024-07-08 21:04:43.253246] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Creating table: 'delegations'
+[2024-07-08 21:04:43.259228] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Table 'delegations' successfully created
+[2024-07-08 21:04:43.259300] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Creating table: 'delegates'
+[2024-07-08 21:04:43.265263] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Table 'delegates' successfully created
+[2024-07-08 21:04:43.265348] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Creating table: 'admin'
+[2024-07-08 21:04:43.270436] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Table 'admin' successfully created
+[2024-07-08 21:04:43.284680] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: All tables successfully created
+[2024-07-08 21:04:45.191633] INFO
+	Caller: 'utils.database_handler.fetch_admin_data'
+	Message: Fetching admin information
+[2024-07-08 21:04:45.272388] INFO
+	Caller: 'utils.database_handler.fetch_all_delegates'
+	Message: Fetching delegate information
+	Condition: 
+[2024-07-08 21:04:46.162357] INFO
+	Caller: 'utils.database_handler.fetch_all_delegates'
+	Message: Fetching delegate information successful
+[2024-07-08 21:06:27.996615] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Creating table: 'delegations'
+[2024-07-08 21:06:28.002031] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Table 'delegations' successfully created
+[2024-07-08 21:06:28.002133] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Creating table: 'delegates'
+[2024-07-08 21:06:28.008152] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Table 'delegates' successfully created
+[2024-07-08 21:06:28.008519] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Creating table: 'admin'
+[2024-07-08 21:06:28.029887] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Table 'admin' successfully created
+[2024-07-08 21:06:28.040454] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: All tables successfully created
+[2024-07-08 21:06:38.784756] INFO
+	Caller: 'utils.database_handler.fetch_admin_data'
+	Message: Fetching admin information
+[2024-07-08 21:06:38.864885] INFO
+	Caller: 'utils.database_handler.fetch_all_delegates'
+	Message: Fetching delegate information
+	Condition: 
+[2024-07-08 21:06:45.004714] INFO
+	Caller: 'utils.database_handler.fetch_all_delegates'
+	Message: Fetching delegate information successful
+[2024-07-08 21:08:29.918649] INFO
+	Caller: 'utils.database_handler.fetch_admin_data'
+	Message: Fetching admin information
+[2024-07-08 21:08:29.998077] INFO
+	Caller: 'utils.database_handler.fetch_all_delegates'
+	Message: Fetching delegate information
+	Condition: 
+[2024-07-08 21:08:31.045474] INFO
+	Caller: 'utils.database_handler.fetch_all_delegates'
+	Message: Fetching delegate information successful

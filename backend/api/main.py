@@ -1,6 +1,7 @@
 import os
 import re
 import ssl
+import base64
 import dotenv
 import smtplib
 from io import BytesIO
@@ -100,7 +101,7 @@ async def get_registration_data(username: str, password: str):
 
                 if not re.match(r'data:image/(png|jpg|jpeg);base64,LS0tUkVGRVIgVE8gSEVBRCBERUxFR0FURS0tLQ==', payment):
                     file_path = f'delegate_{delegate_index}.{filetype}'
-                    Image.open(BytesIO(bytes(payment))).save(file_path)
+                    Image.open(BytesIO(base64.b64decode(bytes(payment[22+(filetype=='jpeg'):], encoding='utf-8')))).save(file_path)
                     created.append(file_path)
                 else:
                     file_path = -1
