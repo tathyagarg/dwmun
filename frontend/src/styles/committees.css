@@ -154,6 +154,10 @@ p {
     }
 }
 
+.slide:not(#logo) > p {
+    font-size: 1.125em;
+}
+
 .agenda-word {
     margin-bottom: 0;
     z-index: 3;

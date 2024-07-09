@@ -152,7 +152,7 @@
 
 @media screen and (max-width: 1200px) {
     .delegate-resources-container {
-        width: 100%;
+        width: 90%;
     }
 
     .resources {
@@ -160,9 +160,9 @@
     }
 
     .resources > div:hover, .resources > div:focus {
-        transform: none;
-        box-shadow: unset;
-        background-color: transparent;
+        transform: none !important;
+        box-shadow: none !important;
+        background-color: transparent !important;
     }
 
     .conf-info > a {

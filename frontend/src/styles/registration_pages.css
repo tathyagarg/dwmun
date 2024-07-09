@@ -28,6 +28,7 @@ form {
 input, select, textarea {
     background-color: var(--secondary-light);
     color: #fff;
+    font-weight: bold;
     border: none;
     border-radius: 0.5em;
     padding-top: 0.5vh;
