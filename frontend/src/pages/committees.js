@@ -8,7 +8,6 @@ const CommLink = styled(Link)`
     line-height: 20vh;
     margin-top: 0;
     margin-bottom: 1%;
-    font-weight: 700;
 
     width: fit-content;
     text-decoration: none;

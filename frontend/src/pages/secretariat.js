@@ -7,6 +7,7 @@ import OC1 from '../assets/secretariat/head-of-oc-1.jpeg'
 import OC2 from '../assets/secretariat/head-of-oc-2.jpeg'
 import Logistics1 from '../assets/secretariat/head-of-logistics-1.jpeg'
 import Logistics2 from '../assets/secretariat/head-of-logistics-2.jpeg'
+import Tech from '../assets/secretariat/head-of-tech.png'
 
 export default function Secretariat() {
     return <div>
@@ -53,6 +54,11 @@ export default function Secretariat() {
                     <h1>Head of<br/>Design</h1>
                     <img className='image-placeholder-2' src={Design}></img>
                     <p>Devina Jha</p>
+                </div>
+                <div className='oc-card'>
+                    <h1>Head of<br/>Tech</h1>
+                    <img className='image-placeholder-2' src={Tech}></img>
+                    <p>Tathya Garg</p>
                 </div>
             </div>
             {/* <div className='image-placeholder'></div> */}
