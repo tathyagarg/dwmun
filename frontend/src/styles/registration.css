@@ -8,7 +8,7 @@
 }
 
 .registration-header {
-    font-family: "Glockenspiel", serif;
+    font-family: "Glockenspiel", serif !important;
     font-size: 10vh;
     text-align: center;
     color: white;
