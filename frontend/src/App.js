@@ -15,6 +15,7 @@ import DelegationRegistration from './pages/registrations/delegation.js'
 import Resources from './pages/resources.js'
 import LoginPage from './pages/login.js'
 import ThankYou from './pages/thank_you.js'
+import NotFound from './pages/not_found.js'
 
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
@@ -39,6 +40,7 @@ function App() {
                 <Route exact path='/resources' Component={Resources}/>
                 <Route exact path='/login' Component={LoginPage}/>
                 <Route exact path='/thank-you' Component={ThankYou}/>
+                <Route path='*' Component={NotFound}/>
             </Routes>
         </BrowserRouter>
     )
