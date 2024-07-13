@@ -16,17 +16,17 @@ export default function Resources() {
                     </div>
                     <div>
                         <h1>CCC</h1>
-                        <a>Matrix</a>
+                        <a href='https://docs.google.com/spreadsheets/d/e/2PACX-1vTkwWKYZ9zowk2fsNEyyEbD7xAhUR5sEFBC7oQdl8FL4p53SNfBggNG6Cyxw4b2h2R86Dwbj99yiWnP/pubhtml?gid=90685736&single=true'>Matrix</a>
                         <a>Background Guide</a>
                     </div>
                     <div>
                         <h1>DISEC</h1>
-                        <a>Matrix</a>
+                        <a href='https://docs.google.com/spreadsheets/d/e/2PACX-1vTkwWKYZ9zowk2fsNEyyEbD7xAhUR5sEFBC7oQdl8FL4p53SNfBggNG6Cyxw4b2h2R86Dwbj99yiWnP/pubhtml?gid=1768273203&single=true'>Matrix</a>
                         <a>Background Guide</a>
                     </div>
                     <div>
                         <h1>IPC</h1>
-                        <a>Matrix</a>
+                        <a href='https://docs.google.com/spreadsheets/d/e/2PACX-1vTkwWKYZ9zowk2fsNEyyEbD7xAhUR5sEFBC7oQdl8FL4p53SNfBggNG6Cyxw4b2h2R86Dwbj99yiWnP/pubhtml?gid=1791090009&single=true'>Matrix</a>
                         <a>Background Guide</a>
                     </div>
                     <div>
@@ -41,7 +41,7 @@ export default function Resources() {
                     </div>
                     <div>
                         <h1>UNSC</h1>
-                        <a>Matrix</a>
+                        <a href='https://docs.google.com/spreadsheets/d/e/2PACX-1vTkwWKYZ9zowk2fsNEyyEbD7xAhUR5sEFBC7oQdl8FL4p53SNfBggNG6Cyxw4b2h2R86Dwbj99yiWnP/pubhtml?gid=212126292&single=true'>Matrix</a>
                         <a>Background Guide</a>
                     </div>
                 </div>
