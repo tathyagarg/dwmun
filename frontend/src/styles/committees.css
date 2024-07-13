@@ -397,7 +397,7 @@ p {
     &>iframe {
         z-index: 2;
         height: 72.25vh;
-        filter: invert(1) hue-rotate(70deg) contrast(0.85);
+        /* filter: invert(1) hue-rotate(180deg) saturate(200%); */
     }
 
     & > h2 {

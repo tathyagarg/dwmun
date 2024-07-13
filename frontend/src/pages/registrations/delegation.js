@@ -70,7 +70,7 @@ export default function DelegationRegistration() {
             }
         }
 
-        setAmt(950 * count * (count >= 10 ? 0.9 : 1))
+        setAmt(950 * count * (count >= 15 ? 0.9 : 1))
     }
 
     const getDelegateData = (data, isHeadDel, index) => {
@@ -228,7 +228,7 @@ export default function DelegationRegistration() {
                     <hr style={{width: "100%"}}></hr>
                     <ul>
                         <li>To add a delegate's information, click the green plus button <a style={{
-                            color: '#00fff0',
+                            color: '#ED254E',
                             textDecoration: 'none',
                             cursor: "pointer"
                         }} onClick={() => {
@@ -241,8 +241,9 @@ export default function DelegationRegistration() {
                                 setTimeout(() => butt.classList.remove('pulse'), 5000)
                             })
                         }}>here</a></li>
+                        <li>If your delegation consists of 15 or more delegates (including Head Delegate), you are eligible for a 10% discount</li>
                         <li>Before making your payment, click the update button <a style={{
-                            color: '#00fff0',
+                            color: '#ED254E',
                             textDecoration: 'none',
                             cursor: "pointer"
                         }} onClick={() => {
@@ -254,7 +255,7 @@ export default function DelegationRegistration() {
                             const prom = new Promise((res, rej) => {
                                 setTimeout(() => butt.classList.remove('pulse'), 5000)
                             })
-                        }}>here</a> to see the final price.</li>
+                        }}>here</a> to see the final price, including the discount (if eligible).</li>
                     </ul>
                 </div>
                 <h2>Head Delegate Information</h2>
