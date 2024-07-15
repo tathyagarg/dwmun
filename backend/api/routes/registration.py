@@ -28,16 +28,6 @@ def check_file_validity(payment: UploadFile, payment_content: bytes) -> STATUS:
     return 0, ""
 
 
-@router.get("/indi", response_class=JSONResponse, status_code=status.HTTP_200_OK)
-async def get_indis_ep():
-    return fetch_all_delegates()
-
-
-@router.get("/dele", response_class=JSONResponse, status_code=status.HTTP_200_OK)
-async def get_delegation_ep():
-    return fetch_all_delegates(condition='WHERE delegation_id IS NOT NULL')
-
-
 @router.post("/indi", response_class=JSONResponse, status_code=status.HTTP_200_OK)
 async def individual_registration_ep(registration_data: str = Body(...), payment: UploadFile = File(...)):
     payment_content: bytes = await payment.read()

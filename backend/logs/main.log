@@ -1,0 +1,21 @@
+[2024-07-15 20:03:41.862775] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Creating table: 'delegations'
+[2024-07-15 20:03:41.868583] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Table 'delegations' successfully created
+[2024-07-15 20:03:41.868672] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Creating table: 'delegates'
+[2024-07-15 20:03:41.885605] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Table 'delegates' successfully created
+[2024-07-15 20:03:41.885696] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Creating table: 'admin'
+[2024-07-15 20:03:41.891545] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: Table 'admin' successfully created
+[2024-07-15 20:03:41.909959] INFO
+	Caller: 'utils.database_handler.create_tables'
+	Message: All tables successfully created

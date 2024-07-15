@@ -66,6 +66,14 @@ export default function IndividualRegistration() {
             return
         }
 
+        if (proof === null) {
+            elem.innerHTML = "Please upload a screenshot of your proof of payment in the Proof of Payment box below."
+            elem.classList.add('error')
+            elem.classList.remove('success')
+            window.scroll(0, 0)
+            return
+        }
+
         for (let element of [
             document.getElementById("grade"),
             document.getElementById("primary-comm"),

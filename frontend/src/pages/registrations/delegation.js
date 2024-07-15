@@ -183,6 +183,14 @@ export default function DelegationRegistration() {
 
         let res = []
 
+
+        if (proof === null) {
+            const statusElement = document.getElementById("status")
+            statusElement.innerHTML = "Please upload a screenshot of your proof of payment in the Proof of Payment box below."
+            triggerError(statusElement)
+            return
+        }
+
         const headData = new FormData(event.target)
 
         res.push(JSON.stringify(getDelegateData(headData, true)))

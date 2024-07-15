@@ -240,7 +240,6 @@ async def delindi_ep(username: str, password: str, indiid: int):
 
         run_sql('DELETE FROM delegates WHERE id = %s', (indiid,))
 
-
 create_tables()
 
 if __name__ == "__main__":
