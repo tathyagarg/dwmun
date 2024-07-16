@@ -13,18 +13,18 @@ export default function Registration() {
         <div className='registration-content'>
             <h1 className="header">Registration</h1>
             <div className='registration-options'>
-                <Link to="/registration/individual" onClick={scrollToTop}>
+                <a href='https://forms.gle/jnqWe3F2i77ryJBC6' target="_blank">
                     <div className='option'>
                         <img src={indi}></img>
                         <p>Individual Registration</p>
                     </div>
-                </Link>
-                <Link to="/registration/delegation" onClick={scrollToTop}>
+                </a>
+                <a href="https://forms.gle/m5wJkPLQdeXkM9zPA" target='_blank'>
                     <div className='option'>
                         <img src={group}></img>
                         <p>Delegation Registration</p>
                     </div>
-                </Link>
+                </a>
             </div>
         </div>
         <Contact></Contact>

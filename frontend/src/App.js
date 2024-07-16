@@ -35,8 +35,8 @@ function App() {
                 <Route exact path='/committees/ccc' Component={CCC}/>
                 <Route exact path='/secretariat' Component={Secretariat}/>
                 <Route exact path='/registration' Component={Registration}/>
-                <Route exact path='/registration/individual' Component={IndividualRegistration}/>
-                <Route exact path='/registration/delegation' Component={DelegationRegistration}/>
+                {/* <Route exact path='/registration/individual' Component={IndividualRegistration}/> */}
+                {/* <Route exact path='/registration/delegation' Component={DelegationRegistration}/> */}
                 <Route exact path='/resources' Component={Resources}/>
                 <Route exact path='/login' Component={LoginPage}/>
                 <Route exact path='/thank-you' Component={ThankYou}/>

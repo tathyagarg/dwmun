@@ -83,12 +83,14 @@ export default function DelegationRegistration() {
             return triggerError(statusElement)
         }
 
-        const toCheck = isHeadDel ? [grade, comm1, comm2] : [data["grade"], data["primary_comm"], data["secondary_comm"]]
+        const toCheck = isHeadDel ? [document.getElementById("grade").value, comm1, comm2] : [data["grade"], data["primary_comm"], data["secondary_comm"]]
         const failure = [0, "", ""]
         const purified = ["Grade", "Primary Committee Preference", "Secondary Committee Preference"]
 
         for (let i = 0; i < 3; i++) {
+            alert(`${toCheck[i]}, ${failure[i]}, ${isHeadDel}`);
             if (toCheck[i] === failure[i]) {
+                alert("Erroring")
                 statusElement.innerHTML = `Field not filled: ${purified[i]}` + append
                 return triggerError(statusElement)
             }
@@ -145,22 +147,24 @@ export default function DelegationRegistration() {
             res["double_primary_comm"] = comm3
         } else {
             for (let [key, value] of Object.entries(data)) {
+                // alert(`${value}, ${key}, ${comm1}, ${comm2}`)
                 if (value === "" && !(
                     key.includes('prior_experience') ||
                     (key.includes('double') &&
-                    !(comm1 === "UNSC" || comm2 === "UNSC"))
+                    !(data['primary_comm'] === "UNSC" || data['secondary_comm'] === "UNSC"))
                 )) {
                     statusElement.innerHTML = `Field not filled: ${purify(key)}` + append
                     return triggerError(statusElement)
                 }
 
                 if (key === "phone_number" && value.length !== 10) {
+                    alert(`${value}, ${value.length}`)
                     const append2 = isHeadDel ? "issue for the Head Delegate" : `issue for Delegate #${index + 1}`
                     statusElement.innerHTML = `Please enter a 10-digit-long phone number for all delegates (${append2})`
                     return triggerError(statusElement)
                 }
 
-                if (key === "double_phone_number" && value.length !== 10 && (comm1 === "UNSC" || comm2 === "UNSC")) {
+                if (key === "double_phone_number" && value.length !== 10 && (data['primary_comm'] === "UNSC" || data['secondary_comm'] === "UNSC")) {
                     const append2 = isHeadDel ? "issue for the Head Delegate's Partner" : `issue for Delegate #${index + 1}'s Partner`
                     statusElement.innerHTML = `Please enter a 10-digit-long phone number for all delegates (${append2})`
                     return triggerError(statusElement)
@@ -172,6 +176,7 @@ export default function DelegationRegistration() {
             }
         }
 
+        alert(`Returning ${res}`)
         return res
     }
 
@@ -192,8 +197,11 @@ export default function DelegationRegistration() {
         }
 
         const headData = new FormData(event.target)
+        alert(headData["grade"])
 
         res.push(JSON.stringify(getDelegateData(headData, true)))
+
+        alert(res)
 
         allFormData.forEach((data, index) => res.push(JSON.stringify(getDelegateData(data, false, index))))
 
@@ -229,8 +237,7 @@ export default function DelegationRegistration() {
     return (<div>
         <div className='form-page'>
             <h1>Delegation Registration</h1>
-            <h2>Reopening Soon!</h2>
-            {/* <form id="registration-form" onSubmit={handleSubmit}>
+            <form id="registration-form" onSubmit={handleSubmit}>
                 <h2 id="status"></h2>
                 <div className="instructions">
                     <h2>Instructions</h2>
@@ -276,7 +283,7 @@ export default function DelegationRegistration() {
                 <select name="grade" id="grade" onChange={(e) => {
                     setGrade(e.target.value)
                 }}>
-                    <option value={""} disabled selected className="select-placeholder">Select your grade</option>
+                    <option value={""} disabled selected className="select-placeholder" id="grade">Select your grade</option>
                     <option value={9}>Grade 9</option>
                     <option value={10}>Grade 10</option>
                     <option value={11}>Grade 11</option>
@@ -381,7 +388,7 @@ export default function DelegationRegistration() {
                     <label for="confirmation" style={{fontSize: "1.25vh"}}>I confirm that I have read and understood the <a href={CodeOfConduct} style={{color: "#aaa", textDecoration: "none"}} target='_blank'>Code of Conduct</a> and filled this form correctly</label>
                 </div>
                 <input type="submit" id="submit"></input>
-            </form> */}
+            </form>
         </div>
     </div>)
 }
