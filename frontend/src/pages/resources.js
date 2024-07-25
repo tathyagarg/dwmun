@@ -11,7 +11,7 @@ export default function Resources() {
                 <div className='resources'>
                     <div>
                         <h1>Committee X</h1>
-                        {/* <a>Matrix</a> */}
+                        <a href='https://docs.google.com/spreadsheets/d/e/2PACX-1vTkwWKYZ9zowk2fsNEyyEbD7xAhUR5sEFBC7oQdl8FL4p53SNfBggNG6Cyxw4b2h2R86Dwbj99yiWnP/pubhtml?gid=655421433&single=true'>Matrix</a>
                         {/* <a>Background Guide</a> */}
                     </div>
                     <div>
@@ -31,12 +31,12 @@ export default function Resources() {
                     </div>
                     <div>
                         <h1>Lok Sabha</h1>
-                        <a>Matrix</a>
+                        <a href='https://docs.google.com/spreadsheets/d/e/2PACX-1vTkwWKYZ9zowk2fsNEyyEbD7xAhUR5sEFBC7oQdl8FL4p53SNfBggNG6Cyxw4b2h2R86Dwbj99yiWnP/pubhtml?gid=785812940&single=true'>Matrix</a>
                         <a>Background Guide</a>
                     </div>
                     <div>
                         <h1>UNHRC</h1>
-                        <a>Matrix</a>
+                        <a href='https://docs.google.com/spreadsheets/d/e/2PACX-1vTkwWKYZ9zowk2fsNEyyEbD7xAhUR5sEFBC7oQdl8FL4p53SNfBggNG6Cyxw4b2h2R86Dwbj99yiWnP/pubhtml?gid=754926755&single=true'>Matrix</a>
                         <a>Background Guide</a>
                     </div>
                     <div>

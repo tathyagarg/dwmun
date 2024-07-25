@@ -42,6 +42,8 @@ export default function CommitteeX() {
     return <div className="comm-content">
         <div className="comm-header" onMouseMove={handleMouseMove}>
             <h1>Committee X</h1>
+            <h2 className='agenda-word'>Agenda:</h2>
+            <p>Black Rock</p>
         </div>
         <div className="carousel" onMouseMove={handleMouseMove}>
             <a className='left-nav' onClick={() => {
@@ -122,8 +124,8 @@ export default function CommitteeX() {
         </div>
         <div className="matrix" onMouseMove={handleMouseMove}>
             <h1>Matrix</h1>
-            {/* <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSMBfKFMRBXz3MvB1DmcWKtSh7BgP-Vk6frtT0wpv9TNxTbqDAK18Sf19UxwCkH9NlSZFtrPeqXVaa2/pubhtml?gid=1495021896&amp;single=true&amp;widget=true&amp;headers=false"></iframe> */}
-            <h2>Coming Soon!</h2>
+            <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTkwWKYZ9zowk2fsNEyyEbD7xAhUR5sEFBC7oQdl8FL4p53SNfBggNG6Cyxw4b2h2R86Dwbj99yiWnP/pubhtml?gid=655421433&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+            {/* <h2>Coming Soon!</h2> */}
         </div>
     </div>
 }

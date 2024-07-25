@@ -7,46 +7,36 @@ export default function LoginPage() {
     const handleSubmit = async () => {
         const username = document.getElementById("username").value
         const password = document.getElementById("password").value
-        const get = document.getElementById("get").checked
         const qs = `username=${username}&password=${password}`
 
-        if (get) {
-            const resp = await fetch("admin?" + qs, {
-                method: "GET",
-            })
+        const postData = new FormData()
+        postData.append("file", data)
 
-            if (!resp.ok) {
-                const status = document.getElementById("status")
-                status.classList.add("error")
-                status.innerHTML = "Some error"
-                alert(JSON.stringify(await resp.json()))
-                return
-            }
+        const resp = await fetch("mail?" + qs, {
+            method: "POST",
+            body: postData
+        })
 
-            const blob = await resp.blob()
-            const link = document.createElement('a');
-            link.href = window.URL.createObjectURL(blob);
-            link.download = 'data.xlsx';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        } else {
-            const postData = new FormData()
-            postData.append("file", data)
-
-            const resp = await fetch("admin?" + qs, {
-                method: "POST",
-                body: postData
-            })
-
-            if (!resp.ok) {
-                const status = document.getElementById("status")
-                status.classList.add("error")
-                status.innerHTML = "Some error"
-                alert(JSON.stringify(await resp.json()))
-                return
-            }
+        if (!resp.ok) {
+            const status = document.getElementById("status")
+            status.classList.add("error")
+            status.innerHTML = "Some error"
+            alert(JSON.stringify(await resp.json()))
+            return
         }
+
+        const blob = await resp.blob()
+        const link = document.createElement('a');
+        link.href = window.URL.createObjectURL(blob);
+        link.download = 'data.xlsx';
+
+        document.body.appendChild(link);
+        link.click()
+        document.body.removeChild(link);
+
+        fetch("mail", {
+            method: 'DELETE'
+        })
 
         window.location.reload()
     }
@@ -63,10 +53,6 @@ export default function LoginPage() {
                     const pw = document.getElementById("password")
                     pw.type = pw.type === 'text' ? 'password' : 'text'
                 }}>Toggle</button>
-            </div>
-            <div className='post-type'>
-                <input id="get" type='checkbox'></input>
-                <label for="get">Get?</label>
             </div>
             <input type='file' onChange={(event) => {
                 setData(event.target.files[0])

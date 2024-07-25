@@ -4,6 +4,7 @@ import { useState } from 'react'
 import CoChair1 from '../../assets/eb/unsc/co-chair-1.jpg'
 import CoChair2 from '../../assets/eb/unsc/co-chair-2.jpg'
 import Moderator from '../../assets/eb/unsc/moderator.jpeg'
+import BG from '../../assets/background-guides/UNSC_BG.pdf'
 
 export default function UNSC() {
     const [about, setAbout] = useState(0)
@@ -75,10 +76,10 @@ export default function UNSC() {
             </div>
         </div>
         <div className="bg-guide" onMouseMove={handleMouseMove}>
-            <a>
+            <a href={BG} target='_blank'>
                 <h1>Background</h1>
                 <h1>Guide</h1>
-                <p>(Will be shared shortly)</p>
+                <p>Available now!</p>
             </a>
         </div>
         <div className="chair" onMouseMove={handleMouseMove}>
