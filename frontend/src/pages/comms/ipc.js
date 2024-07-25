@@ -3,8 +3,6 @@ import IPCLogo from '../../assets/comm-logos/IPC.png'
 import { useState } from 'react'
 import CoChair1 from '../../assets/eb/ipc/co-chair-1.jpeg'
 import Moderator from '../../assets/eb/ipc/moderator.jpeg'
-import BG from '../../assets/background-guides/IPC_BG.pdf'
-
 
 export default function IPC() {
     const [about, setAbout] = useState(0)
@@ -74,7 +72,7 @@ export default function IPC() {
             </div>
         </div>
         <div className="bg-guide" onMouseMove={handleMouseMove}>
-            <a href={BG} target='_blank'>
+            <a href='https://drive.google.com/file/d/1aiZdy-yYUgCJKJbm45NPU5Q9izujE8GU/view?usp=sharing'>
                 <h1>Background</h1>
                 <h1>Guide</h1>
                 <p>Available now!</p>

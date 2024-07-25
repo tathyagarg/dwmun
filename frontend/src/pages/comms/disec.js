@@ -4,9 +4,7 @@ import { useState } from 'react'
 import CoChair1 from '../../assets/eb/disec/co-chair-1.jpeg'
 import CoChair2 from '../../assets/eb/disec/co-chair-2.jpeg'
 import Moderator from '../../assets/eb/disec/moderator.jpeg'
-import BG from '../../assets/background-guides/DISEC_BG.pdf'
 
-//Test
 export default function DISEC() {
     const [about, setAbout] = useState(0)
     const [aboutEB, setAboutEB] = useState(0)
@@ -77,7 +75,7 @@ export default function DISEC() {
             </div>
         </div>
         <div className="bg-guide" onMouseMove={handleMouseMove}>
-            <a href={BG} target='_blank'>
+            <a href='https://drive.google.com/file/d/1IQH1PZ2kjPbXrIsS61mV7wmAQYJpOcpP/view?usp=sharing'>
                 <h1>Background</h1>
                 <h1>Guide</h1>
                 <p>Available now!</p>
