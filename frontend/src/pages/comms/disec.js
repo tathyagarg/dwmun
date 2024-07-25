@@ -6,6 +6,7 @@ import CoChair2 from '../../assets/eb/disec/co-chair-2.jpeg'
 import Moderator from '../../assets/eb/disec/moderator.jpeg'
 import BG from '../../assets/background-guides/DISEC_BG.pdf'
 
+//Test
 export default function DISEC() {
     const [about, setAbout] = useState(0)
     const [aboutEB, setAboutEB] = useState(0)
