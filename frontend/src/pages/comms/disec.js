@@ -75,10 +75,15 @@ export default function DISEC() {
             </div>
         </div>
         <div className="bg-guide" onMouseMove={handleMouseMove}>
-            <a href='https://drive.google.com/file/d/1IQH1PZ2kjPbXrIsS61mV7wmAQYJpOcpP/view?usp=sharing'>
+            {/* <a href='https://drive.google.com/file/d/1IQH1PZ2kjPbXrIsS61mV7wmAQYJpOcpP/view?usp=sharing'>
                 <h1>Background</h1>
                 <h1>Guide</h1>
                 <p>Available now!</p>
+            </a> */}
+            <a>
+                <h1>Background</h1>
+                <h1>Guide</h1>
+                <p>(Will be shared shortly)</p>
             </a>
         </div>
         <div className="chair" onMouseMove={handleMouseMove}>
