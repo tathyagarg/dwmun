@@ -75,10 +75,10 @@ export default function CCC() {
             </div>
         </div>
         <div className="bg-guide" onMouseMove={handleMouseMove}>
-            <a>
+            <a href='https://drive.google.com/file/d/1RfJqxpWjeQOz5ojEdR_OqPjxIcAyZj0G/view?usp=sharing'>
                 <h1>Background</h1>
                 <h1>Guide</h1>
-                <p>(Will be shared shortly)</p>
+                <p>Available now!</p>
             </a>
         </div>
         <div className="chair" onMouseMove={handleMouseMove}>

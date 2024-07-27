@@ -45,10 +45,6 @@ export default function UNHRC() {
             <h2 className='agenda-word'>Agenda:</h2>
             <p>Discussing the legal framework around custodial violence</p>
         </div>
-        {/* <div className="agenda-header" onMouseMove={handleMouseMove}>
-            <h1>Agenda</h1>
-            <p>Discussing the legal framework around custodial violence</p>
-        </div> */}
         <div className="carousel" onMouseMove={handleMouseMove}>
             <a className='left-nav' onClick={() => {
                 setAbout((prev) => {
@@ -79,10 +75,10 @@ export default function UNHRC() {
             </div>
         </div>
         <div className="bg-guide" onMouseMove={handleMouseMove}>
-            <a>
+            <a href='https://drive.google.com/file/d/1zFJP41FwxHAyz65UJKTFRIbPB9e9n9HW/view?usp=sharing'>
                 <h1>Background</h1>
                 <h1>Guide</h1>
-                <p>(Will be shared shortly)</p>
+                <p>Available now!</p>
             </a>
         </div>
         <div className="chair" onMouseMove={handleMouseMove}>
