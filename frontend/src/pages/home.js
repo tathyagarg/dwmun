@@ -13,9 +13,9 @@ function updateDate() {
 
     const difference = start_date - current;
 
-    const day_count = Math.floor(difference / (1000 * 60 * 60 * 24));
-    const hours_count = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes_count = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+    const day_count = Math.max(0, Math.floor(difference / (1000 * 60 * 60 * 24)));
+    const hours_count = Math.max(0, Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+    const minutes_count = Math.max(0, Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)));
 
     try {
         document.getElementById("days").textContent = ((day_count < 10) ? "0" : "") + day_count;
